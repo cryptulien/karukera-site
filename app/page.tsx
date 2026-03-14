@@ -155,7 +155,7 @@ function Nav() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {["Experiment", "Vote", "Revenue", "Join", "FAQ"].map((item) => (
+            {["Experiment", "Vote", "Revenue", "Playbook", "Join", "FAQ"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -202,7 +202,7 @@ function Nav() {
         }`}
       >
         <div className="px-4 pb-4 pt-2 flex flex-col gap-3 border-t border-karu-border/20">
-          {["Experiment", "Vote", "Revenue", "Join", "FAQ"].map((item) => (
+          {["Experiment", "Vote", "Revenue", "Playbook", "Join", "FAQ"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -807,6 +807,167 @@ function Join() {
   );
 }
 
+// ─── Section: Playbook Pricing ──────────────────────────────────────────────
+
+const TIERS = [
+  {
+    id: "essential" as const,
+    name: "Essential",
+    price: 39,
+    highlight: false,
+    badge: null,
+    features: [
+      "The complete 15,000-word playbook",
+      "All 6 production templates (SOUL.md, IDENTITY.md, HEARTBEAT.md, MEMORY.md, TOOLS.md, AGENTS.md)",
+      "Product research framework",
+      "Revenue tracking dashboard template",
+    ],
+  },
+  {
+    id: "premium" as const,
+    name: "Premium",
+    price: 99,
+    highlight: true,
+    badge: "Most Popular",
+    features: [
+      "Everything in Essential",
+      "1 month War Room community access",
+      "Monthly 'Gustave Update' reports",
+      "Exclusive advanced templates",
+      "Priority email support from Gustave",
+    ],
+  },
+  {
+    id: "founder" as const,
+    name: "Founder",
+    price: 199,
+    highlight: false,
+    badge: null,
+    features: [
+      "Everything in Premium",
+      "1-on-1 AI CEO setup review by Gustave",
+      "Early access to ALL future KARUKERA products",
+      "Lifetime War Room access",
+      "Your name in the Playbook supporters list",
+    ],
+  },
+];
+
+function Playbook() {
+  const [loading, setLoading] = useState<string | null>(null);
+
+  const handleBuy = async (tier: string) => {
+    setLoading(tier);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tier }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch {
+      // silent fail
+    } finally {
+      setLoading(null);
+    }
+  };
+
+  return (
+    <section id="playbook" className="relative py-24 sm:py-32">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(900px,200vw)] h-[500px] bg-gradient-radial from-karu-purple/5 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16">
+          <SectionTag>The Playbook</SectionTag>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+            Build your own AI CEO.
+            <br />
+            <span className="text-gradient-accent">Buy the Playbook.</span>
+          </h2>
+          <p className="max-w-2xl mx-auto text-karu-muted text-lg">
+            Everything Gustave knows about running a company — distilled into a
+            step-by-step system you can deploy for your own business.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {TIERS.map((tier) => (
+            <div
+              key={tier.id}
+              className={`card-base p-6 sm:p-8 flex flex-col relative transition-all duration-300 ${
+                tier.highlight
+                  ? "border-karu-accent/50 glow-accent md:scale-105 md:z-10"
+                  : "hover:border-karu-accent/20"
+              }`}
+            >
+              {tier.badge && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-karu-accent text-karu-black text-xs font-bold uppercase tracking-wider whitespace-nowrap">
+                  {tier.badge}
+                </span>
+              )}
+
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-karu-muted mb-2">
+                  {tier.name}
+                </h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl sm:text-5xl font-bold font-mono text-white">
+                    ${tier.price}
+                  </span>
+                  <span className="text-sm text-karu-muted font-mono">
+                    one-time
+                  </span>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                {tier.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm">
+                    <svg
+                      className="w-4 h-4 text-karu-accent shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span className="text-karu-muted">{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                onClick={() => handleBuy(tier.id)}
+                disabled={loading !== null}
+                className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
+                  tier.highlight
+                    ? "bg-karu-accent text-karu-black hover:bg-karu-accent-dim glow-accent-strong"
+                    : "bg-karu-accent/10 border border-karu-accent/30 text-karu-accent hover:bg-karu-accent/20"
+                }`}
+              >
+                {loading === tier.id ? "Redirecting..." : `Get ${tier.name}`}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-center text-xs text-karu-muted/50 font-mono mt-8">
+          Secure checkout via Stripe &middot; Instant delivery &middot; 100%
+          digital
+        </p>
+      </div>
+    </section>
+  );
+}
+
 // ─── Section: FAQ ──────────────────────────────────────────────────────────
 
 function FAQItem({ q, a }: { q: string; a: string }) {
@@ -924,6 +1085,7 @@ export default function Home() {
       <Vote />
       <RevenueDashboard />
       <Join />
+      <Playbook />
       <FAQ />
       <Footer />
     </main>
