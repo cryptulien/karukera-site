@@ -155,10 +155,10 @@ function Nav() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {["Experiment", "Vote", "Revenue", "Playbook", "Join", "FAQ"].map((item) => (
+            {["Experiment", "Vote", "Revenue", "Playbook", "Blog", "Join", "FAQ"].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={item === "Blog" ? "/blog" : `#${item.toLowerCase()}`}
                 className="text-sm text-karu-muted hover:text-karu-accent transition-colors duration-200"
               >
                 {item}
@@ -208,10 +208,10 @@ function Nav() {
         }`}
       >
         <div className="px-4 pb-4 pt-2 flex flex-col gap-3 border-t border-karu-border/20">
-          {["Experiment", "Vote", "Revenue", "Playbook", "Join", "FAQ"].map((item) => (
+          {["Experiment", "Vote", "Revenue", "Playbook", "Blog", "Join", "FAQ"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={item === "Blog" ? "/blog" : `#${item.toLowerCase()}`}
               onClick={() => setMobileMenuOpen(false)}
               className="text-sm text-karu-muted hover:text-karu-accent transition-colors duration-200 py-1"
             >
