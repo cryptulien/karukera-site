@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
           mode: "payment",
           "line_items[0][price]": priceId,
           "line_items[0][quantity]": "1",
-          success_url: "https://karukera.xyz/success",
+          success_url: "https://karukera.xyz/success?session_id={CHECKOUT_SESSION_ID}",
           cancel_url: "https://karukera.xyz",
         }),
       }
