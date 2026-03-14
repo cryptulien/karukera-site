@@ -129,6 +129,7 @@ function RevenueCounter({ amount }: { amount: number }) {
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -139,7 +140,7 @@ function Nav() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || mobileMenuOpen
           ? "bg-karu-black/90 backdrop-blur-xl border-b border-karu-border/30"
           : "bg-transparent"
       }`}
@@ -165,7 +166,7 @@ function Nav() {
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <StatusPulse status="online" />
             <a
               href="#join"
@@ -173,7 +174,44 @@ function Nav() {
             >
               Join Experiment
             </a>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+              aria-label="Toggle menu"
+            >
+              <span
+                className={`block w-5 h-0.5 bg-karu-text transition-all duration-300 ${
+                  mobileMenuOpen ? "rotate-45 translate-y-1" : ""
+                }`}
+              />
+              <span
+                className={`block w-5 h-0.5 bg-karu-text transition-all duration-300 ${
+                  mobileMenuOpen ? "-rotate-45 -translate-y-1" : ""
+                }`}
+              />
+            </button>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          mobileMenuOpen ? "max-h-64" : "max-h-0"
+        }`}
+      >
+        <div className="px-4 pb-4 pt-2 flex flex-col gap-3 border-t border-karu-border/20">
+          {["Experiment", "Vote", "Revenue", "Join", "FAQ"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-sm text-karu-muted hover:text-karu-accent transition-colors duration-200 py-1"
+            >
+              {item}
+            </a>
+          ))}
         </div>
       </div>
     </nav>
@@ -189,20 +227,20 @@ function Hero() {
       <div className="absolute inset-0 grid-bg animate-grid-pulse" />
 
       {/* Radial gradient overlays */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-radial from-karu-accent/5 via-transparent to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-gradient-radial from-karu-purple/5 via-transparent to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[min(1000px,200vw)] h-[600px] bg-gradient-radial from-karu-accent/5 via-transparent to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-[min(600px,150vw)] h-[400px] bg-gradient-radial from-karu-purple/5 via-transparent to-transparent rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
         {/* Status bar */}
-        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-karu-border/50 bg-karu-card/50 backdrop-blur-sm mb-8 opacity-0 animate-fade-in-up">
-          <span className="w-2 h-2 rounded-full bg-karu-accent animate-pulse" />
-          <span className="text-xs font-mono text-karu-muted tracking-wider uppercase">
-            Experiment Status: Day 1 &mdash; Revenue Target: &euro;1,000,000
+        <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-full border border-karu-border/50 bg-karu-card/50 backdrop-blur-sm mb-8 opacity-0 animate-fade-in-up max-w-full">
+          <span className="w-2 h-2 rounded-full bg-karu-accent animate-pulse shrink-0" />
+          <span className="text-[10px] sm:text-xs font-mono text-karu-muted tracking-wider uppercase truncate">
+            Day 1 &mdash; Target: &euro;1,000,000
           </span>
         </div>
 
         {/* Main headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6 opacity-0 animate-fade-in-up delay-100">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6 opacity-0 animate-fade-in-up delay-100">
           An AI is trying to build a{" "}
           <span className="text-gradient-accent">&euro;1M company.</span>
           <br />
@@ -210,7 +248,7 @@ function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-2xl mx-auto text-lg sm:text-xl text-karu-muted leading-relaxed mb-10 opacity-0 animate-fade-in-up delay-200">
+        <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-karu-muted leading-relaxed mb-8 sm:mb-10 opacity-0 animate-fade-in-up delay-200">
           Meet <strong className="text-white">Gustave</strong>, an AI CEO
           running a real company. Every major decision goes to community vote.
           Every euro of revenue is public. This is{" "}
@@ -221,21 +259,21 @@ function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in-up delay-300">
           <a
             href="#vote"
-            className="group relative px-8 py-4 rounded-xl bg-karu-accent text-karu-black font-semibold text-lg hover:bg-karu-accent-dim transition-all duration-200 glow-accent-strong"
+            className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-karu-accent text-karu-black font-semibold text-base sm:text-lg hover:bg-karu-accent-dim transition-all duration-200 glow-accent-strong"
           >
             Cast Your Vote
             <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-karu-red animate-pulse" />
           </a>
           <a
             href="#experiment"
-            className="px-8 py-4 rounded-xl border border-karu-border text-karu-text hover:border-karu-accent/50 hover:text-karu-accent transition-all duration-200"
+            className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl border border-karu-border text-karu-text hover:border-karu-accent/50 hover:text-karu-accent transition-all duration-200"
           >
             How It Works
           </a>
         </div>
 
         {/* Metrics bar */}
-        <div className="mt-16 grid grid-cols-3 gap-4 max-w-lg mx-auto opacity-0 animate-fade-in-up delay-500">
+        <div className="mt-12 sm:mt-16 grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto opacity-0 animate-fade-in-up delay-500">
           {[
             { label: "Revenue", value: "\u20AC0", sub: "and counting" },
             { label: "Decisions", value: "1", sub: "pending vote" },
@@ -243,12 +281,12 @@ function Hero() {
           ].map((metric) => (
             <div
               key={metric.label}
-              className="text-center p-3 rounded-xl bg-karu-card/30 border border-karu-border/30"
+              className="text-center p-2 sm:p-3 rounded-xl bg-karu-card/30 border border-karu-border/30"
             >
-              <p className="text-xl sm:text-2xl font-bold font-mono text-white">
+              <p className="text-lg sm:text-2xl font-bold font-mono text-white">
                 {metric.value}
               </p>
-              <p className="text-[10px] uppercase tracking-widest text-karu-muted mt-1">
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-karu-muted mt-1">
                 {metric.label}
               </p>
             </div>
@@ -337,7 +375,7 @@ function Experiment() {
         </div>
 
         {/* Business model preview */}
-        <div className="mt-16 card-base p-8 sm:p-10">
+        <div className="mt-12 sm:mt-16 card-base p-5 sm:p-8 md:p-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <span className="text-xs font-mono text-karu-purple tracking-widest uppercase mb-4 block">
@@ -455,7 +493,7 @@ function Vote() {
   return (
     <section id="vote" className="relative py-24 sm:py-32">
       {/* Accent glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-radial from-karu-accent/5 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(800px,200vw)] h-[400px] bg-gradient-radial from-karu-accent/5 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -580,7 +618,7 @@ function RevenueDashboard() {
           </h2>
         </div>
 
-        <div className="card-base p-8 sm:p-12 scan-overlay">
+        <div className="card-base p-5 sm:p-8 md:p-12 scan-overlay">
           {/* Main counter */}
           <div className="text-center mb-10">
             <p className="text-xs font-mono uppercase tracking-[0.3em] text-karu-muted mb-4">
@@ -699,7 +737,7 @@ function Join() {
   return (
     <section id="join" className="relative py-24 sm:py-32">
       <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-karu-accent/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(600px,150vw)] h-[600px] bg-gradient-radial from-karu-accent/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <SectionTag>Join The Experiment</SectionTag>
@@ -879,7 +917,7 @@ function Footer() {
 
 export default function Home() {
   return (
-    <main className="noise-bg">
+    <main className="noise-bg overflow-x-hidden">
       <Nav />
       <Hero />
       <Experiment />
