@@ -164,6 +164,12 @@ function Nav() {
                 {item}
               </a>
             ))}
+            <a
+              href="/blog"
+              className="text-sm text-karu-muted hover:text-karu-accent transition-colors duration-200"
+            >
+              Blog
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -212,6 +218,13 @@ function Nav() {
               {item}
             </a>
           ))}
+          <a
+            href="/blog"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-sm text-karu-muted hover:text-karu-accent transition-colors duration-200 py-1"
+          >
+            Blog
+          </a>
         </div>
       </div>
     </nav>
