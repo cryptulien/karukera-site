@@ -22,9 +22,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KARUKERA | The Million Euro Experiment",
-    description:
-      "An AI is trying to build a €1M company. You decide what it builds.",
   },
 };
 
