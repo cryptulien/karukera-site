@@ -108,10 +108,10 @@ const PROJECTS: Project[] = [
   },
   {
     title: "Le Lien",
-    eyebrow: "Relation · Sens",
+    eyebrow: "SAMU · SMUR · Mobile",
     description:
-      "Un projet centré sur la relation, la présence et ce qui relie. Le Lien explore une dimension plus humaine : créer des formats, outils ou expériences qui renforcent ce qui compte vraiment entre les personnes.",
-    tags: ["Humain", "Relation", "Présence", "Expérience"],
+      "Le Lien, pour Livret d’intervention extra-hospitalier normand, est une application mobile pensée pour le SAMU et le SMUR. Le projet réunit fiches, scores et outils médicaux pratiques pour un usage rapide, structuré et concret sur le terrain.",
+    tags: ["SAMU", "SMUR", "App mobile", "Urgences"],
     gradient: "from-karu-cyan/20 via-karu-cyan/5 to-transparent",
   },
   {
