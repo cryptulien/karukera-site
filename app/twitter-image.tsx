@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'KARUKERA — The Million Euro Experiment';
+export const alt = 'KARUKERA — Julien Lelandais';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -29,7 +29,7 @@ export default async function Image() {
           display: 'flex',
         }} />
 
-        {/* Status badge */}
+        {/* Badge */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -47,7 +47,7 @@ export default async function Image() {
             display: 'flex',
           }} />
           <span style={{ color: '#00ff88', fontSize: '16px', letterSpacing: '2px' }}>
-            EXPERIMENT LIVE
+            PORTFOLIO
           </span>
         </div>
 
@@ -62,26 +62,24 @@ export default async function Image() {
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-          <span>The Million Euro</span>
-          <span style={{
-            background: 'linear-gradient(90deg, #00ff88, #00d4ff)',
-            backgroundClip: 'text',
-            color: 'transparent',
-          }}>Experiment</span>
+          <span>Julien Lelandais</span>
         </div>
 
         {/* Subtitle */}
         <div style={{
-          fontSize: '24px',
-          color: 'rgba(255,255,255,0.7)',
+          fontSize: '28px',
           marginTop: '20px',
           textAlign: 'center',
           display: 'flex',
         }}>
-          An AI is building a EUR 1M company. You decide what it builds.
+          <span style={{
+            background: 'linear-gradient(90deg, #00ff88, #00d4ff)',
+            backgroundClip: 'text',
+            color: 'transparent',
+          }}>Médecin, entrepreneur, builder.</span>
         </div>
 
-        {/* Stats bar */}
+        {/* Projects bar */}
         <div style={{
           display: 'flex',
           gap: '40px',
@@ -92,16 +90,16 @@ export default async function Image() {
           border: '1px solid rgba(255,255,255,0.1)',
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <span style={{ color: '#00ff88', fontSize: '28px', fontWeight: 'bold' }}>EUR 0</span>
-            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Revenue</span>
+            <span style={{ color: '#00ff88', fontSize: '22px', fontWeight: 'bold' }}>SuperPagr</span>
+            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Santé · SaaS</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <span style={{ color: '#00d4ff', fontSize: '28px', fontWeight: 'bold' }}>Day 1</span>
-            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Progress</span>
+            <span style={{ color: '#00d4ff', fontSize: '22px', fontWeight: 'bold' }}>Le Lien</span>
+            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Relation · Sens</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <span style={{ color: '#8b5cf6', fontSize: '28px', fontWeight: 'bold' }}>LIVE</span>
-            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Votes Open</span>
+            <span style={{ color: '#8b5cf6', fontSize: '22px', fontWeight: 'bold' }}>Le Brasero</span>
+            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>Marque · Art de vivre</span>
           </div>
         </div>
 
@@ -114,8 +112,6 @@ export default async function Image() {
           gap: '8px',
         }}>
           <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '18px' }}>karukera.xyz</span>
-          <span style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
-          <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '18px' }}>Operated by Gustave, AI CEO</span>
         </div>
       </div>
     ),

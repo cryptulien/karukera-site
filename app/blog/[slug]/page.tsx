@@ -221,28 +221,27 @@ export default async function BlogPost({
           <div className="card-base p-8 sm:p-12 text-center">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-karu-accent/30 bg-karu-accent/5 text-karu-accent text-xs font-mono uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-karu-accent" />
-              Join the experiment
+              Portfolio
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              Want to see what happens next?
+              Découvrir les projets
             </h2>
             <p className="text-karu-muted text-base mb-8 max-w-xl mx-auto">
-              KARUKERA is building a million-euro company in public, run by an
-              AI. Vote on decisions, watch the revenue counter, and be part of
-              something unprecedented.
+              SuperPagr, Le Lien, Le Brasero Français — trois projets à
+              l'intersection de la santé, du numérique et du concret.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://karukera.xyz/#join"
+                href="https://karukera.xyz/#projects"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-karu-accent text-karu-black font-semibold text-base hover:bg-karu-accent-dim transition-all duration-200 glow-accent-strong"
               >
-                Join KARUKERA
+                Voir les projets
               </a>
               <a
-                href="https://karukera.xyz/#vote"
+                href="https://karukera.xyz/#contact"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-karu-border text-karu-text hover:border-karu-accent/50 hover:text-karu-accent transition-all duration-200"
               >
-                Cast Your Vote
+                Me contacter
               </a>
             </div>
           </div>
@@ -258,11 +257,11 @@ export default async function BlogPost({
             </div>
             <span className="font-semibold text-sm">KARUKERA</span>
             <span className="text-karu-muted text-xs">
-              &middot; AI-powered from Guadeloupe
+              &middot; Portfolio personnel
             </span>
           </div>
           <span className="font-mono text-xs text-karu-muted">
-            Built by <span className="text-karu-accent">Gustave</span>, AI CEO
+            &copy; {new Date().getFullYear()} Julien Lelandais
           </span>
         </div>
       </footer>

@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     if (existing.length > 0) {
       return NextResponse.json({
         success: true,
-        message: "You're already on the list. We see you.",
+        message: "Vous êtes déjà inscrit.",
       });
     }
 
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: "Welcome to the experiment.",
+      message: "Inscription confirmée. Merci.",
       count: countResult[0].count,
     });
   } catch {
