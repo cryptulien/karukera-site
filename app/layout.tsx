@@ -4,32 +4,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://karukera.xyz"),
-  title: "KARUKERA | Julien Lelandais",
+  title: "Karukera — Julien Lelandais",
   description:
-    "Portfolio personnel de Julien Lelandais — médecin, entrepreneur et builder. KARUKERA présente SuperPagr, Le Lien et Le Brasero Français.",
-  keywords: [
-    "Julien Lelandais",
-    "KARUKERA",
-    "portfolio",
-    "SuperPagr",
-    "Le Lien",
-    "Le Brasero Français",
-    "psychiatre",
-    "entrepreneur",
-    "builder",
-  ],
+    "Medecin, entrepreneur, builder. Un espace pour decouvrir mes projets, mes reflexions et ma vision.",
   openGraph: {
-    title: "KARUKERA | Julien Lelandais",
-    description:
-      "Portfolio personnel de Julien Lelandais — médecin, entrepreneur et builder.",
+    title: "Karukera — Julien Lelandais",
+    description: "Medecin, entrepreneur, builder.",
     type: "website",
     url: "https://karukera.xyz",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "KARUKERA | Julien Lelandais",
-    description:
-      "Portfolio personnel de Julien Lelandais — médecin, entrepreneur et builder.",
   },
 };
 
