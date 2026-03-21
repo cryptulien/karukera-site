@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import { FadeIn } from './components/FadeIn';
+import Image from "next/image";
+import { FadeIn } from "./components/FadeIn";
 
 /* ─────────────────────────── HERO ─────────────────────────── */
 
@@ -47,20 +47,8 @@ function About() {
 
         <FadeIn delay={150}>
           <p className="mt-10 text-lg sm:text-xl text-karu-slate leading-relaxed">
-            Médecin, psychiatre, entrepreneur, développeur. Je ne rentre pas
-            dans une seule case, et c&apos;est exactement ce qui me définit.
-            Je construis des projets à l&apos;intersection de la santé,
-            du numérique et du concret — des choses utiles, pensées avec rigueur,
-            exécutées avec soin.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={300}>
-          <p className="mt-6 text-lg sm:text-xl text-karu-slate leading-relaxed">
-            Chaque projet que je lance est un pas de plus vers un rêve simple :
-            vivre depuis la Guadeloupe, au bord de l&apos;eau, entouré des miens,
-            à construire des choses qui comptent. La beauté de la simplicité.
-            La richesse du sens.
+            Médecin psychiatre et entrepreneur. Je construis des projets à
+            l&apos;intersection de la santé, du numérique et du concret.
           </p>
         </FadeIn>
       </div>
@@ -82,19 +70,16 @@ function Separator() {
 
 const PROJECTS = [
   {
-    title: 'SuperPagr',
-    domain: 'Santé · SaaS · Plannings',
-    text: `La santé mérite des outils pensés avec autant de soin qu'on en donne aux patients. SuperPagr simplifie les plannings médicaux — gardes, astreintes, remplacements — avec la rigueur et la clarté que le terrain exige.`,
+    title: "SuperPagr",
+    domain: "Santé · SaaS · Plannings",
+    text: `Les soignants méritent des outils pensés avec autant de soin qu'on en donne aux patients. SuperPagr simplifie les plannings médicaux — gardes, astreintes, remplacements — avec la rigueur et la clarté que le terrain exige.`,
+    image: "/images/superpagr.webp",
   },
   {
-    title: 'Le Lien',
-    domain: 'SAMU · SMUR · Mobile',
+    title: "Le Lien",
+    domain: "SAMU · SMUR · Mobile",
     text: `Né du terrain, pour le terrain. Une application qui met les bons outils entre les mains des équipes d'urgence, là où chaque seconde compte. Fiches, scores, protocoles — tout ce qu'il faut, rien de superflu.`,
-  },
-  {
-    title: 'Le Brasero Français',
-    domain: 'Marque · Art de vivre',
-    text: `Le tangible. La chaleur. Le partage. Une marque qui crée des moments réels autour d'objets pensés pour durer. Quelque chose qu'on touche, qu'on vit, qu'on transmet.`,
+    image: "/images/lien.webp",
   },
 ];
 
@@ -112,6 +97,14 @@ function Facettes() {
           {PROJECTS.map((project, i) => (
             <FadeIn key={project.title} delay={i * 100}>
               <article>
+                <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-8">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-karu-navy">
                   {project.title}
                 </h3>
@@ -152,73 +145,12 @@ function Vision() {
             <FadeIn>
               <blockquote className="max-w-lg">
                 <p className="font-serif text-xl sm:text-2xl md:text-3xl text-white leading-relaxed font-light">
-                  Un jour, une villa au bord de la mer.
-                  Les enfants qui jouent. Le bruit des vagues.
-                  Et tout ce que j&apos;ai construit qui continue de tourner,
-                  doucement, à distance.
+                  Une villa au bord de la mer. Les enfants qui jouent. Le bruit
+                  des vagues.
                 </p>
               </blockquote>
             </FadeIn>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────── RÉFLEXIONS ─────────────────────────── */
-
-const ARTICLES = [
-  {
-    title: 'Apprendre à une IA comme on apprend à un enfant',
-    excerpt:
-      'Et si la prochaine révolution en intelligence artificielle venait de la façon dont on apprend le monde aux enfants ? Textures, couleurs, émotions — tout ce que les modèles ne voient pas encore.',
-    date: '2026',
-  },
-  {
-    title: 'Pourquoi je construis',
-    excerpt:
-      "Sur le lien entre soigner et créer. Entre comprendre les gens et fabriquer des outils pour eux. Le soin et le code ont plus en commun qu'on ne le pense.",
-    date: '2026',
-  },
-  {
-    title: "L'horizon",
-    excerpt:
-      "La Guadeloupe n'est pas une destination. C'est une direction. Celle d'une vie où le travail, la famille et la beauté ne sont plus des compromis.",
-    date: '2026',
-  },
-];
-
-function Reflexions() {
-  return (
-    <section className="py-24 sm:py-36 px-6 sm:px-10 bg-karu-sand/50">
-      <div className="max-w-3xl mx-auto">
-        <FadeIn>
-          <p className="font-serif text-xl sm:text-2xl text-karu-ocean mb-4">
-            Réflexions
-          </p>
-          <p className="text-karu-slate mb-16 sm:mb-20">
-            Des pensées, des questions, des explorations.
-          </p>
-        </FadeIn>
-
-        <div className="space-y-12 sm:space-y-16">
-          {ARTICLES.map((article, i) => (
-            <FadeIn key={article.title} delay={i * 100}>
-              <article className="group cursor-pointer">
-                <p className="text-xs uppercase tracking-[0.2em] text-karu-slate/60 mb-3">
-                  {article.date}
-                </p>
-                <h3 className="font-serif text-2xl sm:text-3xl text-karu-navy leading-snug group-hover:text-karu-ocean transition-colors duration-300">
-                  {article.title}
-                </h3>
-                <p className="mt-4 text-base text-karu-slate leading-relaxed max-w-xl">
-                  {article.excerpt}
-                </p>
-                <div className="w-8 h-px bg-karu-ocean/20 mt-6 group-hover:w-16 transition-all duration-500" />
-              </article>
-            </FadeIn>
-          ))}
         </div>
       </div>
     </section>
@@ -247,8 +179,6 @@ export default function Home() {
       <Separator />
       <Facettes />
       <Vision />
-      <Separator />
-      <Reflexions />
       <Footer />
     </main>
   );
