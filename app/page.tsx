@@ -86,7 +86,7 @@ const PROJECTS = [
 function Facettes() {
   return (
     <section className="py-24 sm:py-32 px-6 sm:px-10">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <FadeIn>
           <p className="font-serif text-xl sm:text-2xl text-karu-ocean mb-20 sm:mb-24">
             Ce que je construis
@@ -96,25 +96,30 @@ function Facettes() {
         <div className="space-y-20 sm:space-y-28">
           {PROJECTS.map((project, i) => (
             <FadeIn key={project.title} delay={i * 100}>
-              <article>
-                <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-8">
+              <article
+                className={`flex flex-col ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-10 md:gap-14`}
+              >
+                <div className="w-full md:w-1/2 flex-shrink-0">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    fill
-                    className="object-cover"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto rounded-lg"
                   />
                 </div>
-                <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-karu-navy">
-                  {project.title}
-                </h3>
-                <div className="w-12 h-px bg-karu-gold mt-5 mb-6" />
-                <p className="text-xs uppercase tracking-[0.2em] text-karu-gold mb-6 font-medium">
-                  {project.domain}
-                </p>
-                <p className="text-lg text-karu-slate leading-relaxed max-w-2xl">
-                  {project.text}
-                </p>
+                <div className="w-full md:w-1/2">
+                  <h3 className="font-serif text-3xl sm:text-4xl text-karu-navy">
+                    {project.title}
+                  </h3>
+                  <div className="w-12 h-px bg-karu-gold mt-5 mb-6" />
+                  <p className="text-xs uppercase tracking-[0.2em] text-karu-gold mb-6 font-medium">
+                    {project.domain}
+                  </p>
+                  <p className="text-lg text-karu-slate leading-relaxed">
+                    {project.text}
+                  </p>
+                </div>
               </article>
             </FadeIn>
           ))}
