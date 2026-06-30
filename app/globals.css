@@ -2,20 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
-
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-karu-cream text-karu-navy antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-sei-washi text-sei-ink antialiased;
+    font-family: var(--font-sans), system-ui, sans-serif;
   }
 
   ::selection {
-    @apply bg-karu-ocean/15 text-karu-ocean;
+    @apply bg-sei-vermilion/15 text-sei-vermilion;
   }
 }
 
@@ -30,5 +28,15 @@
   .fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Filet vermillon — geste de pinceau minimal */
+  .sei-rule {
+    @apply block h-px w-12 bg-sei-vermilion;
+  }
+
+  /* Sceau / point d'encre */
+  .sei-seal {
+    @apply inline-block h-2 w-2 rounded-full bg-sei-vermilion;
   }
 }
