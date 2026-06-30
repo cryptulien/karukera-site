@@ -7,22 +7,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        karu: {
-          cream: '#FBF8F3',
-          sand: '#F0EBE3',
-          ocean: '#0E7C9A',
-          lagoon: '#48CAE4',
-          sky: '#3BB8E0',
-          gold: '#C4956A',
-          palm: '#4A8B3F',
-          navy: '#1C2D48',
-          ink: '#0F1A2E',
-          slate: '#6B7B8D',
+        // Seijaku — esthétique washi / encre. Calme dans la tempête.
+        sei: {
+          washi: "#FBFAF7", // fond crème (papier washi)
+          rice: "#F4F0E8", // panneau / surface secondaire
+          mist: "#E6E1D6", // filets, bordures
+          stone: "#8A857D", // texte atténué
+          sumi: "#57534E", // texte secondaire (encre diluée)
+          ink: "#1A1A1A", // encre, texte principal
+          vermilion: "#E0483D", // vermillon, accent
+          gold: "#B08D57", // or sobre, accent secondaire
         },
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', '"Shippori Mincho"', "Georgia", "serif"],
+        sans: ['var(--font-sans)', '"Space Grotesk"', "system-ui", "sans-serif"],
+      },
+      borderRadius: {
+        DEFAULT: "4px",
+        sm: "2px",
+        md: "4px",
+        lg: "6px",
+      },
+      maxWidth: {
+        prose: "42rem",
       },
     },
   },
