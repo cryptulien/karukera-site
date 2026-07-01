@@ -1,13 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FadeIn } from "./components/FadeIn";
-import { Nav } from "./components/Nav";
-import { Footer } from "./components/Footer";
-import { posts } from "./blog/posts";
+import { notFound } from "next/navigation";
+import { FadeIn } from "../components/FadeIn";
+import { Nav } from "../components/Nav";
+import { Footer } from "../components/Footer";
+import { isLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, type Dict } from "@/dictionaries";
+import { posts } from "@/lib/posts";
+
+type ProjectKey = "superpagr" | "lien" | "openstats";
+
+const PROJECTS: { key: ProjectKey; url?: string }[] = [
+  { key: "superpagr", url: "https://superpagr.com" },
+  { key: "lien" }, // site à venir
+  { key: "openstats", url: "https://openstats.karukera.xyz" },
+];
 
 /* ─────────────────────────── HERO ─────────────────────────── */
 
-function Hero() {
+function Hero({ dict }: { dict: Dict }) {
   return (
     <section className="relative h-screen flex items-end overflow-hidden">
       <div className="absolute inset-0">
@@ -18,18 +29,17 @@ function Hero() {
           className="object-cover"
           priority
         />
-        {/* voile encre — calme dans la tempête */}
         <div className="absolute inset-0 bg-gradient-to-t from-sei-ink/80 via-sei-ink/30 to-sei-ink/10" />
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-10 pb-16 sm:pb-24">
         <FadeIn>
-          <span className="sei-rule !bg-sei-vermilion mb-6" />
+          <span className="sei-rule mb-6" />
           <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] text-white font-normal tracking-tight leading-none">
             Karukera
           </h1>
           <p className="text-white/55 text-sm sm:text-base mt-5 font-light tracking-[0.2em] uppercase">
-            L&apos;île aux belles eaux
+            {dict.hero.tagline}
           </p>
         </FadeIn>
       </div>
@@ -43,30 +53,24 @@ function Hero() {
 
 /* ─────────────────────────── ABOUT ─────────────────────────── */
 
-function About() {
+function About({ dict }: { dict: Dict }) {
   return (
     <section className="py-24 sm:py-36 px-6 sm:px-10">
       <div className="max-w-3xl mx-auto">
         <FadeIn>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-sei-ink leading-snug">
-            Je suis Julien.
+            {dict.about.title}
           </h2>
         </FadeIn>
-
         <FadeIn delay={150}>
           <p className="mt-10 text-lg sm:text-xl text-sei-sumi leading-relaxed">
-            Médecin psychiatre et entrepreneur. Je construis des projets à
-            l&apos;intersection de la santé, du numérique et du concret — avec la
-            conviction qu&apos;un humain seul, bien outillé par l&apos;IA, peut
-            désormais bâtir ce qui demandait hier une équipe entière.
+            {dict.about.body}
           </p>
         </FadeIn>
       </div>
     </section>
   );
 }
-
-/* ─────────────────────────── SEPARATOR ─────────────────────────── */
 
 function Separator() {
   return (
@@ -78,119 +82,103 @@ function Separator() {
 
 /* ─────────────────────────── PROJETS ─────────────────────────── */
 
-const PROJECTS = [
-  {
-    title: "SuperPagr",
-    domain: "Santé · SaaS · Plannings",
-    text: `Les soignants méritent des outils pensés avec autant de soin qu'on en donne aux patients. SuperPagr simplifie les plannings médicaux — gardes, astreintes, remplacements — avec la rigueur et la clarté que le terrain exige.`,
-    image: "/images/superpagr.webp",
-  },
-  {
-    title: "Le Lien",
-    domain: "SAMU · SMUR · Mobile",
-    text: `Né du terrain, pour le terrain. Une application qui met les bons outils entre les mains des équipes d'urgence, là où chaque seconde compte. Fiches, scores, protocoles — tout ce qu'il faut, rien de superflu.`,
-    image: "/images/lien.webp",
-  },
-];
-
-function Projets() {
+function Projets({ dict }: { dict: Dict }) {
   return (
     <section id="projets" className="py-24 sm:py-32 px-6 sm:px-10 scroll-mt-16">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <FadeIn>
           <p className="text-xs uppercase tracking-[0.25em] text-sei-vermilion font-medium">
-            Ce que je construis
+            {dict.projects.eyebrow}
           </p>
-          <div className="sei-rule mt-5 mb-20 sm:mb-24" />
+          <div className="sei-rule mt-5 mb-16 sm:mb-20" />
         </FadeIn>
 
-        <div className="space-y-20 sm:space-y-28">
-          {PROJECTS.map((project, i) => (
-            <FadeIn key={project.title} delay={i * 100}>
-              <article
-                className={`flex flex-col ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-10 md:gap-14`}
-              >
-                <div className="w-full md:w-1/2 flex-shrink-0">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-auto rounded-md"
-                  />
-                </div>
-                <div className="w-full md:w-1/2">
+        <div className="space-y-6">
+          {PROJECTS.map((p, i) => {
+            const item = dict.projects.items[p.key];
+            return (
+              <FadeIn key={p.key} delay={i * 90}>
+                <article className="rounded-md border border-sei-mist bg-sei-rice/50 p-8 sm:p-10">
                   <h3 className="font-serif text-3xl sm:text-4xl text-sei-ink">
-                    {project.title}
+                    {p.key === "superpagr"
+                      ? "SuperPagr"
+                      : p.key === "lien"
+                        ? "Le Lien"
+                        : "OpenStats"}
                   </h3>
                   <div className="sei-rule mt-5 mb-6" />
                   <p className="text-xs uppercase tracking-[0.2em] text-sei-gold mb-6 font-medium">
-                    {project.domain}
+                    {item.domain}
                   </p>
-                  <p className="text-lg text-sei-sumi leading-relaxed">
-                    {project.text}
+                  <p className="text-lg text-sei-sumi leading-relaxed max-w-2xl">
+                    {item.text}
                   </p>
-                </div>
-              </article>
-            </FadeIn>
-          ))}
-
-          {/* OpenStats — démonstration sans visuel, carte d'encre */}
-          <FadeIn delay={200}>
-            <article className="rounded-md border border-sei-mist bg-sei-rice/50 p-8 sm:p-12">
-              <h3 className="font-serif text-3xl sm:text-4xl text-sei-ink">
-                OpenStats
-              </h3>
-              <div className="sei-rule mt-5 mb-6" />
-              <p className="text-xs uppercase tracking-[0.2em] text-sei-gold mb-6 font-medium">
-                Recherche · Statistiques · Thèses
-              </p>
-              <p className="text-lg text-sei-sumi leading-relaxed max-w-2xl">
-                L&apos;analyse statistique des thèses médicales, mal servie par
-                le logiciel existant, résolue par un humain seul appuyé sur
-                l&apos;IA agentic. La deuxième brique d&apos;une même approche,
-                répétable, du marché de la santé.
-              </p>
-            </article>
-          </FadeIn>
+                  <div className="mt-7">
+                    {p.url ? (
+                      <a
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 text-sm text-sei-vermilion"
+                      >
+                        {dict.projects.visit}
+                        <span className="transition-transform group-hover:translate-x-1">
+                          →
+                        </span>
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center gap-2 text-sm text-sei-stone">
+                        <span className="sei-seal opacity-50" aria-hidden />
+                        {dict.projects.soon}
+                      </span>
+                    )}
+                  </div>
+                </article>
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-/* ─────────────────────────── LE CARNET (blog) ─────────────────────────── */
+/* ─────────────────────────── LE CARNET ─────────────────────────── */
 
-function Carnet() {
+function Carnet({ locale, dict }: { locale: Locale; dict: Dict }) {
   const latest = [...posts].sort((a, b) => b.date.localeCompare(a.date))[0];
   if (!latest) return null;
+  const meta = latest.meta[locale];
 
   return (
     <section className="py-24 sm:py-32 px-6 sm:px-10 bg-sei-rice/40 border-y border-sei-mist">
       <div className="max-w-3xl mx-auto">
         <FadeIn>
           <p className="text-xs uppercase tracking-[0.25em] text-sei-vermilion font-medium">
-            Le Carnet
+            {dict.carnet.eyebrow}
           </p>
-          <Link href={`/blog/${latest.slug}`} className="group block mt-6">
+          <Link
+            href={`/${locale}/blog/${latest.slug}`}
+            className="group block mt-6"
+          >
             <h3 className="font-serif text-3xl sm:text-4xl text-sei-ink group-hover:text-sei-vermilion transition-colors">
-              {latest.title}
+              {meta.title}
             </h3>
             <p className="mt-5 text-lg text-sei-sumi leading-relaxed">
-              {latest.excerpt}
+              {meta.excerpt}
             </p>
             <span className="mt-6 inline-flex items-center gap-2 text-sm text-sei-vermilion">
-              Lire le memo
+              {dict.carnet.readMemo}
               <span className="transition-transform group-hover:translate-x-1">
                 →
               </span>
             </span>
           </Link>
           <Link
-            href="/blog"
+            href={`/${locale}/blog`}
             className="mt-10 inline-block text-sm text-sei-stone hover:text-sei-ink transition-colors"
           >
-            Tous les écrits →
+            {dict.carnet.all} →
           </Link>
         </FadeIn>
       </div>
@@ -200,7 +188,7 @@ function Carnet() {
 
 /* ─────────────────────────── VISION ─────────────────────────── */
 
-function Vision() {
+function Vision({ dict }: { dict: Dict }) {
   return (
     <section className="relative">
       <div className="relative h-[60vh] sm:h-[70vh] overflow-hidden">
@@ -213,15 +201,12 @@ function Vision() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-sei-ink/75 via-sei-ink/35 to-transparent" />
         </div>
-
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full">
             <FadeIn>
               <blockquote className="max-w-lg">
                 <p className="font-serif text-xl sm:text-2xl md:text-3xl text-white leading-relaxed font-light">
-                  L&apos;approche de Seijaku, calme dans la tempête : faire
-                  prospérer un calme apaisant au sein d&apos;un système qui prend
-                  soin, même au cœur de la souffrance.
+                  {dict.vision.quote}
                 </p>
               </blockquote>
             </FadeIn>
@@ -234,19 +219,28 @@ function Vision() {
 
 /* ─────────────────────────── PAGE ─────────────────────────── */
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const dict = getDictionary(locale);
+  const year = new Date().getFullYear();
+
   return (
     <>
-      <Nav floating />
+      <Nav locale={locale} dict={dict} floating />
       <main>
-        <Hero />
-        <About />
+        <Hero dict={dict} />
+        <About dict={dict} />
         <Separator />
-        <Projets />
-        <Carnet />
-        <Vision />
+        <Projets dict={dict} />
+        <Carnet locale={locale} dict={dict} />
+        <Vision dict={dict} />
       </main>
-      <Footer />
+      <Footer locale={locale} dict={dict} year={year} />
     </>
   );
 }

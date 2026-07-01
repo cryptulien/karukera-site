@@ -1,30 +1,36 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Nav } from "../../components/Nav";
-import { Footer } from "../../components/Footer";
-import { posts, getPost } from "../posts";
+import { Nav } from "../../../components/Nav";
+import { Footer } from "../../../components/Footer";
+import { isLocale, locales } from "@/lib/i18n";
+import { getDictionary } from "@/dictionaries";
+import { posts, getPost, PostBody } from "@/lib/posts";
 
 export function generateStaticParams() {
-  return posts.map((p) => ({ slug: p.slug }));
+  return locales.flatMap((locale) =>
+    posts.map((p) => ({ locale, slug: p.slug })),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const post = getPost(slug);
-  if (!post) return { title: "Le Carnet — Karukera" };
+  const loc = isLocale(locale) ? locale : "fr";
+  if (!post) return { title: "Karukera" };
+  const meta = post.meta[loc];
   return {
-    title: `${post.title} — Karukera`,
-    description: post.excerpt,
+    title: `${meta.title} — Karukera`,
+    description: meta.excerpt,
     openGraph: {
-      title: `${post.title} — Karukera`,
-      description: post.excerpt,
+      title: `${meta.title} — Karukera`,
+      description: meta.excerpt,
       type: "article",
-      url: `https://karukera.xyz/blog/${post.slug}`,
+      url: `https://karukera.xyz/${loc}/blog/${post.slug}`,
     },
   };
 }
@@ -32,52 +38,59 @@ export async function generateMetadata({
 export default async function PostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) notFound();
   const post = getPost(slug);
   if (!post) notFound();
 
+  const dict = getDictionary(locale);
+  const meta = post.meta[locale];
+  const year = new Date().getFullYear();
+
   return (
     <>
-      <Nav />
+      <Nav locale={locale} dict={dict} />
       <main className="pt-16">
         <article className="max-w-prose mx-auto px-6 sm:px-10 pt-16 sm:pt-24 pb-24">
           <Link
-            href="/blog"
+            href={`/${locale}/blog`}
             className="inline-flex items-center gap-2 text-sm text-sei-stone hover:text-sei-ink transition-colors"
           >
-            <span aria-hidden>←</span> Le Carnet
+            <span aria-hidden>←</span> {dict.blog.back}
           </Link>
 
           <header className="mt-10">
             <div className="flex items-center gap-4 text-xs uppercase tracking-[0.18em] text-sei-stone">
-              <time dateTime={post.date}>{post.dateLabel}</time>
+              <time dateTime={post.date}>{meta.dateLabel}</time>
               <span aria-hidden>·</span>
-              <span>{post.readingTime}</span>
+              <span>{meta.readingTime}</span>
             </div>
             <h1 className="mt-4 font-serif text-4xl sm:text-5xl text-sei-ink leading-tight">
-              {post.title}
+              {meta.title}
             </h1>
             <div className="sei-rule mt-7" />
           </header>
 
-          <div className="mt-12">{post.content}</div>
+          <div className="mt-12">
+            <PostBody blocks={post.content[locale]} />
+          </div>
         </article>
 
         <div className="max-w-prose mx-auto px-6 sm:px-10 pb-24">
           <div className="border-t border-sei-mist pt-10 flex items-center justify-between">
             <p className="font-serif text-lg text-sei-ink">Karukera</p>
             <Link
-              href="/blog"
+              href={`/${locale}/blog`}
               className="text-sm text-sei-vermilion hover:opacity-70 transition-opacity"
             >
-              ← Tous les écrits
+              ← {dict.blog.allWritings}
             </Link>
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer locale={locale} dict={dict} year={year} />
     </>
   );
 }
