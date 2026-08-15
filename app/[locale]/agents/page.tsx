@@ -60,7 +60,7 @@ export default async function AgentsPage({
       title: dict.kit.catalogH2,
       body: dict.kit.catalogBody,
       facts: dict.kit.catalogFacts,
-      image: "/images/kit-laptop.jpg",
+      image: "/images/kit-security.jpg",
       alt: dict.kit.catalogAlt,
       note: dict.shop.priceNote,
     },
