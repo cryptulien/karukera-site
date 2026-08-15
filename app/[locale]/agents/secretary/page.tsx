@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
+import { ogImage } from "@/lib/share";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
 import { BuyButton } from "../../../components/BuyButton";
@@ -22,6 +23,18 @@ export async function generateMetadata({
     title: dict.secretary.metaTitle,
     description: dict.secretary.metaDesc,
     alternates: { canonical: `https://karukera.xyz/${locale}/agents/secretary` },
+    openGraph: {
+      title: dict.secretary.metaTitle,
+      description: dict.secretary.metaDesc,
+      url: `https://karukera.xyz/${locale}/agents/secretary`,
+      images: [ogImage("/images/og-secretary.jpg", dict.secretary.metaTitle)],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.secretary.metaTitle,
+      description: dict.secretary.metaDesc,
+      images: ["/images/og-secretary.jpg"],
+    },
   };
 }
 

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
+import { ogImage } from "@/lib/share";
 import { SalesNav } from "../../components/SalesNav";
 import { SalesFooter } from "../../components/SalesFooter";
 
@@ -23,6 +24,18 @@ export async function generateMetadata({
     title: dict.kit.catalogMetaTitle,
     description: dict.kit.catalogMetaDesc,
     alternates: { canonical: `https://karukera.xyz/${locale}/agents` },
+    openGraph: {
+      title: dict.kit.catalogMetaTitle,
+      description: dict.kit.catalogMetaDesc,
+      url: `https://karukera.xyz/${locale}/agents`,
+      images: [ogImage("/images/og-agents.jpg", dict.kit.catalogMetaTitle)],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.kit.catalogMetaTitle,
+      description: dict.kit.catalogMetaDesc,
+      images: ["/images/og-agents.jpg"],
+    },
   };
 }
 

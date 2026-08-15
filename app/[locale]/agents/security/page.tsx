@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
+import { ogImage } from "@/lib/share";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
 import { BuyButton } from "../../../components/BuyButton";
@@ -23,6 +24,18 @@ export async function generateMetadata({
     title: dict.kit.metaTitle,
     description: dict.kit.metaDesc,
     alternates: { canonical: `https://karukera.xyz/${locale}/agents/security` },
+    openGraph: {
+      title: dict.kit.metaTitle,
+      description: dict.kit.metaDesc,
+      url: `https://karukera.xyz/${locale}/agents/security`,
+      images: [ogImage("/images/og-security.jpg", dict.kit.metaTitle)],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.kit.metaTitle,
+      description: dict.kit.metaDesc,
+      images: ["/images/og-security.jpg"],
+    },
   };
 }
 

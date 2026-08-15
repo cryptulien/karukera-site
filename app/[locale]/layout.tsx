@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Space_Grotesk, Shippori_Mincho } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { locales, isLocale, type Locale } from "@/lib/i18n";
+import { ogImage } from "@/lib/share";
 import "../globals.css";
 
 const sans = Space_Grotesk({
@@ -65,20 +66,13 @@ export async function generateMetadata({
       description: m.description,
       type: "website",
       url: `https://karukera.xyz/${locale}`,
-      images: [
-        {
-          url: "/images/plage.webp",
-          width: 1200,
-          height: 630,
-          alt: "Plage de Guadeloupe — Karukera",
-        },
-      ],
+      images: [ogImage("/images/og-default.jpg", "Karukera — Julien Lelandais")],
     },
     twitter: {
       card: "summary_large_image",
       title: m.title,
       description: m.description,
-      images: ["/images/plage.webp"],
+      images: ["/images/og-default.jpg"],
     },
   };
 }
