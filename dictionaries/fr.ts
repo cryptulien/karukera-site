@@ -1,5 +1,5 @@
 const fr = {
-  nav: { projects: "Projets", carnet: "Le Carnet" },
+  nav: { projects: "Projets", carnet: "Le Carnet", agents: "Agents" },
   hero: { tagline: "L’île aux belles eaux" },
   about: {
     title: "Je suis Julien.",
@@ -39,6 +39,8 @@ const fr = {
     home: "Accueil",
     carnet: "Le Carnet",
     write: "Écrire",
+    follow: "Me suivre sur X",
+    agents: "Agents",
   },
   blog: {
     eyebrow: "Le Carnet",
@@ -48,6 +50,23 @@ const fr = {
     read: "Lire",
     back: "Le Carnet",
     allWritings: "Tous les écrits",
+  },
+  shop: {
+    buy: "Obtenir le kit — 197 €",
+    price: "197 €",
+    priceNote: "Paiement unique. Tes crédits OpenRouter restent les tiens.",
+    stripeMissing: "Stripe n’est pas encore branché. Réessaie dans un instant.",
+    checkoutError: "Le paiement n’a pas pu démarrer.",
+    busy: "Redirection vers Stripe…",
+    thanksTitle: "Le ZIP est prêt.",
+    thanksBody:
+      "Paiement reçu. Télécharge le kit, ouvre START-HERE.md, mets ta clé OpenRouter, lance une mission sur un scope à toi.",
+    download: "Télécharger le ZIP",
+    thanksPending: "Paiement en cours de confirmation.",
+    thanksFail: "Session introuvable ou impayée.",
+    next1: "Ouvre START-HERE.md — sans clé OpenRouter, rien ne part.",
+    next2: "30–50 € de crédits. DeepSeek / GLM.",
+    next3: "« Audit Complet SaaS sur https://… »",
   },
 };
 

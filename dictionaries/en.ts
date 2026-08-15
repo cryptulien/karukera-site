@@ -1,7 +1,7 @@
 import type fr from "./fr";
 
 const en: typeof fr = {
-  nav: { projects: "Projects", carnet: "Journal" },
+  nav: { projects: "Projects", carnet: "Journal", agents: "Agents" },
   hero: { tagline: "The island of beautiful waters" },
   about: {
     title: "I’m Julien.",
@@ -41,6 +41,8 @@ const en: typeof fr = {
     home: "Home",
     carnet: "Journal",
     write: "Write",
+    follow: "Follow me on X",
+    agents: "Agents",
   },
   blog: {
     eyebrow: "Journal",
@@ -50,6 +52,23 @@ const en: typeof fr = {
     read: "Read",
     back: "Journal",
     allWritings: "All writing",
+  },
+  shop: {
+    buy: "Get the kit — €197",
+    price: "€197",
+    priceNote: "One-time payment. Your OpenRouter credits stay yours.",
+    stripeMissing: "Stripe is not configured yet. Try again shortly.",
+    checkoutError: "Checkout could not start.",
+    busy: "Redirecting to Stripe…",
+    thanksTitle: "Your ZIP is ready.",
+    thanksBody:
+      "Payment received. Download the kit, open START-HERE.md, add your OpenRouter key, run a mission on a scope you control.",
+    download: "Download the ZIP",
+    thanksPending: "Payment is still confirming.",
+    thanksFail: "Session missing or unpaid.",
+    next1: "Open START-HERE.md — without an OpenRouter key, nothing starts.",
+    next2: "€30–50 in credits. DeepSeek / GLM.",
+    next3: "“Full SaaS audit on https://…”",
   },
 };
 

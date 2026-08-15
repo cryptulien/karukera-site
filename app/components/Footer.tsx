@@ -29,11 +29,25 @@ export function Footer({
               {dict.footer.home}
             </Link>
             <Link
+              href={`/${locale}/agents`}
+              className="hover:text-sei-ink transition-colors"
+            >
+              {dict.footer.agents}
+            </Link>
+            <Link
               href={`/${locale}/blog`}
               className="hover:text-sei-ink transition-colors"
             >
               {dict.footer.carnet}
             </Link>
+            <a
+              href="https://x.com/cryptulien"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sei-ink transition-colors"
+            >
+              {dict.footer.follow}
+            </a>
             <a
               href="mailto:julienlelandais@me.com"
               className="hover:text-sei-ink transition-colors"

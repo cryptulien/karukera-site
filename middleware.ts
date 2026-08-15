@@ -40,6 +40,8 @@ function detectLocale(req: NextRequest): Locale {
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
+  if (pathname.startsWith("/api")) return NextResponse.next();
+
   const hasLocale = locales.some(
     (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`),
   );

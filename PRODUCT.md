@@ -1,0 +1,82 @@
+# Product
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Users
+
+**Primary (home / studio):** a visitor discovering Julien Lelandais — médecin psychiatre et entrepreneur — et ce qu'il construit. Job : comprendre *qui* est derrière SuperPagr, Le Lien, OpenStats, et s'il vaut la peine de suivre.
+
+**Secondary ( /agents ):** freelance sécu, agence, ou founder qui déploie un SaaS ou des agents MCP. Job : décider s'il télécharge / achète le kit d'audit de sécurité. Il peut arriver directement sur `/agents/security` depuis X, sans passer par la home.
+
+Les deux publics se croisent ; la home n'essaie pas de convertir le second, `/agents` n'essaie pas de raconter le premier.
+
+## Product Purpose
+
+Karukera.xyz est le site du studio Karukera. Il a deux jobs distincts, dans cet ordre :
+
+1. **Studio.** Dire qui est Julien, ce qu'il construit (santé, software agentic), et tenir un carnet public.
+2. **Boutique d'un kit.** Vendre le kit d'agents IA d'audit de sécurité Web + SaaS, à l'URL `karukera.xyz/{locale}/agents/security`.
+
+Succès home : un inconnu peut raconter Seijaku et citer un projet en une minute.  
+Succès /agents : un acheteur potentiel comprend l'offre (ZIP + OpenRouter + squad) et sait quoi faire ensuite, sans preuves inventées.
+
+## Positioning
+
+Un humain seul, médecin, qui livre du software agentic — et maintenant des *kits* d'agents que d'autres font tourner chez eux (Claude Code / Cursor / Codex / Hermes), branchés sur OpenRouter. Ce n'est ni une agence IA, ni un scanner SaaS hébergé, ni un portfolio de designer.
+
+Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, chaîne de preuve, six statuts de mesure, Double QA bloquante, agent MCP/Skills.
+
+## Operating Context
+
+- Site Next.js 15, i18n `/fr` `/en` `/es`, hébergé Vercel, domaine `karukera.xyz`.
+- Chemins figés : home studio ; `/agents` catalogue ; `/agents/security` produit ; `/blog` (Le Carnet).
+- Le kit lui-même est un ZIP de prompts / configs / templates, pas une appli hébergée. Source dans le repo privé `cryptulien/karukera-security-kit` (le site public ne contient que le ZIP chiffré).
+- OpenStats vit sur `openstats.karukera.xyz` (appli, hors de ce site). SuperPagr et Le Lien ont leurs propres domaines.
+- Publications : X (manuel V1) et LinkedIn via Postiz. DA de sharing requise.
+- Maquettes : Penpot self-hosted (`penpot.superpagr.com`).
+
+## Capabilities and Constraints
+
+- V1 boutique : **un seul SKU** — le kit d'audit sécu. Les autres kits éventuels restent « bientôt », pas des pages produit.
+- Pas de compte client, pas de dashboard, pas d'audit hébergé.
+- Light mode uniquement (contrainte utilisateur).
+- Seijaku (« calme dans la tempête ») est une **méthode et un engagement de marque**, pas une recette visuelle crème + vermillon à reconduire.
+- La DA actuelle du site (washi, Shippori Mincho, Space Grotesk, filet vermillon) est l'identité sortante : à remplacer, pas à polir.
+- Prix, témoignages, captures d'audit, logos clients : **non affichés** tant qu'ils n'existent pas. Pas d'invention.
+- Preuves autorisées : photos Guadeloupe déjà dans `public/images/`, noms de projets réels, extraits du Carnet, faits de fonctionnement du kit (OpenRouter, squad, règles) une fois le kit écrit.
+
+## Brand Commitments
+
+- Nom : **Karukera** (nom indigène de la Guadeloupe). Société de Julien Lelandais.
+- Voix : calme, précise, première personne sur le studio ; factuelle et non hype sur le kit.
+- Seijaku est binding comme *attitude* : retenue, un sceau plutôt qu'une alarme, lumière du jour (light).
+- Home studio : Seijaku actuel (washi, Shippori, grandes planches plage/villa). Plus de caractère, **sans** les marques BD SuperPagr / Le Lien (`superpagr.webp`, `lien.webp` — exclus).
+- Pages de vente (`/agents`, `/agents/security`) : autre registre. Même attitude (calme, light, un accent) mais **guidelines landing** — clair, propre, sans costume BD ni planche comme identité.
+- Pas de sous-domaine produit : tout vit sous `karukera.xyz/{locale}/…`.
+- Nav cible : Projets · Agents · Carnet.
+
+## Evidence on Hand
+
+- Site live : https://karukera.xyz (home + Carnet). Pas de `robots.txt` ni de `sitemap.xml`.
+- Images : `public/images/plage.webp`, `villa.webp`, et 2 autres + favicon.
+- Projets citables : SuperPagr (superpagr.com), Le Lien (pas encore de site), OpenStats (openstats.karukera.xyz).
+- Un article Carnet (founder memo) dans `lib/posts.tsx`.
+- Pas de logo-marque au-delà du wordmark « Karukera » en serif.
+- Pas de clients kit, pas de rapport d'audit publiable, pas de prix confirmé à l'écran.
+
+## Product Principles
+
+1. La home est un studio, pas une landing de vente.
+2. `/agents` vend une offre réelle, une à la fois ; le reste s'annonce sans se déguiser en produit.
+3. Rien d'inventé : pas de preuve, pas de chiffre, pas de visage client.
+4. Seijaku gouverne le *comportement* de la marque (calme, un accent, lumière) — pas le costume washi de 2026.
+6. Deux registres. Home : planches plage/villa monumentales, Seijaku actuel enrichi. Vente : page de conversion, typo et mise en page de landing, pas de logos BD.
+5. Une seule propriété SEO : sous-dossiers, une DA, deux registres (studio / offre).
+
+## Accessibility & Inclusion
+
+WCAG 2.2 AA visé sur le site public. Contraste light-mode non négociable (le vermillon actuel sur crème est à vérifier, pas à reconduire en aveugle). i18n FR/EN/ES conservé.

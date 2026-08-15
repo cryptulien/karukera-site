@@ -1,0 +1,53 @@
+import { createReadStream, existsSync, statSync } from "node:fs";
+import { join } from "node:path";
+import { Readable } from "node:stream";
+import { NextResponse } from "next/server";
+import { getStripe } from "@/lib/stripe";
+import { verifyDownload } from "@/lib/download-token";
+import { KIT_FILENAME, KIT_SKU } from "@/lib/kit-offer";
+
+export const runtime = "nodejs";
+
+export async function GET(req: Request) {
+  const url = new URL(req.url);
+  const token = url.searchParams.get("t");
+  if (!token) {
+    return NextResponse.json({ error: "missing token" }, { status: 400 });
+  }
+
+  const sessionId = verifyDownload(token);
+  if (!sessionId) {
+    return NextResponse.json({ error: "invalid or expired link" }, { status: 403 });
+  }
+
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return NextResponse.json({ error: "Stripe missing" }, { status: 503 });
+  }
+
+  const stripe = getStripe();
+  let session;
+  try {
+    session = await stripe.checkout.sessions.retrieve(sessionId);
+  } catch {
+    return NextResponse.json({ error: "unknown session" }, { status: 403 });
+  }
+  if (session.payment_status !== "paid" || session.metadata?.sku !== KIT_SKU) {
+    return NextResponse.json({ error: "unpaid" }, { status: 403 });
+  }
+
+  const zipPath = join(process.cwd(), "private", KIT_FILENAME);
+  if (!existsSync(zipPath)) {
+    return NextResponse.json({ error: "kit missing on server" }, { status: 500 });
+  }
+
+  const { size } = statSync(zipPath);
+  const stream = Readable.toWeb(createReadStream(zipPath)) as ReadableStream;
+  return new NextResponse(stream, {
+    headers: {
+      "Content-Type": "application/zip",
+      "Content-Length": String(size),
+      "Content-Disposition": `attachment; filename="${KIT_FILENAME}"`,
+      "Cache-Control": "no-store",
+    },
+  });
+}

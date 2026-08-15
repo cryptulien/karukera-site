@@ -1,7 +1,7 @@
 import type fr from "./fr";
 
 const es: typeof fr = {
-  nav: { projects: "Proyectos", carnet: "Cuaderno" },
+  nav: { projects: "Proyectos", carnet: "Cuaderno", agents: "Agents" },
   hero: { tagline: "La isla de las bellas aguas" },
   about: {
     title: "Soy Julien.",
@@ -41,6 +41,8 @@ const es: typeof fr = {
     home: "Inicio",
     carnet: "Cuaderno",
     write: "Escribir",
+    follow: "Sígueme en X",
+    agents: "Agents",
   },
   blog: {
     eyebrow: "Cuaderno",
@@ -50,6 +52,23 @@ const es: typeof fr = {
     read: "Leer",
     back: "Cuaderno",
     allWritings: "Todos los escritos",
+  },
+  shop: {
+    buy: "Obtener el kit — 197 €",
+    price: "197 €",
+    priceNote: "Pago único. Tus créditos OpenRouter siguen siendo tuyos.",
+    stripeMissing: "Stripe aún no está configurado. Inténtalo en un momento.",
+    checkoutError: "No se pudo iniciar el pago.",
+    busy: "Redirigiendo a Stripe…",
+    thanksTitle: "El ZIP está listo.",
+    thanksBody:
+      "Pago recibido. Descarga el kit, abre START-HERE.md, pon tu clave OpenRouter, lanza una misión sobre un alcance que controles.",
+    download: "Descargar el ZIP",
+    thanksPending: "El pago se está confirmando.",
+    thanksFail: "Sesión inexistente o impagada.",
+    next1: "Abre START-HERE.md — sin clave OpenRouter, no arranca nada.",
+    next2: "30–50 € de créditos. DeepSeek / GLM.",
+    next3: "« Auditoría SaaS completa en https://… »",
   },
 };
 

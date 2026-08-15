@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/pack-kit.mjs",
+    "prebuild": "node scripts/pack-kit.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pack-kit": "node scripts/pack-kit.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",

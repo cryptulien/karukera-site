@@ -41,6 +41,12 @@ export function Nav({
             {dict.nav.projects}
           </Link>
           <Link
+            href={`/${locale}/agents`}
+            className="opacity-80 hover:opacity-100 transition-opacity"
+          >
+            {dict.nav.agents}
+          </Link>
+          <Link
             href={`/${locale}/blog`}
             className="opacity-80 hover:opacity-100 transition-opacity"
           >
