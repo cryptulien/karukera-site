@@ -29,7 +29,7 @@ export async function generateMetadata({
     openGraph: {
       title: dict.kit.catalogMetaTitle,
       description: dict.kit.catalogMetaDesc,
-      url: `https://karukera.xyz/${locale}/agents`,
+      url: `${SITE}/${locale}/agents`,
       images: [ogImage("/images/og-agents.jpg", dict.kit.catalogMetaTitle)],
     },
     twitter: {
@@ -41,6 +41,65 @@ export async function generateMetadata({
   };
 }
 
+type FamilyCard = {
+  href: string;
+  scope: string;
+  title: string;
+  body: string;
+  facts: string[];
+  image: string;
+  alt: string;
+  note: string;
+  priority?: boolean;
+};
+
+function KitCard({
+  card,
+  price,
+  cta,
+}: {
+  card: FamilyCard;
+  price: string;
+  cta: string;
+}) {
+  return (
+    <article>
+      <Link
+        href={card.href}
+        className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_40px_-18px_rgba(18,18,18,0.28)] transition-shadow hover:shadow-[0_16px_44px_-16px_rgba(18,18,18,0.36)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E23B2E]"
+      >
+        <div className="relative aspect-[16/9]">
+          <Image
+            src={card.image}
+            alt={card.alt}
+            fill
+            className="object-cover object-center"
+            sizes="(min-width: 1024px) 960px, 100vw"
+            priority={card.priority}
+          />
+        </div>
+        <div className="flex flex-1 flex-col px-6 py-8 sm:px-10">
+          <p className="text-sm text-[#5C5954]">{card.scope}</p>
+          <h3 className="mt-2 text-2xl font-semibold tracking-tight leading-snug">
+            {card.title}
+          </h3>
+          <p className="mt-3 text-[#4A4742] leading-relaxed">{card.body}</p>
+          <ul className="mt-5 space-y-1.5 text-sm text-[#121212]">
+            {card.facts.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
+          <p className="mt-6 text-2xl font-semibold tracking-tight">{price}</p>
+          <span className="mt-6 inline-flex h-12 items-center justify-center self-start rounded-full bg-[#E23B2E] px-7 text-[15px] font-medium text-white group-hover:bg-[#c92f24]">
+            {cta}
+          </span>
+          <p className="mt-3 text-sm text-[#5C5954]">{card.note}</p>
+        </div>
+      </Link>
+    </article>
+  );
+}
+
 export default async function AgentsPage({
   params,
 }: {
@@ -50,122 +109,150 @@ export default async function AgentsPage({
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
   const year = new Date().getFullYear();
+  const k = dict.kit;
 
-  const kits = [
-    {
-      sku: "security-kit" as const,
-      href: `/${locale}/agents/security`,
-      badge: dict.kit.catalogBadge,
-      scope: dict.kit.catalogScope,
-      title: dict.kit.catalogH2,
-      body: dict.kit.catalogBody,
-      facts: dict.kit.catalogFacts,
-      image: "/images/kit-security.jpg",
-      alt: dict.kit.catalogAlt,
-      note: dict.shop.priceNote,
-    },
-    {
-      sku: "sales-secretary" as const,
-      href: `/${locale}/agents/secretary`,
-      badge: dict.kit.catalogSecretaryBadge,
-      scope: dict.kit.catalogSecretaryScope,
-      title: dict.kit.catalogSecretaryH2,
-      body: dict.kit.catalogSecretaryBody,
-      facts: dict.kit.catalogSecretaryFacts,
-      image: "/images/kit-folder.jpg",
-      alt: dict.kit.catalogSecretaryH2,
-      note: dict.secretary.priceNote,
-    },
-  ];
+  const tech: FamilyCard = {
+    href: `/${locale}/agents/security`,
+    scope: k.catalogScope,
+    title: k.catalogH2,
+    body: k.catalogBody,
+    facts: k.catalogFacts,
+    image: "/images/kit-security.jpg",
+    alt: k.catalogAlt,
+    note: dict.shop.priceNote,
+    priority: true,
+  };
+
+  const biz: FamilyCard = {
+    href: `/${locale}/agents/secretary`,
+    scope: k.catalogSecretaryScope,
+    title: k.catalogSecretaryH2,
+    body: k.catalogSecretaryBody,
+    facts: k.catalogSecretaryFacts,
+    image: "/images/kit-folder.jpg",
+    alt: k.catalogSecretaryH2,
+    note: dict.secretary.priceNote,
+  };
 
   return (
     <div className="min-h-screen bg-[#F4F3EF] text-[#121212]">
+      {/*
+        THESIS: Karukera Agents is a studio of kits for founders, split into two families that must not be sold as one mixed grid.
+        OWN-WORLD: paper field, ink type, vermillion only on the buy/open action; Space Grotesk; no studio washi.
+        STORY: visitor understands the shared rule (runs on their side, fits their practice), then chooses Technique or Commercial.
+        FIRST VIEWPORT: name + promise + three shared rules; no product card yet.
+        FORM: two stacked family bands, one live kit each; coming-soon as a line, never a fake card.
+        FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+      */}
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "ItemList",
-          name: dict.kit.catalogMetaTitle,
-          itemListElement: [
+          "@type": "CollectionPage",
+          name: k.catalogMetaTitle,
+          description: k.catalogMetaDesc,
+          url: `${SITE}/${locale}/agents`,
+          isPartOf: { "@type": "WebSite", name: "Karukera", url: SITE },
+          hasPart: [
             {
-              "@type": "ListItem",
-              position: 1,
-              name: dict.kit.catalogH2,
-              url: `${SITE}/${locale}/agents/security`,
+              "@type": "ItemList",
+              name: k.catalogFamilyTech,
+              description: k.catalogFamilyTechLead,
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: k.catalogH2,
+                  url: `${SITE}/${locale}/agents/security`,
+                },
+              ],
             },
             {
-              "@type": "ListItem",
-              position: 2,
-              name: dict.kit.catalogSecretaryH2,
-              url: `${SITE}/${locale}/agents/secretary`,
+              "@type": "ItemList",
+              name: k.catalogFamilyBiz,
+              description: k.catalogFamilyBizLead,
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: k.catalogSecretaryH2,
+                  url: `${SITE}/${locale}/agents/secretary`,
+                },
+              ],
             },
           ],
         }}
       />
       <SalesNav locale={locale} dict={dict} />
       <main>
-        <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-12">
-          <h1 className="font-sans text-[2.1rem] sm:text-5xl md:text-[3.4rem] font-semibold tracking-[-0.03em] leading-[1.08] max-w-4xl">
-            {dict.kit.catalogTitle}
+        <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-14">
+          <h1 className="font-sans text-[2.15rem] sm:text-5xl md:text-[3.35rem] font-semibold tracking-[-0.03em] leading-[1.08] max-w-4xl text-balance">
+            {k.catalogTitle}
           </h1>
-          <p className="mt-6 text-lg text-[#5C5954] max-w-2xl leading-relaxed">
-            {dict.kit.catalogLead}
+          <p className="mt-6 text-lg text-[#4A4742] max-w-2xl leading-relaxed">
+            {k.catalogLead}
+          </p>
+          <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-medium">
+            <a href="#technique" className="text-[#121212] underline-offset-4 hover:underline">
+              {k.catalogFamilyTech}
+            </a>
+            <a href="#commercial" className="text-[#121212] underline-offset-4 hover:underline">
+              {k.catalogFamilyBiz}
+            </a>
           </p>
         </section>
 
-        <section className="max-w-5xl mx-auto px-5 sm:px-8 pb-16 grid md:grid-cols-3 gap-10">
-          {dict.kit.catalogHow.map((step) => (
+        <section className="max-w-5xl mx-auto px-5 sm:px-8 pb-20 grid md:grid-cols-3 gap-x-10 gap-y-8">
+          {k.catalogHow.map((step) => (
             <div key={step.t}>
               <p className="font-medium text-[17px]">{step.t}</p>
-              <p className="mt-2 text-sm text-[#5C5954] leading-relaxed">{step.b}</p>
+              <p className="mt-2 text-sm text-[#4A4742] leading-relaxed">{step.b}</p>
             </div>
           ))}
         </section>
 
-        <section className="max-w-5xl mx-auto px-5 sm:px-8 pb-20 grid lg:grid-cols-2 gap-6">
-          {kits.map((k) => (
-            <article
-              key={k.sku}
-              className="flex flex-col rounded-2xl bg-white shadow-[0_12px_40px_-18px_rgba(22,22,22,0.28)] overflow-hidden"
+        <section
+          id="technique"
+          aria-labelledby="family-tech"
+          className="border-t border-black/[0.06]"
+        >
+          <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-20">
+            <h2
+              id="family-tech"
+              className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em]"
             >
-              <div className="relative aspect-[16/10]">
-                <Image
-                  src={k.image}
-                  alt={k.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 480px, 100vw"
-                  priority={k.sku === "security-kit"}
-                />
-              </div>
-              <div className="flex flex-1 flex-col px-6 sm:px-8 py-8">
-                <p className="text-sm text-[#8A857D]">{k.scope}</p>
-                <h2 className="mt-2 text-2xl font-semibold tracking-tight leading-snug">
-                  {k.title}
-                </h2>
-                <p className="mt-3 text-[#5C5954] leading-relaxed">{k.body}</p>
-                <ul className="mt-5 space-y-1.5 text-sm text-[#161616]">
-                  {k.facts.map((f) => (
-                    <li key={f}>{f}</li>
-                  ))}
-                </ul>
-                <p className="mt-6 text-2xl font-semibold tracking-tight">
-                  {dict.kit.catalogPrice}
-                </p>
-                <Link
-                  href={k.href}
-                  className="mt-6 inline-flex items-center justify-center rounded-full bg-[#E23B2E] px-7 h-12 text-[15px] font-medium text-white hover:bg-[#c92f24] self-start"
-                >
-                  {dict.kit.catalogOpen}
-                </Link>
-                <p className="mt-3 text-sm text-[#8A857D]">{k.note}</p>
-              </div>
-            </article>
-          ))}
+              {k.catalogFamilyTech}
+            </h2>
+            <p className="mt-4 text-[#4A4742] leading-relaxed max-w-2xl">
+              {k.catalogFamilyTechLead}
+            </p>
+            <div className="mt-10">
+              <KitCard card={tech} price={k.catalogPrice} cta={k.catalogOpen} />
+            </div>
+            <p className="mt-8 text-sm text-[#5C5954]">{k.catalogFamilyTechSoon}</p>
+          </div>
         </section>
 
-        <p className="max-w-5xl mx-auto px-5 sm:px-8 pb-20 text-sm text-[#8A857D]">
-          {dict.kit.catalogSoon}
-        </p>
+        <section
+          id="commercial"
+          aria-labelledby="family-biz"
+          className="border-t border-black/[0.06] bg-[#EFEDE7]"
+        >
+          <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-20">
+            <h2
+              id="family-biz"
+              className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em]"
+            >
+              {k.catalogFamilyBiz}
+            </h2>
+            <p className="mt-4 text-[#4A4742] leading-relaxed max-w-2xl">
+              {k.catalogFamilyBizLead}
+            </p>
+            <div className="mt-10">
+              <KitCard card={biz} price={k.catalogPrice} cta={k.catalogOpen} />
+            </div>
+            <p className="mt-8 text-sm text-[#5C5954]">{k.catalogFamilyBizSoon}</p>
+          </div>
+        </section>
       </main>
       <SalesFooter locale={locale} dict={dict} year={year} />
     </div>
