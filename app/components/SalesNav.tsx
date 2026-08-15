@@ -29,6 +29,12 @@ export function SalesNav({
         </Link>
         <div className="flex items-center gap-3 sm:gap-6">
           <Link
+            href={`/${locale}/guides`}
+            className="hidden sm:inline py-2 text-sm text-[#3F3C38] hover:text-[#121212]"
+          >
+            {dict.nav.guides}
+          </Link>
+          <Link
             href={`/${locale}/agents/security`}
             className="py-2 text-sm text-[#3F3C38] hover:text-[#121212]"
           >

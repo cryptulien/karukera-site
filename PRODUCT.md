@@ -10,7 +10,7 @@ web
 
 **Primary (home / studio):** a visitor discovering Julien Lelandais — médecin psychiatre et entrepreneur — et ce qu'il construit. Job : comprendre *qui* est derrière SuperPagr, Le Lien, OpenStats, et s'il vaut la peine de suivre.
 
-**Secondary ( /agents ):** solo founder / SaaS qui veut sécuriser son application (et donc ses revenus). Job : comprendre qu'il lance le kit chez lui, dans Claude / Codex / un autre, choisit projet + profondeur + accès, et reçoit rapport + preuves + tickets de correctif. Il arrive souvent directement sur `/agents/security`, sans passer par le studio.
+**Secondary ( /agents ):** entrepreneur qui cherche un outil IA pour son quotidien. Job : comprendre que Karukera Agents sont des kits lancés chez lui, calés sur sa pratique, en deux familles qui ne se mélangent pas — Technique (aujourd'hui l'audit sécu) et Commercial (aujourd'hui la secrétaire). Il peut arriver directement sur `/agents/security` ou `/agents/secretary`.
 
 Les deux publics se croisent ; la home n'essaie pas de convertir le second, `/agents` n'essaie pas de raconter le premier.
 
@@ -19,10 +19,10 @@ Les deux publics se croisent ; la home n'essaie pas de convertir le second, `/ag
 Karukera.xyz est le site du studio Karukera. Il a deux jobs distincts, dans cet ordre :
 
 1. **Studio.** Dire qui est Julien, ce qu'il construit (santé, software agentic), et tenir un carnet public.
-2. **Boutique d'un kit.** Vendre le kit d'agents IA d'audit de sécurité Web + SaaS, à l'URL `karukera.xyz/{locale}/agents/security`.
+2. **Karukera Agents.** Présenter des kits IA pour entrepreneurs, en deux familles (Technique, Commercial), et vendre les SKU réels : audit sécu `/{locale}/agents/security`, secrétaire `/{locale}/agents/secretary`.
 
 Succès home : un inconnu peut raconter Seijaku et citer un projet en une minute.  
-Succès /agents : un acheteur potentiel comprend l'offre (ZIP + OpenRouter + squad) et sait quoi faire ensuite, sans preuves inventées.
+Succès /agents : un visiteur peut dire ce qu'est Karukera Agents, nommer les deux familles, et ouvrir le kit qui correspond à sa pratique — sans que sécu et sales soient vendus comme un même produit.
 
 ## Positioning
 
@@ -72,7 +72,7 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 ## Product Principles
 
 1. La home est un studio, pas une landing de vente.
-2. `/agents` vend une offre réelle, une à la fois ; le reste s'annonce sans se déguiser en produit.
+2. `/agents` est le catalogue Karukera Agents : deux familles (Technique, Commercial), une offre réelle par carte ; le reste s'annonce en ligne, jamais en faux produit.
 3. Rien d'inventé : pas de preuve, pas de chiffre, pas de visage client.
 4. Seijaku gouverne le *comportement* de la marque (calme, un accent, lumière) — pas le costume washi de 2026.
 6. Deux registres. Home : planches plage/villa monumentales, Seijaku actuel enrichi. Vente : page de conversion, typo et mise en page de landing, pas de logos BD.

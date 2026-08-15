@@ -27,6 +27,9 @@ export function SalesFooter({
             <Link href={`/${locale}/agents`} className="hover:text-[#161616]">
               {dict.footer.agents}
             </Link>
+            <Link href={`/${locale}/guides`} className="hover:text-[#161616]">
+              {dict.nav.guides}
+            </Link>
             <Link href={`/${locale}/agents/security`} className="hover:text-[#161616]">
               {dict.nav.security}
             </Link>
