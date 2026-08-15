@@ -78,21 +78,17 @@ export default async function SecurityPage({
         </section>
 
         <section className="max-w-6xl mx-auto px-5 sm:px-8 pb-16">
-          <p className="text-xs text-[#E23B2E] mb-5">{dict.kit.reviewsLabel}</p>
+          <p className="text-xs text-[#E23B2E] mb-5">{dict.kit.factsLabel}</p>
           <div className="grid md:grid-cols-3 gap-4">
-            {dict.kit.reviews.map((r) => (
-              <figure
-                key={r.name}
+            {dict.kit.facts.map((f) => (
+              <div
+                key={f.t}
                 className="rounded-2xl bg-white p-6 shadow-[0_8px_30px_-18px_rgba(22,22,22,0.3)]"
               >
-                <blockquote className="text-[15px] leading-relaxed">
-                  « {r.quote} »
-                </blockquote>
-                <figcaption className="mt-5 text-sm font-medium">
-                  {r.name}
-                  <span className="block font-normal text-[#8A857D]">{r.role}</span>
-                </figcaption>
-              </figure>
+                <p className="text-4xl font-semibold tracking-tight">{f.n}</p>
+                <p className="mt-1 text-sm font-medium">{f.t}</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-[#5C5954]">{f.b}</p>
+              </div>
             ))}
           </div>
         </section>

@@ -102,7 +102,7 @@ const es: typeof fr = {
     catalogBody:
       "Una squad completa: superficie, auth, API, MCP, QA. Informe priorizado, pruebas, Double QA bloqueante. Kimi K3 con tu clave OpenRouter.",
     catalogFacts: [
-      "108 archivos, cero código obligatorio",
+      "110 archivos, cero código obligatorio",
       "8 modos, 6 estados, cadena de prueba",
       "Cero exploits en el ZIP",
     ],
@@ -121,27 +121,24 @@ const es: typeof fr = {
     catalogSecretaryMore: "Leer la página completa →",
     heroTitle: "Una auditoría de seguridad Web + SaaS, de extremo a extremo.",
     heroLead:
-      "108 archivos. Corren en tu máquina. El squad mapea, puntúa y retiene el informe hasta que la QA firma. Tus modelos, tu clave OpenRouter — Kimi K3 primero.",
+      "110 archivos. Corren en tu máquina. El squad mapea, puntúa y retiene el informe hasta que la QA firma. Tus modelos, tu clave OpenRouter — Kimi K3 primero.",
     heroAlt: "Informe de auditoría en un portátil",
-    reviewsLabel: "Texto de ejemplo — sustituir por clientes reales.",
-    reviews: [
+    factsLabel: "En el ZIP",
+    facts: [
       {
-        name: "Léa M.",
-        role: "Freelance AppSec",
-        quote:
-          "Saqué 11 hallazgos Confirmado en una tarde. La QA bloqueó dos hipótesis que habría escrito demasiado rápido.",
+        n: "110",
+        t: "archivos",
+        b: "Prompts, configs, plantillas, esquemas. Cero código obligatorio.",
       },
       {
-        name: "Marc T.",
-        role: "Founder, SaaS B2B",
-        quote:
-          "Una lista priorizada en lugar de un PDF de 80 páginas. La authz multi-tenant era el agujero de verdad.",
+        n: "12",
+        t: "agentes",
+        b: "Del orquestador a la QA. Más 10 especialistas (SaaS, MCP, móvil, OSINT).",
       },
       {
-        name: "Inès K.",
-        role: "Directora de agencia",
-        quote:
-          "Los juniors siguen el squad. Yo releo el informe. No testeado es tan útil como Confirmado.",
+        n: "8",
+        t: "modos",
+        b: "Express, Web, SaaS, MCP, delta, continuo, red team, informe. Seis estados de medida.",
       },
     ],
     problemTitle: "Un escáner te deja 200 líneas. Tú tienes que quedarte con diez.",
@@ -170,7 +167,7 @@ const es: typeof fr = {
     ],
     priceEyebrow: "El kit, hoy",
     priceBody:
-      "Pago único. Squad, 8 modos, reglas, plantillas de informe, compañero de implementación. 108 archivos. Cero código obligatorio.",
+      "Pago único. Squad, 8 modos, reglas, plantillas de informe, compañero de implementación. 110 archivos. Cero código obligatorio.",
     faqTitle: "Antes de pagar.",
     faq: [
       {

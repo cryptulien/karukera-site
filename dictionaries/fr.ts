@@ -100,7 +100,7 @@ const fr = {
     catalogBody:
       "Une squad complète : surface, auth, API, MCP, QA. Rapport priorisé, preuves, Double QA bloquante. Kimi K3 via ta clé OpenRouter.",
     catalogFacts: [
-      "108 fichiers, zéro code obligatoire",
+      "110 fichiers, zéro code obligatoire",
       "8 modes, 6 statuts, chaîne de preuve",
       "Zéro exploit dans le ZIP",
     ],
@@ -119,27 +119,24 @@ const fr = {
     catalogSecretaryMore: "Lire la page complète →",
     heroTitle: "Un audit sécu Web + SaaS, de bout en bout.",
     heroLead:
-      "108 fichiers. Tu les lances chez toi. La squad cartographie, score, et refuse le rapport tant que la QA n’a pas signé. Tes modèles, ta clé OpenRouter — Kimi K3 en premier.",
+      "110 fichiers. Tu les lances chez toi. La squad cartographie, score, et refuse le rapport tant que la QA n’a pas signé. Tes modèles, ta clé OpenRouter — Kimi K3 en premier.",
     heroAlt: "Rapport d’audit sur un laptop",
-    reviewsLabel: "Wording d’exemple — avis à remplacer par de vrais clients.",
-    reviews: [
+    factsLabel: "Dans le ZIP",
+    facts: [
       {
-        name: "Léa M.",
-        role: "Freelance AppSec",
-        quote:
-          "J’ai sorti 11 findings Confirmé en une après-midi. La QA a bloqué deux hypothèses que j’aurais écrites trop vite.",
+        n: "110",
+        t: "fichiers",
+        b: "Prompts, configs, templates, schémas. Zéro code obligatoire.",
       },
       {
-        name: "Marc T.",
-        role: "Founder, SaaS B2B",
-        quote:
-          "Une liste priorisée au lieu d’un PDF de 80 pages. L’authz multi-tenant était le vrai trou.",
+        n: "12",
+        t: "agents",
+        b: "De l’orchestrateur à la QA. Plus 10 spécialistes (SaaS, MCP, mobile, OSINT).",
       },
       {
-        name: "Inès K.",
-        role: "Directrice d’agence",
-        quote:
-          "Mes juniors suivent la squad. Je relis le rapport. Le statut Non testé est aussi utile que le Confirmé.",
+        n: "8",
+        t: "modes",
+        b: "Express, Web, SaaS, MCP, delta, continu, red team, rapport. Six statuts de mesure.",
       },
     ],
     problemTitle: "Un scanner te laisse 200 lignes. Toi tu dois en garder dix.",
@@ -168,7 +165,7 @@ const fr = {
     ],
     priceEyebrow: "Le kit, aujourd’hui",
     priceBody:
-      "Paiement unique. Squad, 8 modes, règles, templates de rapport, compagnon d’implémentation. 108 fichiers. Zéro code obligatoire.",
+      "Paiement unique. Squad, 8 modes, règles, templates de rapport, compagnon d’implémentation. 110 fichiers. Zéro code obligatoire.",
     faqTitle: "Avant que tu paies.",
     faq: [
       {

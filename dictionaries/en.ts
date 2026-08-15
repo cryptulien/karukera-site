@@ -102,7 +102,7 @@ const en: typeof fr = {
     catalogBody:
       "A full squad: surface, auth, API, MCP, QA. Prioritized report, evidence, blocking Double QA. Kimi K3 via your OpenRouter key.",
     catalogFacts: [
-      "108 files, no code required",
+      "110 files, no code required",
       "8 modes, 6 statuses, evidence chain",
       "No exploits in the ZIP",
     ],
@@ -121,27 +121,24 @@ const en: typeof fr = {
     catalogSecretaryMore: "Read the full page →",
     heroTitle: "A full Web + SaaS security audit. End to end.",
     heroLead:
-      "108 files. They run on your machine. The squad maps, scores, and withholds the report until QA signs. Your models, your OpenRouter key — Kimi K3 first.",
+      "110 files. They run on your machine. The squad maps, scores, and withholds the report until QA signs. Your models, your OpenRouter key — Kimi K3 first.",
     heroAlt: "Audit report on a laptop",
-    reviewsLabel: "Sample wording — replace with real clients.",
-    reviews: [
+    factsLabel: "Inside the ZIP",
+    facts: [
       {
-        name: "Léa M.",
-        role: "Freelance AppSec",
-        quote:
-          "I shipped 11 Confirmed findings in an afternoon. QA blocked two hypotheses I would have written too fast.",
+        n: "110",
+        t: "files",
+        b: "Prompts, configs, templates, schemas. No code required.",
       },
       {
-        name: "Marc T.",
-        role: "Founder, B2B SaaS",
-        quote:
-          "A prioritized list instead of an 80-page PDF. Multi-tenant authz was the real hole.",
+        n: "12",
+        t: "agents",
+        b: "From orchestrator to QA. Plus 10 specialists (SaaS, MCP, mobile, OSINT).",
       },
       {
-        name: "Inès K.",
-        role: "Agency lead",
-        quote:
-          "Juniors follow the squad. I review the report. Untested is as useful as Confirmed.",
+        n: "8",
+        t: "modes",
+        b: "Express, Web, SaaS, MCP, delta, continuous, red team, report. Six measurement statuses.",
       },
     ],
     problemTitle: "A scanner leaves you 200 lines. You have to keep ten.",
@@ -170,7 +167,7 @@ const en: typeof fr = {
     ],
     priceEyebrow: "The kit, today",
     priceBody:
-      "One-time payment. Squad, 8 modes, rules, report templates, implementation companion. 108 files. No code required.",
+      "One-time payment. Squad, 8 modes, rules, report templates, implementation companion. 110 files. No code required.",
     faqTitle: "Before you pay.",
     faq: [
       {
