@@ -42,7 +42,8 @@ const es: typeof fr = {
     carnet: "Cuaderno",
     write: "Escribir",
     follow: "Sígueme en X",
-    agents: "Agents",
+    agents: "Agentes",
+    legal: "Karukera — Julien Lelandais. Uso autorizado únicamente. Tus datos se quedan contigo.",
   },
   blog: {
     eyebrow: "Cuaderno",
@@ -81,25 +82,42 @@ const es: typeof fr = {
     metaTitle: "Kit de auditoría de seguridad — Karukera",
     metaDesc:
       "ZIP de agentes para auditar un sitio o un SaaS: pruebas, estados, Double QA. Corre en tu máquina, vía OpenRouter (Kimi K3).",
-    catalogMetaTitle: "Agentes — Karukera",
+    catalogMetaTitle: "Kits de agentes — Karukera",
     catalogMetaDesc:
-      "El primer kit Karukera: una auditoría de seguridad Web + SaaS de extremo a extremo.",
-    catalogTitle: "Dos kits. Corren en tu lado.",
+      "Dos kits de agentes: auditoría de seguridad Web + SaaS, y secretaria comercial Telegram / Ringover / Odoo. Corren en tu lado.",
+    catalogTitle: "Kits de agentes. Dos, hoy.",
     catalogLead:
-      "Pagas, descargas el ZIP, lo abres en tu máquina. Karukera no ve ni tu objetivo ni tus clientes.",
+      "Pagas, descargas el ZIP, lo lanzas en tu máquina. Karukera no ve ni tu objetivo ni tus clientes.",
+    catalogPrice: "197 €",
+    catalogOpen: "Ver el kit",
+    catalogHow: [
+      { t: "Un ZIP", b: "Prompts, configs, appliance. Nada se aloja aquí." },
+      { t: "En tu lado", b: "Cursor, Claude Code, Hermes, o un VPS. Tus claves siguen siendo tuyas." },
+      { t: "Tras Stripe", b: "Enlace firmado 7 días, también en el mail de kit@karukera.xyz." },
+    ],
     catalogBadge: "Kit de auditoría de seguridad",
     catalogScope: "Web + SaaS + agentes / MCP",
     catalogAlt: "Informe de auditoría priorizado en un portátil",
-    catalogH2: "Una auditoría que puedes mostrar. No un PDF de 80 páginas.",
+    catalogH2: "Auditoría de seguridad Web + SaaS",
     catalogBody:
-      "Cada hallazgo tiene una prueba, un estado y una prioridad. La Double QA bloquea el informe hasta que se sostiene. OpenRouter obligatorio. Kimi K3 primero. Cero exploits en el ZIP.",
+      "Una squad completa: superficie, auth, API, MCP, QA. Informe priorizado, pruebas, Double QA bloqueante. Kimi K3 con tu clave OpenRouter.",
+    catalogFacts: [
+      "108 archivos, cero código obligatorio",
+      "8 modos, 6 estados, cadena de prueba",
+      "Cero exploits en el ZIP",
+    ],
     catalogMore: "Leer la página completa →",
     catalogSoon: "Después — aún no a la venta: SEO / GEO · Clínica · Acompañamiento.",
     catalogSecretaryBadge: "Kit de secretaria comercial",
     catalogSecretaryScope: "Telegram · Ringover · Odoo",
-    catalogSecretaryH2: "Las llamadas y los mails se vuelven tarjetas. Odoo solo escribe después de tu ok.",
+    catalogSecretaryH2: "Secretaria comercial",
     catalogSecretaryBody:
-      "Hermes lee IMAP y Quicktalk / Ringover, te manda una tarjeta por Telegram y, al ok, actualiza el contacto, la oportunidad, la actividad, la tarea y un borrador de mail. Nada se envía solo.",
+      "Mails y llamadas Ringover → tarjeta Telegram → Odoo solo después de tu ok. Appliance Docker, wizard de instalación, guía de despliegue para una IA.",
+    catalogSecretaryFacts: [
+      "Hermes + ingest Docker",
+      "Telegram, Ringover, IMAP, Odoo",
+      "Nada se envía solo",
+    ],
     catalogSecretaryMore: "Leer la página completa →",
     heroTitle: "Una auditoría de seguridad Web + SaaS, de extremo a extremo.",
     heroLead:

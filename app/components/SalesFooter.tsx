@@ -39,8 +39,7 @@ export function SalesFooter({
           </div>
         </div>
         <p className="mt-10 text-xs text-[#8A857D]">
-          Karukera — Julien Lelandais · {year}. Usage autorisé uniquement. Pas
-          d’exploit dans le ZIP.
+          {dict.footer.legal} · {year}
         </p>
       </div>
     </footer>

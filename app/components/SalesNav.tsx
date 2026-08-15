@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import type { Dict } from "@/dictionaries";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { BuyButton } from "./BuyButton";
 
 export function SalesNav({ locale, dict }: { locale: Locale; dict: Dict }) {
   return (
@@ -25,9 +24,6 @@ export function SalesNav({ locale, dict }: { locale: Locale; dict: Dict }) {
             {dict.nav.agents}
           </Link>
           <LanguageSwitcher locale={locale} tone="dark" />
-          <div className="hidden md:block">
-            <BuyButton locale={locale} dict={dict} compact />
-          </div>
         </div>
       </nav>
     </header>

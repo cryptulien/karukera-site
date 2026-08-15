@@ -43,6 +43,7 @@ const en: typeof fr = {
     write: "Write",
     follow: "Follow me on X",
     agents: "Agents",
+    legal: "Karukera — Julien Lelandais. Authorized use only. Your data stays with you.",
   },
   blog: {
     eyebrow: "Journal",
@@ -81,25 +82,42 @@ const en: typeof fr = {
     metaTitle: "Security audit kit — Karukera",
     metaDesc:
       "A ZIP of agents to audit a site or SaaS: evidence, statuses, Double QA. Runs on your machine, via OpenRouter (Kimi K3).",
-    catalogMetaTitle: "Agents — Karukera",
+    catalogMetaTitle: "Agent kits — Karukera",
     catalogMetaDesc:
-      "Karukera’s first kit: an end-to-end Web + SaaS security audit.",
-    catalogTitle: "Two kits. They run on your side.",
+      "Two agent kits: a Web + SaaS security audit, and a sales secretary for Telegram / Ringover / Odoo. They run on your side.",
+    catalogTitle: "Agent kits. Two, today.",
     catalogLead:
-      "You pay, you download the ZIP, you open it on your machine. Karukera sees neither your target nor your clients.",
+      "You pay, you download the ZIP, you run it on your machine. Karukera sees neither your target nor your clients.",
+    catalogPrice: "€197",
+    catalogOpen: "See the kit",
+    catalogHow: [
+      { t: "A ZIP", b: "Prompts, configs, an appliance. Nothing is hosted here." },
+      { t: "On your side", b: "Cursor, Claude Code, Hermes, or a VPS. Your keys stay yours." },
+      { t: "After Stripe", b: "A signed 7-day link, also in the mail from kit@karukera.xyz." },
+    ],
     catalogBadge: "Security audit kit",
     catalogScope: "Web + SaaS + agents / MCP",
     catalogAlt: "Prioritized audit report on a laptop",
-    catalogH2: "An audit you can show. Not an 80-page PDF.",
+    catalogH2: "Web + SaaS security audit",
     catalogBody:
-      "Every finding has evidence, a status and a priority. Double QA blocks the report until it holds. OpenRouter required. Kimi K3 first. No exploits in the ZIP.",
+      "A full squad: surface, auth, API, MCP, QA. Prioritized report, evidence, blocking Double QA. Kimi K3 via your OpenRouter key.",
+    catalogFacts: [
+      "108 files, no code required",
+      "8 modes, 6 statuses, evidence chain",
+      "No exploits in the ZIP",
+    ],
     catalogMore: "Read the full page →",
     catalogSoon: "Next — not for sale yet: SEO / GEO · Clinic · Coaching.",
     catalogSecretaryBadge: "Sales secretary kit",
     catalogSecretaryScope: "Telegram · Ringover · Odoo",
-    catalogSecretaryH2: "Calls and mail become cards. Odoo writes only after your ok.",
+    catalogSecretaryH2: "Sales secretary",
     catalogSecretaryBody:
-      "Hermes reads IMAP and Quicktalk / Ringover, sends you a Telegram card, and on ok updates the contact, opportunity, activity, task and a mail draft. Nothing is sent on its own.",
+      "Mail and Ringover calls → Telegram card → Odoo only after your ok. Docker appliance, install wizard, deploy guide for an AI.",
+    catalogSecretaryFacts: [
+      "Hermes + Docker ingest",
+      "Telegram, Ringover, IMAP, Odoo",
+      "Nothing is sent on its own",
+    ],
     catalogSecretaryMore: "Read the full page →",
     heroTitle: "A full Web + SaaS security audit. End to end.",
     heroLead:

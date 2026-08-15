@@ -6,7 +6,6 @@ import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { SalesNav } from "../../components/SalesNav";
 import { SalesFooter } from "../../components/SalesFooter";
-import { BuyButton } from "../../components/BuyButton";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -37,89 +36,100 @@ export default async function AgentsPage({
   const dict = getDictionary(locale);
   const year = new Date().getFullYear();
 
+  const kits = [
+    {
+      sku: "security-kit" as const,
+      href: `/${locale}/agents/security`,
+      badge: dict.kit.catalogBadge,
+      scope: dict.kit.catalogScope,
+      title: dict.kit.catalogH2,
+      body: dict.kit.catalogBody,
+      facts: dict.kit.catalogFacts,
+      image: "/images/kit-laptop.jpg",
+      alt: dict.kit.catalogAlt,
+      note: dict.shop.priceNote,
+    },
+    {
+      sku: "sales-secretary" as const,
+      href: `/${locale}/agents/secretary`,
+      badge: dict.kit.catalogSecretaryBadge,
+      scope: dict.kit.catalogSecretaryScope,
+      title: dict.kit.catalogSecretaryH2,
+      body: dict.kit.catalogSecretaryBody,
+      facts: dict.kit.catalogSecretaryFacts,
+      image: "/images/kit-folder.jpg",
+      alt: dict.kit.catalogSecretaryH2,
+      note: dict.secretary.priceNote,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#F6F4EF] text-[#161616]">
       <SalesNav locale={locale} dict={dict} />
       <main>
-        <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-10 text-center">
-          <h1 className="font-sans text-[2.1rem] sm:text-5xl md:text-[3.4rem] font-semibold tracking-[-0.03em] leading-[1.08]">
+        <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-12">
+          <h1 className="font-sans text-[2.1rem] sm:text-5xl md:text-[3.4rem] font-semibold tracking-[-0.03em] leading-[1.08] max-w-4xl">
             {dict.kit.catalogTitle}
           </h1>
-          <p className="mt-6 text-lg text-[#5C5954] max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg text-[#5C5954] max-w-2xl leading-relaxed">
             {dict.kit.catalogLead}
           </p>
         </section>
 
-        <section className="max-w-5xl mx-auto px-5 sm:px-8 pb-20">
-          <article className="rounded-3xl overflow-hidden bg-white shadow-[0_12px_40px_-16px_rgba(22,22,22,0.25)]">
-            <div className="bg-[#1C1B19] px-6 sm:px-8 py-4 flex items-center justify-between text-white/70 text-sm">
-              <span>{dict.kit.catalogBadge}</span>
-              <span>{dict.kit.catalogScope}</span>
+        <section className="max-w-5xl mx-auto px-5 sm:px-8 pb-16 grid md:grid-cols-3 gap-10">
+          {dict.kit.catalogHow.map((step) => (
+            <div key={step.t}>
+              <p className="font-medium text-[17px]">{step.t}</p>
+              <p className="mt-2 text-sm text-[#5C5954] leading-relaxed">{step.b}</p>
             </div>
-            <div className="bg-[#1C1B19] px-4 sm:px-8 pb-6">
-              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden">
+          ))}
+        </section>
+
+        <section className="max-w-5xl mx-auto px-5 sm:px-8 pb-20 grid lg:grid-cols-2 gap-6">
+          {kits.map((k) => (
+            <article
+              key={k.sku}
+              className="flex flex-col rounded-2xl bg-white shadow-[0_12px_40px_-18px_rgba(22,22,22,0.28)] overflow-hidden"
+            >
+              <div className="relative aspect-[16/10]">
                 <Image
-                  src="/images/kit-laptop.jpg"
-                  alt={dict.kit.catalogAlt}
+                  src={k.image}
+                  alt={k.alt}
                   fill
                   className="object-cover"
-                  sizes="(min-width: 1024px) 960px, 100vw"
-                  priority
+                  sizes="(min-width: 1024px) 480px, 100vw"
+                  priority={k.sku === "security-kit"}
                 />
               </div>
-            </div>
-            <div className="px-6 sm:px-10 py-10">
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight leading-snug">
-                {dict.kit.catalogH2}
-              </h2>
-              <p className="mt-4 text-[#5C5954] leading-relaxed max-w-2xl">
-                {dict.kit.catalogBody}
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-                <BuyButton locale={locale} dict={dict} sku="security-kit" />
+              <div className="flex flex-1 flex-col px-6 sm:px-8 py-8">
+                <p className="text-sm text-[#8A857D]">{k.scope}</p>
+                <h2 className="mt-2 text-2xl font-semibold tracking-tight leading-snug">
+                  {k.title}
+                </h2>
+                <p className="mt-3 text-[#5C5954] leading-relaxed">{k.body}</p>
+                <ul className="mt-5 space-y-1.5 text-sm text-[#161616]">
+                  {k.facts.map((f) => (
+                    <li key={f}>{f}</li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-2xl font-semibold tracking-tight">
+                  {dict.kit.catalogPrice}
+                </p>
                 <Link
-                  href={`/${locale}/agents/security`}
-                  className="text-sm text-[#5C5954] hover:text-[#161616]"
+                  href={k.href}
+                  className="mt-6 inline-flex items-center justify-center rounded-full bg-[#E23B2E] px-7 h-12 text-[15px] font-medium text-white hover:bg-[#c92f24] self-start"
                 >
-                  {dict.kit.catalogMore}
+                  {dict.kit.catalogOpen}
                 </Link>
+                <p className="mt-3 text-sm text-[#8A857D]">{k.note}</p>
               </div>
-              <p className="mt-3 text-sm text-[#8A857D]">{dict.shop.priceNote}</p>
-            </div>
-          </article>
-
-          <article className="mt-8 rounded-3xl overflow-hidden bg-white shadow-[0_12px_40px_-16px_rgba(22,22,22,0.25)]">
-            <div className="bg-[#1C1B19] px-6 sm:px-8 py-4 flex items-center justify-between text-white/70 text-sm">
-              <span>{dict.kit.catalogSecretaryBadge}</span>
-              <span>{dict.kit.catalogSecretaryScope}</span>
-            </div>
-            <div className="px-6 sm:px-10 py-10">
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight leading-snug">
-                {dict.kit.catalogSecretaryH2}
-              </h2>
-              <p className="mt-4 text-[#5C5954] leading-relaxed max-w-2xl">
-                {dict.kit.catalogSecretaryBody}
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-                <BuyButton
-                  locale={locale}
-                  dict={dict}
-                  sku="sales-secretary"
-                  label={dict.secretary.buy}
-                />
-                <Link
-                  href={`/${locale}/agents/secretary`}
-                  className="text-sm text-[#5C5954] hover:text-[#161616]"
-                >
-                  {dict.kit.catalogSecretaryMore}
-                </Link>
-              </div>
-              <p className="mt-3 text-sm text-[#8A857D]">{dict.secretary.priceNote}</p>
-            </div>
-          </article>
-
-          <p className="mt-10 text-sm text-[#8A857D]">{dict.kit.catalogSoon}</p>
+            </article>
+          ))}
         </section>
+
+        <p className="max-w-5xl mx-auto px-5 sm:px-8 pb-20 text-sm text-[#8A857D]">
+          {dict.kit.catalogSoon}
+        </p>
       </main>
       <SalesFooter locale={locale} dict={dict} year={year} />
     </div>
