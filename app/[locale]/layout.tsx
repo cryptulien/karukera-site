@@ -52,7 +52,14 @@ export async function generateMetadata({
     metadataBase: new URL("https://karukera.xyz"),
     title: m.title,
     description: m.description,
-    icons: { icon: "/images/favicon.ico" },
+    icons: {
+      icon: [
+        { url: "/images/favicon.ico", sizes: "48x48" },
+        { url: "/images/icon-32.png", type: "image/png", sizes: "32x32" },
+        { url: "/images/icon-192.png", type: "image/png", sizes: "192x192" },
+      ],
+      apple: [{ url: "/images/apple-touch-icon.png", sizes: "180x180" }],
+    },
     openGraph: {
       title: m.title,
       description: m.description,
