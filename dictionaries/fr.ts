@@ -48,6 +48,8 @@ const fr = {
     follow: "Me suivre sur X",
     agents: "Agents",
     legal: "Karukera — Julien Lelandais. Usage autorisé uniquement. Tes données restent chez toi.",
+    salesTagline: "Des kits d’agents que tu lances chez toi.",
+    salesLegal: "Karukera — Julien Lelandais. Tes données restent chez toi.",
   },
   blog: {
     eyebrow: "Le Carnet",

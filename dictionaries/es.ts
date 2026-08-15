@@ -50,6 +50,8 @@ const es: typeof fr = {
     follow: "Sígueme en X",
     agents: "Agentes",
     legal: "Karukera — Julien Lelandais. Uso autorizado únicamente. Tus datos se quedan contigo.",
+    salesTagline: "Kits de agentes que corren en tu máquina.",
+    salesLegal: "Karukera — Julien Lelandais. Tus datos se quedan contigo.",
   },
   blog: {
     eyebrow: "Cuaderno",

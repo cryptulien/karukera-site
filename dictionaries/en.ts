@@ -50,6 +50,8 @@ const en: typeof fr = {
     follow: "Follow me on X",
     agents: "Agents",
     legal: "Karukera — Julien Lelandais. Authorized use only. Your data stays with you.",
+    salesTagline: "Agent kits that run on your machine.",
+    salesLegal: "Karukera — Julien Lelandais. Your data stays with you.",
   },
   blog: {
     eyebrow: "Journal",
