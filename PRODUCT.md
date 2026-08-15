@@ -10,7 +10,7 @@ web
 
 **Primary (home / studio):** a visitor discovering Julien Lelandais — médecin psychiatre et entrepreneur — et ce qu'il construit. Job : comprendre *qui* est derrière SuperPagr, Le Lien, OpenStats, et s'il vaut la peine de suivre.
 
-**Secondary ( /agents ):** freelance sécu, agence, ou founder qui déploie un SaaS ou des agents MCP. Job : décider s'il télécharge / achète le kit d'audit de sécurité. Il peut arriver directement sur `/agents/security` depuis X, sans passer par la home.
+**Secondary ( /agents ):** solo founder / SaaS qui veut sécuriser son application (et donc ses revenus). Job : comprendre qu'il lance le kit chez lui, dans Claude / Codex / un autre, choisit projet + profondeur + accès, et reçoit rapport + preuves + tickets de correctif. Il arrive souvent directement sur `/agents/security`, sans passer par le studio.
 
 Les deux publics se croisent ; la home n'essaie pas de convertir le second, `/agents` n'essaie pas de raconter le premier.
 

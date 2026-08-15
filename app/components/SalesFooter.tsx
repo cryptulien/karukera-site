@@ -16,17 +16,22 @@ export function SalesFooter({
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
           <div>
-            <p className="font-serif text-2xl text-[#161616]">Karukera</p>
+            <Link href={`/${locale}/agents`} className="font-serif text-2xl text-[#161616]">
+              Karukera
+            </Link>
             <p className="mt-3 text-sm text-[#5C5954] max-w-sm leading-relaxed">
               {dict.footer.tagline}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-6 text-sm text-[#5C5954]">
-            <Link href={`/${locale}`} className="hover:text-[#161616]">
-              {dict.footer.home}
-            </Link>
             <Link href={`/${locale}/agents`} className="hover:text-[#161616]">
               {dict.footer.agents}
+            </Link>
+            <Link href={`/${locale}/agents/security`} className="hover:text-[#161616]">
+              {dict.nav.security}
+            </Link>
+            <Link href={`/${locale}/agents/secretary`} className="hover:text-[#161616]">
+              {dict.nav.secretary}
             </Link>
             <a
               href="https://x.com/cryptulien"

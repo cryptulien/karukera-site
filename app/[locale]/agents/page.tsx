@@ -79,7 +79,7 @@ export default async function AgentsPage({
   ];
 
   return (
-    <div className="min-h-screen bg-[#F6F4EF] text-[#161616]">
+    <div className="min-h-screen bg-[#F4F3EF] text-[#121212]">
       <JsonLd
         data={{
           "@context": "https://schema.org",

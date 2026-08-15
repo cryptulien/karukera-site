@@ -2,28 +2,56 @@ import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import type { Dict } from "@/dictionaries";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { BuyButton } from "./BuyButton";
 
-export function SalesNav({ locale, dict }: { locale: Locale; dict: Dict }) {
+export function SalesNav({
+  locale,
+  dict,
+  sku,
+}: {
+  locale: Locale;
+  dict: Dict;
+  sku?: "security-kit" | "sales-secretary";
+}) {
   return (
-    <header className="sticky top-0 z-50 bg-[#F6F4EF]/90 backdrop-blur-md border-b border-black/5">
+    <header className="sticky top-0 z-50 bg-[#F4F3EF]/90 backdrop-blur-md border-b border-black/[0.06]">
       <nav className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
-        <Link href={`/${locale}`} className="font-serif text-lg text-[#161616]">
-          Karukera
+        <Link
+          href={`/${locale}/agents`}
+          className="flex items-baseline gap-2 min-w-0"
+        >
+          <span className="font-serif text-lg text-[#121212] tracking-wide">
+            Karukera
+          </span>
+          <span className="hidden sm:inline text-[13px] text-[#6B675F]">
+            {dict.nav.agents}
+          </span>
         </Link>
-        <div className="flex items-center gap-4 sm:gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           <Link
-            href={`/${locale}`}
-            className="hidden sm:inline py-2 text-sm text-[#5C5954] hover:text-[#161616]"
+            href={`/${locale}/agents/security`}
+            className="py-2 text-sm text-[#3F3C38] hover:text-[#121212]"
           >
-            Studio
+            {dict.nav.security}
           </Link>
           <Link
-            href={`/${locale}/agents`}
-            className="py-2 text-sm font-medium text-[#161616]"
+            href={`/${locale}/agents/secretary`}
+            className="hidden sm:inline py-2 text-sm text-[#3F3C38] hover:text-[#121212]"
           >
-            {dict.nav.agents}
+            {dict.nav.secretary}
           </Link>
           <LanguageSwitcher locale={locale} tone="dark" />
+          {sku ? (
+            <div className="hidden md:block">
+              <BuyButton
+                locale={locale}
+                dict={dict}
+                sku={sku}
+                compact
+                label={sku === "sales-secretary" ? dict.secretary.buy : dict.shop.buy}
+              />
+            </div>
+          ) : null}
         </div>
       </nav>
     </header>

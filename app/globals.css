@@ -40,3 +40,18 @@
     @apply inline-block h-2 w-2 rounded-full bg-sei-vermilion;
   }
 }
+
+@keyframes kit-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.72); }
+}
+
+.kit-pulse {
+  animation: kit-pulse 1.1s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kit-pulse {
+    animation: none;
+  }
+}

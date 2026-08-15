@@ -51,7 +51,7 @@ export default async function SecretaryPage({
 
   return (
     <div className="min-h-screen bg-[#F6F4EF] text-[#161616] pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
-      <SalesNav locale={locale} dict={dict} />
+      <SalesNav locale={locale} dict={dict} sku="sales-secretary" />
       <main>
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-16">
           <p className="text-sm text-[#8A857D]">{dict.kit.catalogSecretaryScope}</p>
