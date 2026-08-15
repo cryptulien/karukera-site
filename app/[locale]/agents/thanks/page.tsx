@@ -29,7 +29,10 @@ export default async function ThanksPage({
   if (session_id && process.env.STRIPE_SECRET_KEY) {
     try {
       const session = await getStripe().checkout.sessions.retrieve(session_id);
-      if (session.metadata?.sku === KIT_SKU && session.payment_status === "paid") {
+      const paid =
+        session.payment_status === "paid" ||
+        session.payment_status === "no_payment_required";
+      if (session.metadata?.sku === KIT_SKU && paid) {
         const token = signDownload(session.id);
         downloadHref = `/api/download?t=${encodeURIComponent(token)}`;
         state = "ok";

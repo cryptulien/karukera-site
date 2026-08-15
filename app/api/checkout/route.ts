@@ -43,7 +43,11 @@ export async function POST(req: Request) {
           product_data: {
             name: KIT_NAME[locale] ?? KIT_NAME.fr,
             description:
-              "ZIP d’agents d’audit sécu Web + SaaS. Livraison immédiate après paiement.",
+              locale === "en"
+                ? "ZIP of Web + SaaS security-audit agents. Immediate download after payment."
+                : locale === "es"
+                  ? "ZIP de agentes de auditoría de seguridad Web + SaaS. Descarga inmediata tras el pago."
+                  : "ZIP d’agents d’audit sécu Web + SaaS. Livraison immédiate après paiement.",
           },
         },
       },

@@ -67,8 +67,100 @@ const en: typeof fr = {
     thanksPending: "Payment is still confirming.",
     thanksFail: "Session missing or unpaid.",
     next1: "Open START-HERE.md — without an OpenRouter key, nothing starts.",
-    next2: "€30–50 in credits. DeepSeek / GLM.",
-    next3: "“Full SaaS audit on https://…”",
+    next2: "€30–50 in OpenRouter credits. Primary model: Kimi K3.",
+    next3: "“Full SaaS audit on https://…” — a scope you control.",
+  },
+  kit: {
+    metaTitle: "Security audit kit — Karukera",
+    metaDesc:
+      "A ZIP of agents to audit a site or SaaS: evidence, statuses, Double QA. Runs on your machine, via OpenRouter (Kimi K3).",
+    catalogMetaTitle: "Agents — Karukera",
+    catalogMetaDesc:
+      "Karukera’s first kit: an end-to-end Web + SaaS security audit.",
+    catalogTitle: "Agent kits. The first one is a security audit.",
+    catalogLead:
+      "Upload the ZIP in Cursor, Claude Code, Codex or Hermes. Your agents produce a prioritized report, with evidence. Nothing is hosted at Karukera.",
+    catalogBadge: "Security audit kit",
+    catalogScope: "Web + SaaS + agents / MCP",
+    catalogAlt: "Prioritized audit report on a laptop",
+    catalogH2: "An audit you can show. Not an 80-page PDF.",
+    catalogBody:
+      "Every finding has evidence, a status and a priority. Double QA blocks the report until it holds. OpenRouter required. Kimi K3 first. No exploits in the ZIP.",
+    catalogMore: "Read the full page →",
+    catalogSoon: "Next — not for sale yet: SEO / GEO · Clinic · Coaching.",
+    heroTitle: "A full Web + SaaS security audit. End to end.",
+    heroLead:
+      "108 files. They run on your machine. The squad maps, scores, and withholds the report until QA signs. Your models, your OpenRouter key — Kimi K3 first.",
+    heroAlt: "Audit report on a laptop",
+    reviewsLabel: "Sample wording — replace with real clients.",
+    reviews: [
+      {
+        name: "Léa M.",
+        role: "Freelance AppSec",
+        quote:
+          "I shipped 11 Confirmed findings in an afternoon. QA blocked two hypotheses I would have written too fast.",
+      },
+      {
+        name: "Marc T.",
+        role: "Founder, B2B SaaS",
+        quote:
+          "A prioritized list instead of an 80-page PDF. Multi-tenant authz was the real hole.",
+      },
+      {
+        name: "Inès K.",
+        role: "Agency lead",
+        quote:
+          "Juniors follow the squad. I review the report. Untested is as useful as Confirmed.",
+      },
+    ],
+    problemTitle: "A scanner leaves you 200 lines. You have to keep ten.",
+    problemBody:
+      "On a SaaS, the hole is no longer just a missing header. It is an IDOR between two tenants. An MCP tool that is too permissive. The finding nobody dared to mark Hypothesis.",
+    folderAlt: "Kit folder in Finder",
+    findingAlt: "Finding card with status and evidence",
+    stepsTitle: "Four steps.",
+    steps: [
+      {
+        t: "You get the ZIP",
+        b: "Stripe payment. Download link. START-HERE.md first.",
+      },
+      {
+        t: "You add your OpenRouter key",
+        b: "Without a key, the kit stops. €30–50 in credits is enough in budget mode. Primary model: Kimi K3.",
+      },
+      {
+        t: "You start a mission",
+        b: "“Full SaaS audit on https://…”. Only a system you are allowed to audit.",
+      },
+      {
+        t: "You read what QA let through",
+        b: "If it refuses, there is no report. That is the product.",
+      },
+    ],
+    priceEyebrow: "The kit, today",
+    priceBody:
+      "One-time payment. Squad, 8 modes, rules, report templates, implementation companion. 108 files. No code required.",
+    faqTitle: "Before you pay.",
+    faq: [
+      {
+        q: "Do I need to code?",
+        a: "No. Prompts, configs, templates. No code required.",
+      },
+      {
+        q: "Is this an online scanner?",
+        a: "No. The ZIP runs on your side. Karukera never sees the target.",
+      },
+      {
+        q: "Can I use it on any site?",
+        a: "Only a system you have written authorization to audit.",
+      },
+      {
+        q: "Why OpenRouter?",
+        a: "One key, frontier models. Primary choice: Kimi K3. In budget mode, €30–50 in credits covers 1 to 3 audits.",
+      },
+    ],
+    closeTitle: "Run the squad on a scope you own.",
+    closeBody: "€197. One ZIP. One OpenRouter key. A held report — or QA’s silence.",
   },
 };
 

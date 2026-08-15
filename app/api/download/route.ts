@@ -31,7 +31,10 @@ export async function GET(req: Request) {
   } catch {
     return NextResponse.json({ error: "unknown session" }, { status: 403 });
   }
-  if (session.payment_status !== "paid" || session.metadata?.sku !== KIT_SKU) {
+  const paid =
+    session.payment_status === "paid" ||
+    session.payment_status === "no_payment_required";
+  if (!paid || session.metadata?.sku !== KIT_SKU) {
     return NextResponse.json({ error: "unpaid" }, { status: 403 });
   }
 
