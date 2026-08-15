@@ -64,7 +64,7 @@ export async function sendKitEmail(opts: {
 
   const link = downloadPageUrl(opts);
   const t = copy(opts.locale, opts.sku);
-  const from = process.env.KIT_EMAIL_FROM || "Karukera <agents@superpagr.com>";
+  const from = process.env.KIT_EMAIL_FROM || "Karukera <kit@karukera.xyz>";
 
   const html = `<!doctype html>
 <html><body style="font-family:Georgia,serif;color:#161616;background:#F6F4EF;margin:0;padding:32px">
