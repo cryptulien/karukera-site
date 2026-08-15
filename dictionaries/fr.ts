@@ -60,7 +60,7 @@ const fr = {
     busy: "Redirection vers Stripe…",
     thanksTitle: "Le ZIP est prêt.",
     thanksBody:
-      "Paiement reçu. Télécharge le kit, ouvre START-HERE.md, mets ta clé OpenRouter, lance une mission sur un scope à toi.",
+      "Paiement reçu. Télécharge le kit. Le même lien signé (7 jours) part aussi à l’e-mail du paiement — tu pourras y revenir sans retaper quoi que ce soit.",
     download: "Télécharger le ZIP",
     thanksPending: "Paiement en cours de confirmation.",
     thanksFail: "Session introuvable ou impayée.",
@@ -229,7 +229,7 @@ const fr = {
     closeTitle: "Branche le bot sur un VPS à toi.",
     closeBody: "197 €. Un ZIP. Un Telegram. Rien dans Odoo avant ton ok.",
     thanksBody:
-      "Paiement reçu. Télécharge le ZIP, ouvre START-HERE.md, donne-le à une IA sur ton VPS, puis parle au bot.",
+      "Paiement reçu. Télécharge le ZIP. Le même lien signé (7 jours) part aussi à l’e-mail du paiement. Puis START-HERE.md, et le bot.",
     next1: "Ouvre START-HERE.md — deux phases, tu n’en fusionnes aucune.",
     next2: "Phase 1 : FOR-AI.md puis pack/deploy/SKILL.md sur le VPS.",
     next3: "Phase 2 : tu écris au bot. Les cartes arrivent toutes seules.",

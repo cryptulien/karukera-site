@@ -62,7 +62,7 @@ const es: typeof fr = {
     busy: "Redirigiendo a Stripe…",
     thanksTitle: "El ZIP está listo.",
     thanksBody:
-      "Pago recibido. Descarga el kit, abre START-HERE.md, pon tu clave OpenRouter, lanza una misión sobre un alcance que controles.",
+      "Pago recibido. Descarga el kit. El mismo enlace firmado (7 días) también va al e-mail del pago — puedes volver sin escribir nada.",
     download: "Descargar el ZIP",
     thanksPending: "El pago se está confirmando.",
     thanksFail: "Sesión inexistente o impagada.",

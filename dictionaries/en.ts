@@ -62,7 +62,7 @@ const en: typeof fr = {
     busy: "Redirecting to Stripe…",
     thanksTitle: "Your ZIP is ready.",
     thanksBody:
-      "Payment received. Download the kit, open START-HERE.md, add your OpenRouter key, run a mission on a scope you control.",
+      "Payment received. Download the kit. The same signed link (7 days) also goes to the checkout email — you can come back to it without typing anything.",
     download: "Download the ZIP",
     thanksPending: "Payment is still confirming.",
     thanksFail: "Session missing or unpaid.",

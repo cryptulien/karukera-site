@@ -40,6 +40,7 @@ export async function POST(req: Request) {
           locale,
           sessionId: session.id,
           origin: origin.replace(/\/$/, ""),
+          sku: session.metadata?.sku,
         });
         console.log("kit paid", session.id, to, sent ? "mailed" : "no-mailer");
       } else {
