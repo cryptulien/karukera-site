@@ -62,8 +62,9 @@ const fr = {
   },
   shop: {
     buy: "Obtenir le kit — 197 €",
+    buyShort: "Obtenir le kit",
     price: "197 €",
-    priceNote: "Paiement unique. Tes crédits OpenRouter restent les tiens.",
+    priceNote: "Paiement unique. Mises à jour par mail.",
     stripeMissing: "Stripe n’est pas encore branché. Réessaie dans un instant.",
     checkoutError: "Le paiement n’a pas pu démarrer.",
     busy: "Redirection vers Stripe…",
@@ -74,7 +75,7 @@ const fr = {
     thanksPending: "Paiement en cours de confirmation.",
     thanksFail: "Session introuvable ou impayée.",
     next1: "Ouvre START-HERE.md, puis le ZIP dans Claude, Codex, Cursor ou Hermes.",
-    next2: "Si le modèle refuse l’audit, dépose une clé OpenRouter (30–50 € de crédits).",
+    next2: "Si le modèle refuse l’audit, dépose une clé OpenRouter (environ 10 € de crédits pour un audit).",
     next3: "Choisis le projet chez toi, la profondeur, et si tu donnes des accès.",
     unlockTitle: "Ce lien est incomplet.",
     unlockBody:
@@ -109,7 +110,7 @@ const fr = {
       "Audit sécu que tu lances chez toi. Code en profondeur, surface extérieure, ou depuis l’intérieur du SaaS. Rapport, preuves, tickets à passer à ton LLM.",
     catalogFacts: [
       "110 fichiers, zéro code obligatoire",
-      "8 profondeurs d’audit, 12 agents",
+      "8 types d’audit, 12 agents",
       "Tickets de correctif + prompts",
     ],
     catalogMore: "Lire la page complète →",
@@ -130,7 +131,6 @@ const fr = {
       "Un kit d’agents, lancé chez toi. Tu l’ouvres dans Claude, Codex ou un autre. Tu choisis le projet, la profondeur, les accès. Tu reçois le rapport, les preuves, et les tickets à coller dans ton LLM.",
     modelsLine:
       "Certains modèles refusent l’audit. Une clé OpenRouter débloque ceux qui le font — tes crédits restent les tiens.",
-    demoLabel: "Démo — pas un vrai audit",
     demoScope: "app.exemple.tld · Complet SaaS",
     problemTitle: "Tu n’as pas une équipe AppSec. Tu as un produit qui encaisse.",
     problemBody:
@@ -177,12 +177,22 @@ const fr = {
         b: "Preuves, statuts, et tickets de correctif à transmettre à ton LLM.",
       },
     ],
+    modesTitle: "Huit types d’audit.",
+    modes: [
+      { t: "Express", b: "Premier passage. Surface, pages, secrets. 30–45 min." },
+      { t: "Complet Web", b: "Site ou app : pages, cookies, front, API du même origine." },
+      { t: "Complet SaaS", b: "Orgs, rôles, facturation, isolation entre tenants." },
+      { t: "Agents / MCP", b: "Tools, skills, copilote branché sur des données." },
+      { t: "Delta", b: "Après correctifs : qu’est-ce qui a bougé." },
+      { t: "Continu", b: "Snapshot périodique, garde-fou de release." },
+      { t: "Red-team", b: "Exercice adverse. Mandat écrit obligatoire." },
+      { t: "Rapport board", b: "Synthèse décideur à partir d’un journal déjà signé." },
+    ],
     routerTitle: "Claude peut refuser. OpenRouter, non.",
     routerBody:
-      "Tu peux tout faire dans Claude ou Codex. Si le modèle refuse l’audit, dépose une clé OpenRouter. 30–50 € de crédits suffisent pour 1 à 3 missions. Les modèles frontier n’ont pas le même filtre.",
+      "Tu peux tout faire dans Claude ou Codex. Si le modèle refuse l’audit, dépose une clé OpenRouter. Environ 10 € de crédits pour un audit. Les modèles frontier n’ont pas le même filtre.",
     workflowTitle: "Douze agents. La QA signe, ou il n’y a pas de rapport.",
-    workflowLead:
-      "Déroulement d’une mission Complet SaaS. C’est une démo. Chez toi, le scope et les preuves sont les tiens.",
+    workflowLead: "Une mission Complet SaaS qui s’enchaîne. Chez toi, le scope et les preuves sont les tiens.",
     agents: [
       { id: "00", name: "Orchestre", job: "Enchaîne la squad" },
       { id: "01", name: "Surface", job: "Cartographie" },
@@ -216,9 +226,9 @@ const fr = {
     ticketTitle: "Interdire la lecture d’invoice hors tenant",
     ticketPrompt:
       "Contrôle d’appartenance tenant sur GET/PATCH/DELETE invoice. Hors tenant : 404 identique au not-found. Test défensif : le tenant A ne lit pas l’id du tenant B.",
-    priceTitle: "197 €. Un ZIP. Chez toi.",
+    priceTitle: "197 €, une fois.",
     priceBody:
-      "110 fichiers. 12 agents, 10 spécialistes, 8 profondeurs. Paiement unique. Tes clés, tes crédits, ta cible.",
+      "Paiement unique. Mises à jour régulières : un mail t’alerte, tu télécharges le nouveau ZIP.",
     faqTitle: "Avant que tu paies.",
     faq: [
       {
@@ -227,7 +237,7 @@ const fr = {
       },
       {
         q: "Je dois utiliser OpenRouter ?",
-        a: "Non. Tu peux rester dans Claude ou Codex. Si le modèle refuse l’audit, une clé OpenRouter débloque les modèles qui le font. 30–50 € de crédits pour 1 à 3 missions.",
+        a: "Non. Tu peux rester dans Claude ou Codex. Si le modèle refuse l’audit, une clé OpenRouter débloque les modèles qui le font. Environ 10 € de crédits pour un audit.",
       },
       {
         q: "C’est un scanner en ligne ?",
@@ -241,9 +251,13 @@ const fr = {
         q: "Qu’est-ce que je reçois ?",
         a: "Un rapport priorisé, les preuves, six statuts de mesure, et des tickets avec le prompt à coller dans ton LLM pour corriger.",
       },
+      {
+        q: "Les mises à jour sont payantes ?",
+        a: "Non. Paiement unique. Quand le kit change, un mail t’envoie le lien pour télécharger le nouveau ZIP.",
+      },
     ],
     closeTitle: "Lance l’audit sur un projet à toi.",
-    closeBody: "197 €. Un ZIP. Un rapport tenu — ou le silence de la QA.",
+    closeBody: "Un paiement. Les mises à jour arrivent par mail. Un rapport tenu — ou le silence de la QA.",
   },
   secretary: {
     metaTitle: "Kit secrétaire commercial — Karukera",

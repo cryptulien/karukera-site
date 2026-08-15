@@ -64,8 +64,9 @@ const es: typeof fr = {
   },
   shop: {
     buy: "Obtener el kit — 197 €",
+    buyShort: "Obtener el kit",
     price: "197 €",
-    priceNote: "Pago único. Tus créditos OpenRouter siguen siendo tuyos.",
+    priceNote: "Pago único. Actualizaciones por mail.",
     stripeMissing: "Stripe aún no está configurado. Inténtalo en un momento.",
     checkoutError: "No se pudo iniciar el pago.",
     busy: "Redirigiendo a Stripe…",
@@ -76,7 +77,7 @@ const es: typeof fr = {
     thanksPending: "El pago se está confirmando.",
     thanksFail: "Sesión inexistente o impagada.",
     next1: "Abre START-HERE.md, luego el ZIP en Claude, Codex, Cursor o Hermes.",
-    next2: "Si el modelo rechaza la auditoría, deposita una clave OpenRouter (30–50 € de créditos).",
+    next2: "Si el modelo rechaza la auditoría, deposita una clave OpenRouter (unos 10 € de créditos por una auditoría).",
     next3: "Elige el proyecto en tu máquina, la profundidad, y si das accesos.",
     unlockTitle: "Este enlace está incompleto.",
     unlockBody:
@@ -111,7 +112,7 @@ const es: typeof fr = {
       "Auditoría de seguridad que lanzas en tu máquina. Código a fondo, superficie exterior, o desde dentro del SaaS. Informe, pruebas, tickets para tu LLM.",
     catalogFacts: [
       "110 archivos, cero código obligatorio",
-      "8 profundidades, 12 agentes",
+      "8 tipos de auditoría, 12 agentes",
       "Tickets de corrección + prompts",
     ],
     catalogMore: "Leer la página completa →",
@@ -132,7 +133,6 @@ const es: typeof fr = {
       "Un kit de agentes, en tu máquina. Lo abres en Claude, Codex u otro. Eliges el proyecto, la profundidad, los accesos. Recibes el informe, las pruebas y los tickets para pegar en tu LLM.",
     modelsLine:
       "Algunos modelos rechazan la auditoría. Una clave OpenRouter desbloquea a los que sí la hacen — tus créditos siguen siendo tuyos.",
-    demoLabel: "Demo — no es una auditoría real",
     demoScope: "app.exemple.tld · SaaS completo",
     problemTitle: "No tienes un equipo AppSec. Tienes un producto que cobra.",
     problemBody:
@@ -179,12 +179,22 @@ const es: typeof fr = {
         b: "Pruebas, estados, y tickets de corrección para tu LLM.",
       },
     ],
+    modesTitle: "Ocho tipos de auditoría.",
+    modes: [
+      { t: "Express", b: "Primer paso. Superficie, páginas, secretos. 30–45 min." },
+      { t: "Web completa", b: "Sitio o app: páginas, cookies, front, API del mismo origen." },
+      { t: "SaaS completa", b: "Orgs, roles, facturación, aislamiento entre tenants." },
+      { t: "Agentes / MCP", b: "Tools, skills, un copiloto conectado a datos." },
+      { t: "Delta", b: "Después de correctivos: qué se movió." },
+      { t: "Continua", b: "Snapshot periódico, guarda de release." },
+      { t: "Red team", b: "Ejercicio adverso. Mandato escrito obligatorio." },
+      { t: "Informe board", b: "Síntesis para dirección desde un diario ya firmado." },
+    ],
     routerTitle: "Claude puede negarse. OpenRouter, no.",
     routerBody:
-      "Puedes hacerlo todo en Claude o Codex. Si el modelo rechaza la auditoría, deposita una clave OpenRouter. 30–50 € de créditos bastan para 1 a 3 misiones. Los modelos frontier no llevan el mismo filtro.",
+      "Puedes hacerlo todo en Claude o Codex. Si el modelo rechaza la auditoría, deposita una clave OpenRouter. Unos 10 € de créditos por una auditoría. Los modelos frontier no llevan el mismo filtro.",
     workflowTitle: "Doce agentes. La QA firma, o no hay informe.",
-    workflowLead:
-      "El transcurso de una misión SaaS completa. Es una demo. En tu máquina, el alcance y las pruebas son tuyos.",
+    workflowLead: "Una misión SaaS completa que se encadena. En tu máquina, el alcance y las pruebas son tuyos.",
     agents: [
       { id: "00", name: "Orquesta", job: "Encadena el squad" },
       { id: "01", name: "Superficie", job: "Cartografía" },
@@ -218,9 +228,9 @@ const es: typeof fr = {
     ticketTitle: "Prohibir la lectura de invoice fuera del tenant",
     ticketPrompt:
       "Control de pertenencia de tenant en GET/PATCH/DELETE invoice. Fuera del tenant: 404 idéntico al not-found. Test defensivo: el tenant A no lee el id del tenant B.",
-    priceTitle: "197 €. Un ZIP. En tu lado.",
+    priceTitle: "197 €, una vez.",
     priceBody:
-      "110 archivos. 12 agentes, 10 especialistas, 8 profundidades. Pago único. Tus claves, tus créditos, tu objetivo.",
+      "Pago único. Actualizaciones regulares: un mail te avisa, descargas el nuevo ZIP.",
     faqTitle: "Antes de pagar.",
     faq: [
       {
@@ -229,7 +239,7 @@ const es: typeof fr = {
       },
       {
         q: "¿Tengo que usar OpenRouter?",
-        a: "No. Puedes quedarte en Claude o Codex. Si el modelo rechaza la auditoría, una clave OpenRouter desbloquea a los que sí la hacen. 30–50 € de créditos para 1 a 3 misiones.",
+        a: "No. Puedes quedarte en Claude o Codex. Si el modelo rechaza la auditoría, una clave OpenRouter desbloquea a los que sí la hacen. Unos 10 € de créditos por una auditoría.",
       },
       {
         q: "¿Es un escáner en línea?",
@@ -243,9 +253,13 @@ const es: typeof fr = {
         q: "¿Qué recibo?",
         a: "Un informe priorizado, las pruebas, seis estados de medida, y tickets con el prompt para pegar en tu LLM y corregir.",
       },
+      {
+        q: "¿Las actualizaciones se pagan?",
+        a: "No. Pago único. Cuando el kit cambia, un mail te envía el enlace para descargar el nuevo ZIP.",
+      },
     ],
     closeTitle: "Lanza la auditoría sobre un proyecto tuyo.",
-    closeBody: "197 €. Un ZIP. Un informe sostenido — o el silencio de la QA.",
+    closeBody: "Un pago. Las actualizaciones llegan por mail. Un informe sostenido — o el silencio de la QA.",
   },
   secretary: {
     metaTitle: "Kit de secretaria comercial — Karukera",

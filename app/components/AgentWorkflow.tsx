@@ -24,7 +24,6 @@ function phaseOf(progress: number) {
 export function AgentWorkflow({
   agents,
   log,
-  demoLabel,
   scope,
   findingId,
   findingTitle,
@@ -32,7 +31,6 @@ export function AgentWorkflow({
 }: {
   agents: Agent[];
   log: string[];
-  demoLabel: string;
   scope: string;
   findingId: string;
   findingTitle: string;
@@ -90,11 +88,10 @@ export function AgentWorkflow({
     <div
       ref={root}
       className="relative overflow-hidden rounded-2xl bg-[#141311] text-[#F3F1EC] shadow-[0_24px_60px_-28px_rgba(20,19,17,0.7)] min-w-0"
-      aria-label={demoLabel}
+      aria-label={scope}
     >
-      <div className="flex items-center justify-between gap-3 px-5 py-3 border-b border-white/10 text-[11px] tracking-wide">
-        <span className="text-white/45">{demoLabel}</span>
-        <span className="font-medium text-white/80 truncate">{scope}</span>
+      <div className="px-5 py-3 border-b border-white/10 text-[11px] tracking-wide">
+        <span className="font-medium text-white/80 truncate block">{scope}</span>
       </div>
 
       <div className="grid lg:grid-cols-[11.5rem_1fr] min-h-[28rem]">

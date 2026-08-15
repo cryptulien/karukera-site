@@ -10,7 +10,6 @@ export function KitStages({
 }: {
   features: Feature[];
   demo: {
-    label: string;
     scope: string;
     findingId: string;
     findingTitle: string;
@@ -52,54 +51,59 @@ function Frame({
   label,
 }: {
   children: React.ReactNode;
-  label: string;
+  label?: string;
 }) {
   return (
-    <div className="rounded-2xl bg-[#141311] text-[#F3F1EC] overflow-hidden shadow-[0_20px_50px_-24px_rgba(20,19,17,0.65)]">
-      <div className="px-4 py-2.5 border-b border-white/10 text-[11px] text-white/40 tracking-wide">
-        {label}
-      </div>
+    <div className="rounded-2xl bg-[#141311] text-[#F3F1EC] overflow-hidden shadow-[0_20px_50px_-24px_rgba(20,19,17,0.65)] min-w-0">
+      {label ? (
+        <div className="px-4 py-2.5 border-b border-white/10 text-[11px] text-white/40 tracking-wide truncate">
+          {label}
+        </div>
+      ) : null}
       {children}
     </div>
   );
 }
 
-function StageCode({ demo }: { demo: { label: string } }) {
+function StageCode({ demo }: { demo: { scope: string } }) {
   const files = [
-    { path: "src/app/login/page.tsx", on: false },
-    { path: "src/api/invoices/[id]/route.ts", on: true },
-    { path: "src/lib/tenant.ts", on: false },
-    { path: "src/middleware.ts", on: false },
+    { path: "login/page.tsx", on: false },
+    { path: "invoices/[id]/route.ts", on: true },
+    { path: "lib/tenant.ts", on: false },
+    { path: "middleware.ts", on: false },
   ];
   return (
-    <Frame label={demo.label}>
-      <div className="grid sm:grid-cols-[11rem_1fr] min-h-[16rem]">
-        <ul className="border-b sm:border-b-0 sm:border-r border-white/10 py-3 px-3 font-mono text-[11px] leading-6">
+    <Frame label={demo.scope}>
+      <div className="grid sm:grid-cols-[minmax(0,10.5rem)_minmax(0,1fr)] min-h-[16rem]">
+        <ul className="border-b sm:border-b-0 sm:border-r border-white/10 py-3 px-3 font-mono text-[11px] leading-6 min-w-0">
           {files.map((f) => (
             <li
               key={f.path}
-              className={f.on ? "text-white bg-white/8 -mx-1 px-1 rounded" : "text-white/40"}
+              className={`truncate ${f.on ? "text-white bg-white/8 -mx-1 px-1 rounded" : "text-white/40"}`}
+              title={f.path}
             >
               {f.path}
             </li>
           ))}
         </ul>
-        <pre className="p-4 font-mono text-[12px] leading-6 text-white/70 overflow-x-auto">
-          <span className="text-white/30">14</span> {"  const invoice = await db.invoice.find(id)"}
+        <pre className="p-4 font-mono text-[12px] leading-6 text-white/70 min-w-0 overflow-hidden whitespace-pre-wrap break-all">
+          <span className="text-white/30">14</span>
+          {"  const row = await find(id)"}
           {"\n"}
-          <span className="text-white/30">15</span> {"  "}
-          <span className="bg-[#E23B2E]/30 text-white">return Response.json(invoice)</span>
+          <span className="text-white/30">15</span>
+          {"  "}
+          <span className="bg-[#E23B2E]/30 text-white">return json(row)</span>
           {"\n"}
           <span className="text-white/30">16</span>
           {"\n"}
-          <span className="text-[#E23B2E]">          ↑ no tenant check</span>
+          <span className="text-[#E23B2E]">     ↑ no tenant check</span>
         </pre>
       </div>
     </Frame>
   );
 }
 
-function StageOutside({ demo }: { demo: { label: string; scope: string } }) {
+function StageOutside({ demo }: { demo: { scope: string } }) {
   const rows = [
     ["GET", "/login", "200"],
     ["GET", "/app", "302"],
@@ -108,15 +112,15 @@ function StageOutside({ demo }: { demo: { label: string; scope: string } }) {
     ["GET", "/api/webhooks", "200"],
   ];
   return (
-    <Frame label={`${demo.label} · ${demo.scope}`}>
-      <table className="w-full text-left text-[13px]">
+    <Frame label={demo.scope}>
+      <table className="w-full text-left text-[13px] table-fixed">
         <tbody>
           {rows.map(([m, p, s]) => (
             <tr key={p} className="border-t border-white/8">
               <td className="px-4 py-2.5 font-mono text-white/40 w-14">{m}</td>
-              <td className="px-2 py-2.5 font-mono">{p}</td>
+              <td className="px-2 py-2.5 font-mono truncate">{p}</td>
               <td
-                className={`px-4 py-2.5 font-mono text-right ${
+                className={`px-4 py-2.5 font-mono text-right w-14 ${
                   s === "200" && p === "/api/webhooks" ? "text-[#E23B2E]" : "text-white/40"
                 }`}
               >
@@ -133,19 +137,19 @@ function StageOutside({ demo }: { demo: { label: string; scope: string } }) {
 function StageInside({
   demo,
 }: {
-  demo: { label: string; findingStatus: string };
+  demo: { findingStatus: string };
 }) {
   return (
-    <Frame label={demo.label}>
-      <div className="grid grid-cols-2 divide-x divide-white/10">
-        <div className="p-4">
+    <Frame>
+      <div className="grid grid-cols-2 divide-x divide-white/10 min-w-0">
+        <div className="p-4 min-w-0">
           <p className="text-[11px] text-white/40 tracking-wide">tenant A</p>
-          <p className="mt-3 font-mono text-[12px] text-white/70">GET /invoices/210</p>
+          <p className="mt-3 font-mono text-[12px] text-white/70 break-all">GET /invoices/210</p>
           <p className="mt-1 text-[13px]">200 · own invoice</p>
         </div>
-        <div className="p-4">
+        <div className="p-4 min-w-0">
           <p className="text-[11px] text-white/40 tracking-wide">tenant B</p>
-          <p className="mt-3 font-mono text-[12px] text-white/70">GET /invoices/210</p>
+          <p className="mt-3 font-mono text-[12px] text-white/70 break-all">GET /invoices/210</p>
           <p className="mt-1 text-[13px] text-[#E23B2E]">200 · should be 404</p>
           <p className="mt-4 inline-flex text-[11px] rounded-full bg-[#E23B2E] px-2 py-0.5">
             {demo.findingStatus}
@@ -160,15 +164,14 @@ function StageTickets({
   demo,
 }: {
   demo: {
-    label: string;
     ticketId: string;
     ticketTitle: string;
     ticketPrompt: string;
   };
 }) {
   return (
-    <Frame label={demo.label}>
-      <div className="p-5">
+    <Frame>
+      <div className="p-5 min-w-0">
         <div className="flex items-center justify-between gap-3 text-[11px] tracking-wide">
           <span className="text-white/45">{demo.ticketId}</span>
           <span className="text-white/70">P0 · S</span>

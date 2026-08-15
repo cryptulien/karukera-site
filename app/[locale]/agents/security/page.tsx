@@ -79,7 +79,6 @@ export default async function SecurityPage({
             <AgentWorkflow
               agents={k.agents}
               log={k.log}
-              demoLabel={k.demoLabel}
               scope={k.demoScope}
               findingId={k.findingId}
               findingTitle={k.findingTitle}
@@ -104,7 +103,6 @@ export default async function SecurityPage({
             <KitStages
               features={k.features}
               demo={{
-                label: k.demoLabel,
                 scope: k.demoScope,
                 findingId: k.findingId,
                 findingTitle: k.findingTitle,
@@ -136,6 +134,23 @@ export default async function SecurityPage({
 
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-20">
           <h2 className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em]">
+            {k.modesTitle}
+          </h2>
+          <ol className="mt-8 divide-y divide-black/5">
+            {k.modes.map((m, i) => (
+              <li key={m.t} className="py-5 grid grid-cols-[2rem_1fr] gap-4">
+                <span className="text-[#E23B2E] font-semibold tabular-nums">{i + 1}</span>
+                <div>
+                  <p className="font-medium">{m.t}</p>
+                  <p className="mt-1 text-sm text-[#5C5954] leading-relaxed">{m.b}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-20">
+          <h2 className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em]">
             {k.routerTitle}
           </h2>
           <p className="mt-5 text-[#4A4742] leading-relaxed text-[17px]">{k.routerBody}</p>
@@ -144,9 +159,14 @@ export default async function SecurityPage({
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
           <div className="rounded-2xl bg-white p-8 sm:p-10 shadow-[0_16px_40px_-24px_rgba(18,18,18,0.28)]">
             <h2 className="text-3xl font-semibold tracking-tight">{k.priceTitle}</h2>
-            <p className="mt-3 text-5xl font-semibold tracking-tight">{dict.shop.price}</p>
             <p className="mt-3 text-[#4A4742] leading-relaxed">{k.priceBody}</p>
-            <BuyButton locale={locale} dict={dict} sku="security-kit" className="mt-8" />
+            <BuyButton
+              locale={locale}
+              dict={dict}
+              sku="security-kit"
+              label={dict.shop.buyShort}
+              className="mt-8"
+            />
           </div>
         </section>
 

@@ -64,8 +64,9 @@ const en: typeof fr = {
   },
   shop: {
     buy: "Get the kit — €197",
+    buyShort: "Get the kit",
     price: "€197",
-    priceNote: "One-time payment. Your OpenRouter credits stay yours.",
+    priceNote: "One-time payment. Updates by email.",
     stripeMissing: "Stripe is not configured yet. Try again shortly.",
     checkoutError: "Checkout could not start.",
     busy: "Redirecting to Stripe…",
@@ -76,7 +77,7 @@ const en: typeof fr = {
     thanksPending: "Payment is still confirming.",
     thanksFail: "Session missing or unpaid.",
     next1: "Open START-HERE.md, then the ZIP in Claude, Codex, Cursor or Hermes.",
-    next2: "If the model refuses the audit, deposit an OpenRouter key (€30–50 in credits).",
+    next2: "If the model refuses the audit, deposit an OpenRouter key (about €10 in credits for one audit).",
     next3: "Pick the project on your machine, the depth, and whether you give access.",
     unlockTitle: "This link is incomplete.",
     unlockBody:
@@ -111,7 +112,7 @@ const en: typeof fr = {
       "A security audit you run on your machine. Deep code, outside surface, or from inside the SaaS. Report, evidence, tickets for your LLM to fix.",
     catalogFacts: [
       "110 files, no code required",
-      "8 audit depths, 12 agents",
+      "8 audit types, 12 agents",
       "Fix tickets + prompts",
     ],
     catalogMore: "Read the full page →",
@@ -132,7 +133,6 @@ const en: typeof fr = {
       "An agent kit, run on your machine. Open it in Claude, Codex or another. Pick the project, the depth, the access. You get the report, the evidence, and tickets to paste into your LLM.",
     modelsLine:
       "Some models refuse the audit. An OpenRouter key unlocks the ones that will — your credits stay yours.",
-    demoLabel: "Demo — not a real audit",
     demoScope: "app.exemple.tld · Full SaaS",
     problemTitle: "You don’t have an AppSec team. You have a product that bills.",
     problemBody:
@@ -179,12 +179,22 @@ const en: typeof fr = {
         b: "Evidence, statuses, and fix tickets to hand to your LLM.",
       },
     ],
+    modesTitle: "Eight kinds of audit.",
+    modes: [
+      { t: "Express", b: "First pass. Surface, pages, secrets. 30–45 min." },
+      { t: "Full Web", b: "Site or app: pages, cookies, front, same-origin API." },
+      { t: "Full SaaS", b: "Orgs, roles, billing, isolation between tenants." },
+      { t: "Agents / MCP", b: "Tools, skills, a copilot wired to data." },
+      { t: "Delta", b: "After fixes: what moved." },
+      { t: "Continuous", b: "Periodic snapshot, release guardrail." },
+      { t: "Red team", b: "Adversarial exercise. Written mandate required." },
+      { t: "Board report", b: "Exec summary from a journal QA already signed." },
+    ],
     routerTitle: "Claude can refuse. OpenRouter won’t.",
     routerBody:
-      "You can do everything in Claude or Codex. If the model refuses the audit, deposit an OpenRouter key. €30–50 in credits covers 1 to 3 missions. Frontier models do not carry the same filter.",
+      "You can do everything in Claude or Codex. If the model refuses the audit, deposit an OpenRouter key. About €10 in credits for one audit. Frontier models do not carry the same filter.",
     workflowTitle: "Twelve agents. QA signs, or there is no report.",
-    workflowLead:
-      "A Full SaaS mission, unfolding. This is a demo. On your machine, the scope and the evidence are yours.",
+    workflowLead: "A Full SaaS mission unfolding. On your machine, the scope and the evidence are yours.",
     agents: [
       { id: "00", name: "Orchestrator", job: "Runs the squad" },
       { id: "01", name: "Surface", job: "Maps the target" },
@@ -218,9 +228,9 @@ const en: typeof fr = {
     ticketTitle: "Block invoice reads outside the tenant",
     ticketPrompt:
       "Add a tenant-ownership check on GET/PATCH/DELETE invoice. Outside tenant: 404 identical to not-found. Defensive test: tenant A cannot read tenant B’s id.",
-    priceTitle: "€197. One ZIP. On your side.",
+    priceTitle: "€197, once.",
     priceBody:
-      "110 files. 12 agents, 10 specialists, 8 depths. One-time payment. Your keys, your credits, your target.",
+      "One-time payment. Regular updates: an email alerts you, you download the new ZIP.",
     faqTitle: "Before you pay.",
     faq: [
       {
@@ -229,7 +239,7 @@ const en: typeof fr = {
       },
       {
         q: "Do I have to use OpenRouter?",
-        a: "No. You can stay in Claude or Codex. If the model refuses the audit, an OpenRouter key unlocks the ones that will. €30–50 in credits for 1 to 3 missions.",
+        a: "No. You can stay in Claude or Codex. If the model refuses the audit, an OpenRouter key unlocks the ones that will. About €10 in credits for one audit.",
       },
       {
         q: "Is this an online scanner?",
@@ -243,9 +253,13 @@ const en: typeof fr = {
         q: "What do I get?",
         a: "A prioritized report, the evidence, six measurement statuses, and tickets with the prompt to paste into your LLM to fix.",
       },
+      {
+        q: "Are updates paid?",
+        a: "No. One-time payment. When the kit changes, an email sends you the link to download the new ZIP.",
+      },
     ],
     closeTitle: "Run the audit on a project you own.",
-    closeBody: "€197. One ZIP. A held report — or QA’s silence.",
+    closeBody: "One payment. Updates arrive by email. A held report — or QA’s silence.",
   },
   secretary: {
     metaTitle: "Sales secretary kit — Karukera",
