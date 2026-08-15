@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
@@ -9,7 +10,6 @@ import { KIT_COOKIE, verifyDownload } from "@/lib/download-token";
 import { getKit } from "@/lib/kit-offer";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
-import { UnlockForm } from "../../../components/UnlockForm";
 
 export const dynamic = "force-dynamic";
 
@@ -27,19 +27,24 @@ export default async function ThanksPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ session_id?: string; t?: string }>;
+  searchParams: Promise<{ session_id?: string; t?: string; k?: string }>;
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
   const year = new Date().getFullYear();
-  const { session_id, t } = await searchParams;
+  const { session_id, t, k } = await searchParams;
   const jar = await cookies();
 
+  if (session_id && k) {
+    redirect(
+      `/api/download/claim?session_id=${encodeURIComponent(session_id)}&k=${encodeURIComponent(k)}&locale=${locale}`,
+    );
+  }
+
   let downloadHref: string | null = null;
-  let unlockSession: string | null = null;
   let sku: string | null = null;
-  let state: "ok" | "pending" | "fail" | "unlock" = "fail";
+  let state: "ok" | "pending" | "fail" | "incomplete" = "fail";
 
   const cookieSid = jar.get(KIT_COOKIE)?.value
     ? verifyDownload(jar.get(KIT_COOKIE)!.value)
@@ -62,8 +67,7 @@ export default async function ThanksPage({
     try {
       const session = await getStripe().checkout.sessions.retrieve(session_id);
       if (getKit(session.metadata?.sku) && isPaid(session.payment_status)) {
-        unlockSession = session.id;
-        state = "unlock";
+        state = "incomplete";
       } else if (session.payment_status === "unpaid") {
         state = "pending";
       }
@@ -97,23 +101,22 @@ export default async function ThanksPage({
               <li>3. {sku === "sales-secretary" ? dict.secretary.next3 : dict.shop.next3}</li>
             </ol>
           </>
-        ) : state === "unlock" && unlockSession ? (
-          <>
-            <h1 className="text-3xl font-semibold tracking-tight">
-              {dict.shop.unlockTitle}
-            </h1>
-            <p className="mt-5 text-lg text-[#5C5954] leading-relaxed">
-              {dict.shop.unlockBody}
-            </p>
-            <UnlockForm sessionId={unlockSession} locale={locale} dict={dict} />
-          </>
         ) : (
           <>
             <h1 className="text-3xl font-semibold tracking-tight">
-              {state === "pending" ? dict.shop.thanksPending : dict.shop.thanksFail}
+              {state === "pending"
+                ? dict.shop.thanksPending
+                : state === "incomplete"
+                  ? dict.shop.unlockTitle
+                  : dict.shop.thanksFail}
             </h1>
+            {state === "incomplete" ? (
+              <p className="mt-5 text-lg text-[#5C5954] leading-relaxed">
+                {dict.shop.unlockBody}
+              </p>
+            ) : null}
             <Link
-              href={`/${locale}/agents/security`}
+              href={`/${locale}/agents`}
               className="mt-8 inline-block text-[#E23B2E]"
             >
               ← {dict.nav.agents}

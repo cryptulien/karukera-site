@@ -1,7 +1,9 @@
+import { randomBytes } from "node:crypto";
 import { NextResponse } from "next/server";
 import { isLocale } from "@/lib/i18n";
 import { getStripe, originFromRequest } from "@/lib/stripe";
 import { KIT_CURRENCY, getKit, isKitSku } from "@/lib/kit-offer";
+import { hashUnlock } from "@/lib/download-token";
 
 export async function POST(req: Request) {
   let locale = "fr";
@@ -37,6 +39,7 @@ export async function POST(req: Request) {
   }
 
   const origin = originFromRequest(req);
+  const nonce = randomBytes(32).toString("base64url");
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
@@ -54,9 +57,9 @@ export async function POST(req: Request) {
           },
         },
       ],
-      success_url: `${origin}/${locale}/agents/thanks?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/${locale}/agents/thanks?session_id={CHECKOUT_SESSION_ID}&k=${nonce}`,
       cancel_url: `${origin}/${locale}${kit.cancelPath}`,
-      metadata: { sku: kit.sku, locale },
+      metadata: { sku: kit.sku, locale, unlock: hashUnlock(nonce) },
       allow_promotion_codes: true,
     });
 

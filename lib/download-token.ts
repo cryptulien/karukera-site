@@ -19,15 +19,16 @@ export function signDownload(sessionId: string, ttlSec = 7 * DAY): string {
 
 export const KIT_COOKIE = "karukera_kit";
 
-export function emailsMatch(a: string | null | undefined, b: string | null | undefined): boolean {
-  if (!a || !b) return false;
-  const left = a.trim().toLowerCase();
-  const right = b.trim().toLowerCase();
-  if (!left || !right || left.length !== right.length) return false;
-  const x = Buffer.from(left);
-  const y = Buffer.from(right);
-  if (x.length !== y.length) return false;
-  return timingSafeEqual(x, y);
+export function hashUnlock(nonce: string): string {
+  return createHmac("sha256", secret()).update(`unlock:${nonce}`).digest("base64url");
+}
+
+export function unlockMatches(nonce: string, stored: string | null | undefined): boolean {
+  if (!nonce || !stored) return false;
+  const a = Buffer.from(hashUnlock(nonce));
+  const b = Buffer.from(stored);
+  if (a.length !== b.length) return false;
+  return timingSafeEqual(a, b);
 }
 
 export function verifyDownload(token: string): string | null {
