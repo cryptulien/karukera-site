@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { emailsMatch, KIT_COOKIE, signDownload } from "@/lib/download-token";
-import { KIT_SKU } from "@/lib/kit-offer";
+import { getKit } from "@/lib/kit-offer";
 
 export const runtime = "nodejs";
 
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
   const paid =
     session.payment_status === "paid" ||
     session.payment_status === "no_payment_required";
-  if (!paid || session.metadata?.sku !== KIT_SKU) {
+  if (!paid || !getKit(session.metadata?.sku)) {
     return NextResponse.json({ error: "unpaid" }, { status: 403 });
   }
 

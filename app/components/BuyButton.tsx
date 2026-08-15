@@ -7,13 +7,19 @@ import type { Dict } from "@/dictionaries";
 export function BuyButton({
   locale,
   dict,
+  sku = "security-kit",
   className = "",
   compact = false,
+  label,
+  priceLabel,
 }: {
   locale: Locale;
   dict: Dict;
+  sku?: "security-kit" | "sales-secretary";
   className?: string;
   compact?: boolean;
+  label?: string;
+  priceLabel?: string;
 }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
@@ -25,7 +31,7 @@ export function BuyButton({
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ locale }),
+        body: JSON.stringify({ locale, sku }),
       });
       const data = (await res.json()) as { url?: string; error?: string };
       if (data.url) {
@@ -54,7 +60,7 @@ export function BuyButton({
             : "inline-flex items-center justify-center rounded-full bg-[#E23B2E] px-7 h-12 text-[15px] font-medium text-white hover:bg-[#c92f24] disabled:opacity-60 transition-colors"
         }
       >
-        {busy ? dict.shop.busy : compact ? dict.shop.price : dict.shop.buy}
+        {busy ? dict.shop.busy : compact ? (priceLabel ?? dict.shop.price) : (label ?? dict.shop.buy)}
       </button>
       {err ? <p className="mt-3 text-sm text-[#E23B2E]">{err}</p> : null}
     </div>

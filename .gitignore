@@ -5,6 +5,7 @@ deploy.sh
 .env.local
 private/*.zip
 kit/
+kits/sales-secretary/
 skill-observations/
 .impeccable/
 tsconfig.tsbuildinfo

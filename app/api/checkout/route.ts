@@ -1,15 +1,22 @@
 import { NextResponse } from "next/server";
 import { isLocale } from "@/lib/i18n";
 import { getStripe, originFromRequest } from "@/lib/stripe";
-import { KIT_CURRENCY, KIT_NAME, KIT_PRICE_CENTS, KIT_SKU } from "@/lib/kit-offer";
+import { KIT_CURRENCY, getKit, isKitSku } from "@/lib/kit-offer";
 
 export async function POST(req: Request) {
   let locale = "fr";
+  let sku = "security-kit";
   try {
-    const body = (await req.json()) as { locale?: string };
+    const body = (await req.json()) as { locale?: string; sku?: string };
     if (body.locale && isLocale(body.locale)) locale = body.locale;
+    if (body.sku && isKitSku(body.sku)) sku = body.sku;
   } catch {
     /* empty body is fine */
+  }
+
+  const kit = getKit(sku);
+  if (!kit) {
+    return NextResponse.json({ error: "unknown kit" }, { status: 400 });
   }
 
   if (!process.env.STRIPE_SECRET_KEY) {
@@ -31,37 +38,32 @@ export async function POST(req: Request) {
 
   const origin = originFromRequest(req);
   try {
-  const session = await stripe.checkout.sessions.create({
-    mode: "payment",
-    locale: locale === "es" ? "es" : locale === "en" ? "en" : "fr",
-    line_items: [
-      {
-        quantity: 1,
-        price_data: {
-          currency: KIT_CURRENCY,
-          unit_amount: KIT_PRICE_CENTS,
-          product_data: {
-            name: KIT_NAME[locale] ?? KIT_NAME.fr,
-            description:
-              locale === "en"
-                ? "ZIP of Web + SaaS security-audit agents. Immediate download after payment."
-                : locale === "es"
-                  ? "ZIP de agentes de auditoría de seguridad Web + SaaS. Descarga inmediata tras el pago."
-                  : "ZIP d’agents d’audit sécu Web + SaaS. Livraison immédiate après paiement.",
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      locale: locale === "es" ? "es" : locale === "en" ? "en" : "fr",
+      line_items: [
+        {
+          quantity: 1,
+          price_data: {
+            currency: KIT_CURRENCY,
+            unit_amount: kit.priceCents,
+            product_data: {
+              name: kit.name[locale] ?? kit.name.fr,
+              description: kit.description[locale] ?? kit.description.fr,
+            },
           },
         },
-      },
-    ],
-    success_url: `${origin}/${locale}/agents/thanks?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${origin}/${locale}/agents/security`,
-    metadata: { sku: KIT_SKU, locale },
-    allow_promotion_codes: true,
-  });
+      ],
+      success_url: `${origin}/${locale}/agents/thanks?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/${locale}${kit.cancelPath}`,
+      metadata: { sku: kit.sku, locale },
+      allow_promotion_codes: true,
+    });
 
-  if (!session.url) {
-    return NextResponse.json({ error: "Checkout URL missing" }, { status: 500 });
-  }
-  return NextResponse.json({ url: session.url });
+    if (!session.url) {
+      return NextResponse.json({ error: "Checkout URL missing" }, { status: 500 });
+    }
+    return NextResponse.json({ url: session.url });
   } catch (err) {
     const message = err instanceof Error ? err.message : "checkout failed";
     const needsContext = /Stripe-Context/i.test(message);

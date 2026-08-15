@@ -6,7 +6,7 @@ import { isLocale } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { getStripe } from "@/lib/stripe";
 import { KIT_COOKIE, verifyDownload } from "@/lib/download-token";
-import { KIT_SKU } from "@/lib/kit-offer";
+import { getKit } from "@/lib/kit-offer";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
 import { UnlockForm } from "../../../components/UnlockForm";
@@ -38,6 +38,7 @@ export default async function ThanksPage({
 
   let downloadHref: string | null = null;
   let unlockSession: string | null = null;
+  let sku: string | null = null;
   let state: "ok" | "pending" | "fail" | "unlock" = "fail";
 
   const cookieSid = jar.get(KIT_COOKIE)?.value
@@ -49,7 +50,8 @@ export default async function ThanksPage({
   if (unlockedSid && process.env.STRIPE_SECRET_KEY) {
     try {
       const session = await getStripe().checkout.sessions.retrieve(unlockedSid);
-      if (session.metadata?.sku === KIT_SKU && isPaid(session.payment_status)) {
+      if (getKit(session.metadata?.sku) && isPaid(session.payment_status)) {
+        sku = session.metadata?.sku ?? null;
         downloadHref = `/api/download?t=${encodeURIComponent(t || jar.get(KIT_COOKIE)!.value)}`;
         state = "ok";
       }
@@ -59,7 +61,7 @@ export default async function ThanksPage({
   } else if (session_id && process.env.STRIPE_SECRET_KEY) {
     try {
       const session = await getStripe().checkout.sessions.retrieve(session_id);
-      if (session.metadata?.sku === KIT_SKU && isPaid(session.payment_status)) {
+      if (getKit(session.metadata?.sku) && isPaid(session.payment_status)) {
         unlockSession = session.id;
         state = "unlock";
       } else if (session.payment_status === "unpaid") {
@@ -80,7 +82,7 @@ export default async function ThanksPage({
               {dict.shop.thanksTitle}
             </h1>
             <p className="mt-5 text-lg text-[#5C5954] leading-relaxed">
-              {dict.shop.thanksBody}
+              {sku === "sales-secretary" ? dict.secretary.thanksBody : dict.shop.thanksBody}
             </p>
             <a
               href={downloadHref}
@@ -90,9 +92,9 @@ export default async function ThanksPage({
               {dict.shop.download}
             </a>
             <ol className="mt-12 space-y-3 text-[15px] text-[#5C5954]">
-              <li>1. {dict.shop.next1}</li>
-              <li>2. {dict.shop.next2}</li>
-              <li>3. {dict.shop.next3}</li>
+              <li>1. {sku === "sales-secretary" ? dict.secretary.next1 : dict.shop.next1}</li>
+              <li>2. {sku === "sales-secretary" ? dict.secretary.next2 : dict.shop.next2}</li>
+              <li>3. {sku === "sales-secretary" ? dict.secretary.next3 : dict.shop.next3}</li>
             </ol>
           </>
         ) : state === "unlock" && unlockSession ? (

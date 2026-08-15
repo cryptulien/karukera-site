@@ -35,14 +35,14 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 - Site Next.js 15, i18n `/fr` `/en` `/es`, hébergé Vercel, domaine `karukera.xyz`.
 - Chemins figés : home studio ; `/agents` catalogue ; `/agents/security` produit ; `/blog` (Le Carnet).
 - Le kit sécu est un ZIP de prompts / configs / templates, pas une appli hébergée. Source dans le repo privé `cryptulien/karukera-security-kit` (le site public ne contient que le ZIP chiffré).
-- Le kit **secrétaire commercial** (Hermes + Ringover + Odoo) vit in-tree : `kits/sales-secretary/` (START-HERE.md). Pas encore un SKU boutique — ne pas le zipper dans `private/karukera-security-kit.zip`.
+- Le kit **secrétaire commercial** (Hermes + Ringover + Odoo) : source privée `cryptulien/karukera-sales-secretary`, ZIP chiffré `private/karukera-sales-secretary.zip.enc`, page `/{locale}/agents/secretary`.
 - OpenStats vit sur `openstats.karukera.xyz` (appli, hors de ce site). SuperPagr et Le Lien ont leurs propres domaines.
 - Publications : X (manuel V1) et LinkedIn via Postiz. DA de sharing requise.
 - Maquettes : Penpot self-hosted (`penpot.superpagr.com`).
 
 ## Capabilities and Constraints
 
-- V1 boutique : **un seul SKU** — le kit d'audit sécu. Les autres kits éventuels restent « bientôt », pas des pages produit.
+- Boutique : deux SKU — kit d'audit sécu (`/agents/security`) et kit secrétaire commercial (`/agents/secretary`). Le reste reste « bientôt ».
 - Pas de compte client, pas de dashboard, pas d'audit hébergé.
 - Light mode uniquement (contrainte utilisateur).
 - Seijaku (« calme dans la tempête ») est une **méthode et un engagement de marque**, pas une recette visuelle crème + vermillon à reconduire.

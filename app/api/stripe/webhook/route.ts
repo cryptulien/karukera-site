@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
-import { KIT_SKU } from "@/lib/kit-offer";
+import { getKit } from "@/lib/kit-offer";
 import { sendKitEmail } from "@/lib/send-kit-email";
 
 export const runtime = "nodejs";
@@ -30,9 +30,9 @@ export async function POST(req: Request) {
     const paid =
       session.payment_status === "paid" ||
       session.payment_status === "no_payment_required";
-    if (session.metadata?.sku === KIT_SKU && paid) {
+    if (getKit(session.metadata?.sku) && paid) {
       const to = session.customer_details?.email || session.customer_email;
-      const locale = session.metadata.locale || "fr";
+      const locale = session.metadata?.locale || "fr";
       const origin = process.env.NEXT_PUBLIC_SITE_URL || "https://karukera.xyz";
       if (to) {
         const sent = await sendKitEmail({

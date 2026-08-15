@@ -76,7 +76,7 @@ export default async function AgentsPage({
                 {dict.kit.catalogBody}
               </p>
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-                <BuyButton locale={locale} dict={dict} />
+                <BuyButton locale={locale} dict={dict} sku="security-kit" />
                 <Link
                   href={`/${locale}/agents/security`}
                   className="text-sm text-[#5C5954] hover:text-[#161616]"
@@ -85,6 +85,36 @@ export default async function AgentsPage({
                 </Link>
               </div>
               <p className="mt-3 text-sm text-[#8A857D]">{dict.shop.priceNote}</p>
+            </div>
+          </article>
+
+          <article className="mt-8 rounded-3xl overflow-hidden bg-white shadow-[0_12px_40px_-16px_rgba(22,22,22,0.25)]">
+            <div className="bg-[#1C1B19] px-6 sm:px-8 py-4 flex items-center justify-between text-white/70 text-sm">
+              <span>{dict.kit.catalogSecretaryBadge}</span>
+              <span>{dict.kit.catalogSecretaryScope}</span>
+            </div>
+            <div className="px-6 sm:px-10 py-10">
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight leading-snug">
+                {dict.kit.catalogSecretaryH2}
+              </h2>
+              <p className="mt-4 text-[#5C5954] leading-relaxed max-w-2xl">
+                {dict.kit.catalogSecretaryBody}
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+                <BuyButton
+                  locale={locale}
+                  dict={dict}
+                  sku="sales-secretary"
+                  label={dict.secretary.buy}
+                />
+                <Link
+                  href={`/${locale}/agents/secretary`}
+                  className="text-sm text-[#5C5954] hover:text-[#161616]"
+                >
+                  {dict.kit.catalogSecretaryMore}
+                </Link>
+              </div>
+              <p className="mt-3 text-sm text-[#8A857D]">{dict.secretary.priceNote}</p>
             </div>
           </article>
 

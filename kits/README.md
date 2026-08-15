@@ -1,7 +1,8 @@
-# Kits Karukera (source in-tree)
+# Kits Karukera
 
-| Dossier | Quoi |
-|---|---|
-| `sales-secretary/` | Secrétaire commercial (Hermes + Ringover + Odoo). Ouvre `sales-secretary/START-HERE.md`. |
+| SKU | Page | Source |
+|---|---|---|
+| `security-kit` | `/agents/security` | repo privé `cryptulien/karukera-security-kit` |
+| `sales-secretary` | `/agents/secretary` | repo privé `cryptulien/karukera-sales-secretary` |
 
-Le kit d’audit sécu n’est **pas** ici : source privée `cryptulien/karukera-security-kit`, ZIP chiffré dans `private/`. Ne pas le mélanger avec `kit/` (gitignoré, entrée de `pack-kit`).
+Les sources ne sont pas dans ce dépôt public. Les ZIP chiffrés vivent dans `private/*.zip.enc` et se déchiffrent au build.

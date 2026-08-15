@@ -48,7 +48,7 @@ export default async function SecurityPage({
             <p className="mt-6 text-lg text-[#5C5954] leading-relaxed">
               {dict.kit.heroLead}
             </p>
-            <BuyButton locale={locale} dict={dict} className="mt-8" />
+            <BuyButton locale={locale} dict={dict} sku="security-kit" className="mt-8" />
             <p className="mt-3 text-sm text-[#8A857D]">{dict.shop.priceNote}</p>
           </div>
           <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-[0_16px_50px_-20px_rgba(22,22,22,0.4)]">
@@ -131,7 +131,7 @@ export default async function SecurityPage({
             <p className="text-sm text-[#5C5954]">{dict.kit.priceEyebrow}</p>
             <p className="mt-2 text-5xl font-semibold tracking-tight">{dict.shop.price}</p>
             <p className="mt-3 text-[#5C5954] leading-relaxed">{dict.kit.priceBody}</p>
-            <BuyButton locale={locale} dict={dict} className="mt-8" />
+            <BuyButton locale={locale} dict={dict} sku="security-kit" className="mt-8" />
           </div>
         </section>
 

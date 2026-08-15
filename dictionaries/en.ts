@@ -84,9 +84,9 @@ const en: typeof fr = {
     catalogMetaTitle: "Agents — Karukera",
     catalogMetaDesc:
       "Karukera’s first kit: an end-to-end Web + SaaS security audit.",
-    catalogTitle: "Agent kits. The first one is a security audit.",
+    catalogTitle: "Two kits. They run on your side.",
     catalogLead:
-      "Upload the ZIP in Cursor, Claude Code, Codex or Hermes. Your agents produce a prioritized report, with evidence. Nothing is hosted at Karukera.",
+      "You pay, you download the ZIP, you open it on your machine. Karukera sees neither your target nor your clients.",
     catalogBadge: "Security audit kit",
     catalogScope: "Web + SaaS + agents / MCP",
     catalogAlt: "Prioritized audit report on a laptop",
@@ -95,6 +95,12 @@ const en: typeof fr = {
       "Every finding has evidence, a status and a priority. Double QA blocks the report until it holds. OpenRouter required. Kimi K3 first. No exploits in the ZIP.",
     catalogMore: "Read the full page →",
     catalogSoon: "Next — not for sale yet: SEO / GEO · Clinic · Coaching.",
+    catalogSecretaryBadge: "Sales secretary kit",
+    catalogSecretaryScope: "Telegram · Ringover · Odoo",
+    catalogSecretaryH2: "Calls and mail become cards. Odoo writes only after your ok.",
+    catalogSecretaryBody:
+      "Hermes reads IMAP and Quicktalk / Ringover, sends you a Telegram card, and on ok updates the contact, opportunity, activity, task and a mail draft. Nothing is sent on its own.",
+    catalogSecretaryMore: "Read the full page →",
     heroTitle: "A full Web + SaaS security audit. End to end.",
     heroLead:
       "108 files. They run on your machine. The squad maps, scores, and withholds the report until QA signs. Your models, your OpenRouter key — Kimi K3 first.",
@@ -168,6 +174,67 @@ const en: typeof fr = {
     ],
     closeTitle: "Run the squad on a scope you own.",
     closeBody: "€197. One ZIP. One OpenRouter key. A held report — or QA’s silence.",
+  },
+  secretary: {
+    metaTitle: "Sales secretary kit — Karukera",
+    metaDesc:
+      "Mail and Ringover calls become Telegram cards. Odoo updates only after you reply ok.",
+    buy: "Get the kit — €197",
+    priceNote: "One-time payment. The bot runs on your VPS. Your keys stay yours.",
+    heroTitle: "A sales secretary that waits for your ok.",
+    heroLead:
+      "Hermes reads your mail and Quicktalk / Ringover calls, posts a card on Telegram, and writes to Odoo only when you reply ok. A Docker appliance, on your side.",
+    problemTitle: "The call happened. The CRM is still empty.",
+    problemBody:
+      "Someone called back about a quote. The thread is in the inbox, the transcript is in Ringover, and nobody opened Odoo. The kit holds those three pieces, shows them to you, and writes nothing on its own.",
+    stepsTitle: "Two phases. Not one more.",
+    steps: [
+      {
+        t: "You get the ZIP",
+        b: "Stripe payment. START-HERE.md first.",
+      },
+      {
+        t: "An AI installs the VPS",
+        b: "It reads FOR-AI.md then pack/deploy/SKILL.md. Docker, Telegram token, one LLM key. No Odoo here.",
+      },
+      {
+        t: "You talk to the bot",
+        b: "The onboard wizard asks one question at a time, probes, and writes tenant.yaml only at the end.",
+      },
+      {
+        t: "Cards start arriving",
+        b: "ok / ignore / a tweak. The mail draft is a note. Odoo sends nothing.",
+      },
+    ],
+    priceEyebrow: "The kit, today",
+    priceBody:
+      "One-time payment. Hermes appliance + Docker ingest. Odoo, Ringover, IMAP configured in Telegram. 42 files.",
+    faqTitle: "Before you pay.",
+    faq: [
+      {
+        q: "Do I need to code?",
+        a: "Not for daily use. Install is Docker + install.sh, then the bot. An AI can follow pack/deploy/SKILL.md.",
+      },
+      {
+        q: "Is this hosted at Karukera?",
+        a: "No. The ZIP runs on your VPS. Karukera never sees your mail or your calls.",
+      },
+      {
+        q: "Does Odoo send the mail by itself?",
+        a: "No. The draft is a note on the lead. Never an outgoing mail.",
+      },
+      {
+        q: "What do I need?",
+        a: "A VPS, a Telegram bot, an LLM key, Odoo, a Ringover key, and IMAP (app password).",
+      },
+    ],
+    closeTitle: "Put the bot on a VPS you control.",
+    closeBody: "€197. One ZIP. One Telegram. Nothing in Odoo before your ok.",
+    thanksBody:
+      "Payment received. Download the ZIP, open START-HERE.md, give it to an AI on your VPS, then talk to the bot.",
+    next1: "Open START-HERE.md — two phases, do not merge them.",
+    next2: "Phase 1: FOR-AI.md then pack/deploy/SKILL.md on the VPS.",
+    next3: "Phase 2: you write to the bot. Cards arrive on their own.",
   },
 };
 

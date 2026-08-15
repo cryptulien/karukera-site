@@ -82,9 +82,9 @@ const fr = {
     catalogMetaTitle: "Agents — Karukera",
     catalogMetaDesc:
       "Le premier kit Karukera : un audit de sécurité Web + SaaS, de A à Z.",
-    catalogTitle: "Des kits d’agents. Le premier est un audit sécu.",
+    catalogTitle: "Deux kits. Ils tournent chez toi.",
     catalogLead:
-      "Tu uploades le ZIP dans Cursor, Claude Code, Codex ou Hermes. Tes agents sortent un rapport priorisé, avec preuves. Rien n’est hébergé chez Karukera.",
+      "Tu paies, tu télécharges le ZIP, tu l’ouvres sur ta machine. Karukera ne voit ni ta cible, ni tes clients.",
     catalogBadge: "Kit audit sécu",
     catalogScope: "Web + SaaS + agents / MCP",
     catalogAlt: "Rapport d’audit priorisé sur un ordinateur",
@@ -93,6 +93,12 @@ const fr = {
       "Chaque constat a une preuve, un statut et une priorité. La Double QA bloque le rapport tant qu’il n’est pas tenu. OpenRouter obligatoire. Kimi K3 en premier. Zéro exploit dans le ZIP.",
     catalogMore: "Lire la page complète →",
     catalogSoon: "Ensuite — pas encore en vente : SEO / GEO · Clinique · Accompagnement.",
+    catalogSecretaryBadge: "Kit secrétaire commercial",
+    catalogSecretaryScope: "Telegram · Ringover · Odoo",
+    catalogSecretaryH2: "Les appels et les mails deviennent des cartes. Odoo n’écrit qu’après ton ok.",
+    catalogSecretaryBody:
+      "Hermes lit IMAP et Quicktalk / Ringover, te propose une carte sur Telegram, et au ok met à jour le contact, l’opportunité, l’activité, la tâche et un brouillon de mail. Rien n’est envoyé tout seul.",
+    catalogSecretaryMore: "Lire la page complète →",
     heroTitle: "Un audit sécu Web + SaaS, de bout en bout.",
     heroLead:
       "108 fichiers. Tu les lances chez toi. La squad cartographie, score, et refuse le rapport tant que la QA n’a pas signé. Tes modèles, ta clé OpenRouter — Kimi K3 en premier.",
@@ -166,6 +172,67 @@ const fr = {
     ],
     closeTitle: "Lance la squad sur un scope à toi.",
     closeBody: "197 €. Un ZIP. Une clé OpenRouter. Un rapport tenu, ou le silence de la QA.",
+  },
+  secretary: {
+    metaTitle: "Kit secrétaire commercial — Karukera",
+    metaDesc:
+      "Mails et appels Ringover deviennent des cartes Telegram. Odoo se met à jour seulement après ton ok.",
+    buy: "Obtenir le kit — 197 €",
+    priceNote: "Paiement unique. Le bot tourne sur ton VPS. Tes clés restent les tiennes.",
+    heroTitle: "Une secrétaire commerciale qui attend ton ok.",
+    heroLead:
+      "Hermes lit tes mails et tes appels Quicktalk / Ringover, te pose une carte sur Telegram, et n’écrit dans Odoo que quand tu réponds ok. Appliance Docker, chez toi.",
+    problemTitle: "L’appel est passé. Le CRM est encore vide.",
+    problemBody:
+      "Quelqu’un a rappelé pour un devis. Le fil est dans la boîte, la transcription dans Ringover, et personne n’a ouvert Odoo. Le kit tient ces trois bouts, te les montre, et n’écrit rien tout seul.",
+    stepsTitle: "Deux phases. Pas une de plus.",
+    steps: [
+      {
+        t: "Tu récupères le ZIP",
+        b: "Paiement Stripe. START-HERE.md en premier.",
+      },
+      {
+        t: "Une IA installe le VPS",
+        b: "Elle lit FOR-AI.md puis pack/deploy/SKILL.md. Docker, token Telegram, une clé LLM. Pas d’Odoo ici.",
+      },
+      {
+        t: "Tu parles au bot",
+        b: "Le wizard onboard pose une question à la fois, sonde, et n’écrit tenant.yaml qu’à la fin.",
+      },
+      {
+        t: "Les cartes arrivent",
+        b: "ok / ignore / une précison. Le brouillon de mail est une note. Odoo n’envoie rien.",
+      },
+    ],
+    priceEyebrow: "Le kit, aujourd’hui",
+    priceBody:
+      "Paiement unique. Appliance Hermes + ingest Docker. Odoo, Ringover, IMAP configurés dans Telegram. 42 fichiers.",
+    faqTitle: "Avant que tu paies.",
+    faq: [
+      {
+        q: "Faut-il coder ?",
+        a: "Non pour l’usage. L’install est Docker + install.sh, puis le bot. Une IA peut suivre pack/deploy/SKILL.md.",
+      },
+      {
+        q: "C’est hébergé chez Karukera ?",
+        a: "Non. Le ZIP tourne sur ton VPS. Karukera ne voit ni tes mails, ni tes appels.",
+      },
+      {
+        q: "Odoo envoie les mails tout seul ?",
+        a: "Non. Le brouillon est une note sur le lead. Jamais un mail sortant.",
+      },
+      {
+        q: "Il me faut quoi ?",
+        a: "Un VPS, un bot Telegram, une clé LLM, Odoo, une clé Ringover, et un IMAP (mot de passe d’application).",
+      },
+    ],
+    closeTitle: "Branche le bot sur un VPS à toi.",
+    closeBody: "197 €. Un ZIP. Un Telegram. Rien dans Odoo avant ton ok.",
+    thanksBody:
+      "Paiement reçu. Télécharge le ZIP, ouvre START-HERE.md, donne-le à une IA sur ton VPS, puis parle au bot.",
+    next1: "Ouvre START-HERE.md — deux phases, tu n’en fusionnes aucune.",
+    next2: "Phase 1 : FOR-AI.md puis pack/deploy/SKILL.md sur le VPS.",
+    next3: "Phase 2 : tu écris au bot. Les cartes arrivent toutes seules.",
   },
 };
 

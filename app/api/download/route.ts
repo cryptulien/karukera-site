@@ -4,7 +4,7 @@ import { Readable } from "node:stream";
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { verifyDownload } from "@/lib/download-token";
-import { KIT_FILENAME, KIT_SKU } from "@/lib/kit-offer";
+import { getKit } from "@/lib/kit-offer";
 
 export const runtime = "nodejs";
 
@@ -34,11 +34,12 @@ export async function GET(req: Request) {
   const paid =
     session.payment_status === "paid" ||
     session.payment_status === "no_payment_required";
-  if (!paid || session.metadata?.sku !== KIT_SKU) {
+  const kit = getKit(session.metadata?.sku);
+  if (!paid || !kit) {
     return NextResponse.json({ error: "unpaid" }, { status: 403 });
   }
 
-  const zipPath = join(process.cwd(), "private", KIT_FILENAME);
+  const zipPath = join(process.cwd(), "private", kit.filename);
   if (!existsSync(zipPath)) {
     return NextResponse.json({ error: "kit missing on server" }, { status: 500 });
   }
@@ -49,7 +50,7 @@ export async function GET(req: Request) {
     headers: {
       "Content-Type": "application/zip",
       "Content-Length": String(size),
-      "Content-Disposition": `attachment; filename="${KIT_FILENAME}"`,
+      "Content-Disposition": `attachment; filename="${kit.filename}"`,
       "Cache-Control": "no-store",
     },
   });
