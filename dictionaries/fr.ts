@@ -5,6 +5,7 @@ const fr = {
     agents: "Agents",
     security: "Audit sécu",
     secretary: "Secrétaire",
+    guides: "Guides",
   },
   hero: { tagline: "L’île aux belles eaux" },
   about: {
@@ -48,7 +49,7 @@ const fr = {
     follow: "Me suivre sur X",
     agents: "Agents",
     legal: "Karukera — Julien Lelandais. Usage autorisé uniquement. Tes données restent chez toi.",
-    salesTagline: "Des kits d’agents que tu lances chez toi.",
+    salesTagline: "Karukera Agents — des outils pour le quotidien d’un entrepreneur.",
     salesLegal: "Karukera — Julien Lelandais. Tes données restent chez toi.",
   },
   blog: {
@@ -86,22 +87,30 @@ const fr = {
     unlockFail: "",
   },
   kit: {
-    metaTitle: "Sécurise ton appli — kit d’audit sécu — Karukera",
+    metaTitle: "Pentest IA de ton SaaS — kit d’audit sécu | Karukera",
     metaDesc:
-      "Un kit d’agents pour sécuriser ton SaaS et tes revenus. Tu l’ouvres dans Claude, Codex ou un autre. Rapport, preuves, tickets de correctif. Chez toi.",
-    catalogMetaTitle: "Kits d’agents — Karukera",
+      "Lance un audit sécu Web, SaaS ou MCP chez toi, dans Claude, Codex ou Cursor. 8 modes, 12 agents, rapport tenu par la QA, tickets de correctif. 197 €.",
+    catalogMetaTitle: "Karukera Agents — outils IA pour entrepreneurs",
     catalogMetaDesc:
-      "Deux kits d’agents : sécuriser ton appli (audit sécu), et une secrétaire commerciale Telegram / Ringover / Odoo. Ils tournent chez toi.",
-    catalogTitle: "Deux kits. Ils tournent chez toi.",
+      "Karukera Agents : des kits IA qui s’adaptent à ta pratique. Famille technique (audit sécu Web, SaaS, MCP) et famille commerciale (secrétaire Telegram / Ringover / Odoo). Chez toi.",
+    catalogTitle: "Karukera Agents. Des outils pour ton quotidien.",
     catalogLead:
-      "L’audit sécu protège ton appli et tes revenus. La secrétaire tient tes mails et tes appels, et n’écrit dans Odoo qu’après ton ok.",
+      "Faciliter la vie d’un entrepreneur avec l’IA, sans lui prendre ses données. Chaque agent s’adapte à ta pratique : tu choisis le mode, les accès, le rythme. Ils tournent chez toi.",
     catalogPrice: "197 €",
     catalogOpen: "Voir le kit",
     catalogHow: [
-      { t: "Un ZIP", b: "Tu paies, tu télécharges, tu l’ouvres dans Claude, Codex, Cursor ou Hermes." },
-      { t: "Chez toi", b: "Karukera ne voit ni ton code, ni tes clients, ni tes clés." },
-      { t: "Livré après Stripe", b: "Lien signé 7 jours, aussi dans le mail kit@karukera.xyz." },
+      { t: "Calé sur ta pratique", b: "Tu dis le projet, la profondeur, ce que l’agent a le droit de toucher. Il s’adapte. Il n’impose pas un flux générique." },
+      { t: "Chez toi", b: "Tes données, tes outils, tes habitudes. Karukera ne voit ni ton code, ni tes clients, ni tes clés." },
+      { t: "Un ZIP, pas une agence", b: "Tu paies, tu lances dans Claude, Codex, Cursor ou Hermes — ou sur ton VPS. Lien signé 7 jours." },
     ],
+    catalogFamilyTech: "Technique",
+    catalogFamilyTechLead:
+      "Des agents qui regardent ce que tu construis. Audit, surface, isolation. D’autres agents techniques suivront.",
+    catalogFamilyTechSoon: "Ensuite dans cette famille — pas encore en vente : SEO / GEO.",
+    catalogFamilyBiz: "Commercial",
+    catalogFamilyBizLead:
+      "Des agents qui tiennent le fil avec tes prospects. Mails, appels, CRM. Rien ne part sans toi. D’autres agents sales et business suivront.",
+    catalogFamilyBizSoon: "Ensuite dans cette famille — d’autres agents commercial, pas encore en vente.",
     catalogBadge: "Kit audit sécu",
     catalogScope: "Solo founder · SaaS · Web",
     catalogAlt: "Console d’audit avec la squad en cours de mission",
@@ -192,7 +201,6 @@ const fr = {
     routerBody:
       "Tu peux tout faire dans Claude ou Codex. Si le modèle refuse l’audit, dépose une clé OpenRouter. Environ 10 € de crédits pour un audit. Les modèles frontier n’ont pas le même filtre.",
     workflowTitle: "Douze agents. La QA signe, ou il n’y a pas de rapport.",
-    workflowLead: "Une mission Complet SaaS qui s’enchaîne. Chez toi, le scope et les preuves sont les tiens.",
     agents: [
       { id: "00", name: "Orchestre", job: "Enchaîne la squad" },
       { id: "01", name: "Surface", job: "Cartographie" },
@@ -319,6 +327,30 @@ const fr = {
     next1: "Ouvre START-HERE.md — deux phases, tu n’en fusionnes aucune.",
     next2: "Phase 1 : FOR-AI.md puis pack/deploy/SKILL.md sur le VPS.",
     next3: "Phase 2 : tu écris au bot. Les cartes arrivent toutes seules.",
+  },
+  guides: {
+    indexMetaTitle: "Guides d’audit sécu — 8 modes du kit | Karukera",
+    indexMetaDesc:
+      "Pentest IA, audit web, audit SaaS, sécurité MCP, delta, continu, red-team léger, rapport board. Un article par mode du kit. Chez toi.",
+    indexTitle: "Huit modes. Un article pour chacun.",
+    indexLead:
+      "Tu ne choisis pas un mode interne. Tu dis le projet — site, SaaS, MCP — et la profondeur. Chaque guide dit ce que la squad fait, ce qu’elle refuse, et comment lancer.",
+    modesEyebrow: "Kit audit sécu",
+    pillarEyebrow: "Le coin",
+    read: "Lire le guide",
+    whenLabel: "Quand l’ouvrir",
+    agentsLabel: "Agents",
+    skipsLabel: "Hors de ce mode",
+    launchLabel: "Phrase type",
+    faqTitle: "Avant de lancer",
+    relatedTitle: "Autres modes",
+    allGuides: "Tous les guides",
+    ctaTitle: "Le kit, pas le guide.",
+    ctaBody:
+      "197 €. Un ZIP. Tu l’ouvres dans Claude, Codex, Cursor ou Hermes. Rapport tenu — ou le silence de la QA.",
+    productModesTitle: "Huit profondeurs. Choisis selon le produit.",
+    productModesLead:
+      "Express pour un premier signal. Complet Web pour un site. Complet SaaS pour l’isolation. MCP si la valeur est l’agent. Chaque mode a son guide.",
   },
 };
 

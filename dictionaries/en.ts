@@ -7,6 +7,7 @@ const en: typeof fr = {
     agents: "Agents",
     security: "Security audit",
     secretary: "Secretary",
+    guides: "Guides",
   },
   hero: { tagline: "The island of beautiful waters" },
   about: {
@@ -50,7 +51,7 @@ const en: typeof fr = {
     follow: "Follow me on X",
     agents: "Agents",
     legal: "Karukera — Julien Lelandais. Authorized use only. Your data stays with you.",
-    salesTagline: "Agent kits that run on your machine.",
+    salesTagline: "Karukera Agents — tools for an entrepreneur’s day-to-day.",
     salesLegal: "Karukera — Julien Lelandais. Your data stays with you.",
   },
   blog: {
@@ -88,22 +89,30 @@ const en: typeof fr = {
     unlockFail: "",
   },
   kit: {
-    metaTitle: "Secure your app — security audit kit — Karukera",
+    metaTitle: "AI pentest of your SaaS — security audit kit | Karukera",
     metaDesc:
-      "An agent kit to secure your SaaS and your revenue. Open it in Claude, Codex or another. Report, evidence, fix tickets. On your machine.",
-    catalogMetaTitle: "Agent kits — Karukera",
+      "Run a Web, SaaS or MCP security audit on your machine, in Claude, Codex or Cursor. 8 modes, 12 agents, QA-gated report, fix tickets. €197.",
+    catalogMetaTitle: "Karukera Agents — AI tools for founders",
     catalogMetaDesc:
-      "Two agent kits: secure your app (security audit), and a sales secretary for Telegram / Ringover / Odoo. They run on your side.",
-    catalogTitle: "Two kits. They run on your side.",
+      "Karukera Agents: AI kits that fit your practice. Technical family (Web, SaaS, MCP security audit) and sales family (Telegram / Ringover / Odoo secretary). On your machine.",
+    catalogTitle: "Karukera Agents. Tools for the day-to-day.",
     catalogLead:
-      "The security audit protects your app and your revenue. The secretary holds your mail and calls, and writes to Odoo only after your ok.",
+      "Make an entrepreneur’s day lighter with AI, without taking their data. Each agent fits your practice: you pick the mode, the access, the pace. They run on your side.",
     catalogPrice: "€197",
     catalogOpen: "See the kit",
     catalogHow: [
-      { t: "A ZIP", b: "You pay, you download, you open it in Claude, Codex, Cursor or Hermes." },
-      { t: "On your side", b: "Karukera never sees your code, your clients, or your keys." },
-      { t: "After Stripe", b: "A signed 7-day link, also in the mail from kit@karukera.xyz." },
+      { t: "Fitted to your practice", b: "You name the project, the depth, what the agent may touch. It adapts. It does not impose a generic flow." },
+      { t: "On your side", b: "Your data, your tools, your habits. Karukera never sees your code, your clients, or your keys." },
+      { t: "A ZIP, not an agency", b: "You pay, you launch in Claude, Codex, Cursor or Hermes — or on your VPS. Signed 7-day link." },
     ],
+    catalogFamilyTech: "Technical",
+    catalogFamilyTechLead:
+      "Agents that look at what you build. Audit, surface, isolation. More technical agents will follow.",
+    catalogFamilyTechSoon: "Next in this family — not for sale yet: SEO / GEO.",
+    catalogFamilyBiz: "Sales",
+    catalogFamilyBizLead:
+      "Agents that hold the thread with your prospects. Mail, calls, CRM. Nothing goes out without you. More sales and business agents will follow.",
+    catalogFamilyBizSoon: "Next in this family — more sales agents, not for sale yet.",
     catalogBadge: "Security audit kit",
     catalogScope: "Solo founder · SaaS · Web",
     catalogAlt: "Audit console with the squad running a mission",
@@ -194,7 +203,6 @@ const en: typeof fr = {
     routerBody:
       "You can do everything in Claude or Codex. If the model refuses the audit, deposit an OpenRouter key. About €10 in credits for one audit. Frontier models do not carry the same filter.",
     workflowTitle: "Twelve agents. QA signs, or there is no report.",
-    workflowLead: "A Full SaaS mission unfolding. On your machine, the scope and the evidence are yours.",
     agents: [
       { id: "00", name: "Orchestrator", job: "Runs the squad" },
       { id: "01", name: "Surface", job: "Maps the target" },
@@ -321,6 +329,30 @@ const en: typeof fr = {
     next1: "Open START-HERE.md — two phases, do not merge them.",
     next2: "Phase 1: FOR-AI.md then pack/deploy/SKILL.md on the VPS.",
     next3: "Phase 2: you write to the bot. Cards arrive on their own.",
+  },
+  guides: {
+    indexMetaTitle: "Security audit guides — 8 kit modes | Karukera",
+    indexMetaDesc:
+      "AI pentest, web audit, SaaS audit, MCP security, delta, continuous, light red team, board report. One article per kit mode. On your machine.",
+    indexTitle: "Eight modes. One article each.",
+    indexLead:
+      "You do not pick an internal mode. You name the project — site, SaaS, MCP — and the depth. Each guide says what the squad does, what it refuses, and how to launch.",
+    modesEyebrow: "Security audit kit",
+    pillarEyebrow: "The wedge",
+    read: "Read the guide",
+    whenLabel: "When to open it",
+    agentsLabel: "Agents",
+    skipsLabel: "Outside this mode",
+    launchLabel: "Launch phrase",
+    faqTitle: "Before you launch",
+    relatedTitle: "Other modes",
+    allGuides: "All guides",
+    ctaTitle: "The kit, not the guide.",
+    ctaBody:
+      "€197. One ZIP. Open it in Claude, Codex, Cursor or Hermes. A held report — or QA’s silence.",
+    productModesTitle: "Eight depths. Pick from the product.",
+    productModesLead:
+      "Express for a first signal. Full Web for a site. Full SaaS for isolation. MCP if the value is the agent. Each mode has its guide.",
   },
 };
 

@@ -1,9 +1,12 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { ogImage } from "@/lib/share";
-import { localeAlternates } from "@/lib/seo";
+import { localeAlternates, SITE } from "@/lib/seo";
+import { GUIDES, guideCopy } from "@/lib/guides";
+import { JsonLd } from "../../../components/JsonLd";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
 import { BuyButton } from "../../../components/BuyButton";
@@ -25,6 +28,12 @@ export async function generateMetadata({
   return {
     title: dict.kit.metaTitle,
     description: dict.kit.metaDesc,
+    keywords:
+      locale === "fr"
+        ? ["pentest IA", "audit SaaS", "audit sécurité site web", "sécurité MCP"]
+        : locale === "en"
+          ? ["AI pentest", "SaaS security audit", "MCP security", "Claude Code"]
+          : ["pentest IA", "auditoría SaaS", "seguridad MCP"],
     alternates: localeAlternates(locale, "/agents/security"),
     openGraph: {
       title: dict.kit.metaTitle,
@@ -62,6 +71,34 @@ export default async function SecurityPage({
         FORM: moshi.app feature staging on a light sales surface; code-led.
         FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
       */}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: dict.kit.metaTitle,
+          description: dict.kit.metaDesc,
+          applicationCategory: "SecurityApplication",
+          operatingSystem: "macOS, Linux, Windows",
+          offers: {
+            "@type": "Offer",
+            price: "197",
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock",
+            url: `${SITE}/${locale}/agents/security`,
+          },
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: k.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }}
+      />
       <SalesNav locale={locale} dict={dict} sku="security-kit" />
       <main>
         <section className="max-w-6xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-16 lg:pb-24 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] gap-12 items-center">
@@ -84,7 +121,6 @@ export default async function SecurityPage({
               findingTitle={k.findingTitle}
               findingStatus={k.findingStatus}
             />
-            <p className="mt-3 text-sm text-[#6B675F]">{k.workflowLead}</p>
           </div>
         </section>
 
@@ -154,6 +190,42 @@ export default async function SecurityPage({
             {k.routerTitle}
           </h2>
           <p className="mt-5 text-[#4A4742] leading-relaxed text-[17px]">{k.routerBody}</p>
+        </section>
+
+        <section className="max-w-6xl mx-auto px-5 sm:px-8 pb-20">
+          <h2 className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em]">
+            {dict.guides.productModesTitle}
+          </h2>
+          <p className="mt-4 text-[#4A4742] leading-relaxed max-w-2xl">
+            {dict.guides.productModesLead}
+          </p>
+          <ul className="mt-10 grid sm:grid-cols-2 gap-4">
+            {GUIDES.filter((g) => g.modeId).map((g) => {
+              const c = guideCopy(g, locale);
+              return (
+                <li key={g.slug}>
+                  <Link
+                    href={`/${locale}/guides/${g.slug}`}
+                    className="block rounded-2xl bg-white p-6 h-full shadow-[0_10px_32px_-18px_rgba(22,22,22,0.2)] hover:shadow-[0_14px_36px_-16px_rgba(22,22,22,0.28)]"
+                  >
+                    <p className="text-xs text-[#8A857D] tabular-nums">
+                      {g.modeId} · {c.duration}
+                    </p>
+                    <p className="mt-2 font-medium leading-snug">{c.title}</p>
+                    <p className="mt-2 text-sm text-[#5C5954] leading-relaxed">
+                      {c.excerpt}
+                    </p>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <Link
+            href={`/${locale}/guides`}
+            className="mt-6 inline-flex text-sm font-medium text-[#E23B2E]"
+          >
+            {dict.guides.allGuides} →
+          </Link>
         </section>
 
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-16">

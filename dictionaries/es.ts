@@ -7,6 +7,7 @@ const es: typeof fr = {
     agents: "Agents",
     security: "Auditoría",
     secretary: "Secretaria",
+    guides: "Guías",
   },
   hero: { tagline: "La isla de las bellas aguas" },
   about: {
@@ -50,7 +51,7 @@ const es: typeof fr = {
     follow: "Sígueme en X",
     agents: "Agentes",
     legal: "Karukera — Julien Lelandais. Uso autorizado únicamente. Tus datos se quedan contigo.",
-    salesTagline: "Kits de agentes que corren en tu máquina.",
+    salesTagline: "Karukera Agents — herramientas para el día a día de un emprendedor.",
     salesLegal: "Karukera — Julien Lelandais. Tus datos se quedan contigo.",
   },
   blog: {
@@ -88,22 +89,30 @@ const es: typeof fr = {
     unlockFail: "",
   },
   kit: {
-    metaTitle: "Asegura tu app — kit de auditoría — Karukera",
+    metaTitle: "Pentest IA de tu SaaS — kit de auditoría | Karukera",
     metaDesc:
-      "Un kit de agentes para asegurar tu SaaS y tus ingresos. Lo abres en Claude, Codex u otro. Informe, pruebas, tickets de corrección. En tu máquina.",
-    catalogMetaTitle: "Kits de agentes — Karukera",
+      "Lanza una auditoría Web, SaaS o MCP en tu máquina, en Claude, Codex o Cursor. 8 modos, 12 agentes, informe con QA, tickets. 197 €.",
+    catalogMetaTitle: "Karukera Agents — herramientas IA para emprendedores",
     catalogMetaDesc:
-      "Dos kits de agentes: asegurar tu app (auditoría de seguridad), y una secretaria comercial Telegram / Ringover / Odoo. Corren en tu lado.",
-    catalogTitle: "Dos kits. Corren en tu lado.",
+      "Karukera Agents: kits de IA que se adaptan a tu práctica. Familia técnica (auditoría Web, SaaS, MCP) y familia comercial (secretaria Telegram / Ringover / Odoo). En tu máquina.",
+    catalogTitle: "Karukera Agents. Herramientas para el día a día.",
     catalogLead:
-      "La auditoría de seguridad protege tu app y tus ingresos. La secretaria sostiene tus mails y llamadas, y solo escribe en Odoo después de tu ok.",
+      "Aligerar el día de un emprendedor con IA, sin llevarse sus datos. Cada agente se adapta a tu práctica: tú eliges el modo, los accesos, el ritmo. Corren en tu lado.",
     catalogPrice: "197 €",
     catalogOpen: "Ver el kit",
     catalogHow: [
-      { t: "Un ZIP", b: "Pagas, descargas, lo abres en Claude, Codex, Cursor o Hermes." },
-      { t: "En tu lado", b: "Karukera no ve tu código, ni tus clientes, ni tus claves." },
-      { t: "Tras Stripe", b: "Enlace firmado 7 días, también en el mail de kit@karukera.xyz." },
+      { t: "Ajustado a tu práctica", b: "Dices el proyecto, la profundidad, qué puede tocar el agente. Se adapta. No impone un flujo genérico." },
+      { t: "En tu lado", b: "Tus datos, tus herramientas, tus hábitos. Karukera no ve tu código, ni tus clientes, ni tus claves." },
+      { t: "Un ZIP, no una agencia", b: "Pagas, lo lanzas en Claude, Codex, Cursor o Hermes — o en tu VPS. Enlace firmado 7 días." },
     ],
+    catalogFamilyTech: "Técnica",
+    catalogFamilyTechLead:
+      "Agentes que miran lo que construyes. Auditoría, superficie, aislamiento. Vendrán más agentes técnicos.",
+    catalogFamilyTechSoon: "Después en esta familia — aún no a la venta: SEO / GEO.",
+    catalogFamilyBiz: "Comercial",
+    catalogFamilyBizLead:
+      "Agentes que sostienen el hilo con tus prospectos. Mails, llamadas, CRM. Nada sale sin ti. Vendrán más agentes sales y business.",
+    catalogFamilyBizSoon: "Después en esta familia — más agentes comerciales, aún no a la venta.",
     catalogBadge: "Kit de auditoría de seguridad",
     catalogScope: "Solo founder · SaaS · Web",
     catalogAlt: "Consola de auditoría con el squad en misión",
@@ -194,7 +203,6 @@ const es: typeof fr = {
     routerBody:
       "Puedes hacerlo todo en Claude o Codex. Si el modelo rechaza la auditoría, deposita una clave OpenRouter. Unos 10 € de créditos por una auditoría. Los modelos frontier no llevan el mismo filtro.",
     workflowTitle: "Doce agentes. La QA firma, o no hay informe.",
-    workflowLead: "Una misión SaaS completa que se encadena. En tu máquina, el alcance y las pruebas son tuyos.",
     agents: [
       { id: "00", name: "Orquesta", job: "Encadena el squad" },
       { id: "01", name: "Superficie", job: "Cartografía" },
@@ -321,6 +329,30 @@ const es: typeof fr = {
     next1: "Abre START-HERE.md — dos fases, no las mezcles.",
     next2: "Fase 1: FOR-AI.md y luego pack/deploy/SKILL.md en el VPS.",
     next3: "Fase 2: escribes al bot. Las tarjetas llegan solas.",
+  },
+  guides: {
+    indexMetaTitle: "Guías de auditoría — 8 modos del kit | Karukera",
+    indexMetaDesc:
+      "Pentest IA, auditoría web, auditoría SaaS, seguridad MCP, delta, continuo, red-team ligero, informe board. Un artículo por modo. En tu máquina.",
+    indexTitle: "Ocho modos. Un artículo para cada uno.",
+    indexLead:
+      "No eliges un modo interno. Dices el proyecto — sitio, SaaS, MCP — y la profundidad. Cada guía dice qué hace la squad, qué rechaza y cómo lanzar.",
+    modesEyebrow: "Kit de auditoría",
+    pillarEyebrow: "El ángulo",
+    read: "Leer la guía",
+    whenLabel: "Cuándo abrirlo",
+    agentsLabel: "Agentes",
+    skipsLabel: "Fuera de este modo",
+    launchLabel: "Frase tipo",
+    faqTitle: "Antes de lanzar",
+    relatedTitle: "Otros modos",
+    allGuides: "Todas las guías",
+    ctaTitle: "El kit, no la guía.",
+    ctaBody:
+      "197 €. Un ZIP. Lo abres en Claude, Codex, Cursor o Hermes. Informe sostenido — o el silencio de la QA.",
+    productModesTitle: "Ocho profundidades. Elige según el producto.",
+    productModesLead:
+      "Express para una primera señal. Web completo para un sitio. SaaS para el aislamiento. MCP si el valor es el agente. Cada modo tiene su guía.",
   },
 };
 
