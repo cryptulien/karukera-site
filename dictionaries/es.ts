@@ -69,6 +69,13 @@ const es: typeof fr = {
     next1: "Abre START-HERE.md — sin clave OpenRouter, no arranca nada.",
     next2: "30–50 € de créditos OpenRouter. Modelo principal: Kimi K3.",
     next3: "« Auditoría SaaS completa en https://… » — un alcance que controlas.",
+    unlockTitle: "Confirma el e-mail del pago.",
+    unlockBody:
+      "El enlace de checkout ya no basta. Introduce el e-mail usado en Stripe para desbloquear el ZIP.",
+    unlockLabel: "E-mail del pago",
+    unlockSubmit: "Desbloquear la descarga",
+    unlockBusy: "Comprobando…",
+    unlockFail: "Ese e-mail no coincide con el pago.",
   },
   kit: {
     metaTitle: "Kit de auditoría de seguridad — Karukera",

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { KIT_SKU } from "@/lib/kit-offer";
+import { sendKitEmail } from "@/lib/send-kit-email";
 
 export const runtime = "nodejs";
 
@@ -26,8 +27,24 @@ export async function POST(req: Request) {
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
-    if (session.metadata?.sku === KIT_SKU && session.payment_status === "paid") {
-      console.log("kit paid", session.id, session.customer_details?.email);
+    const paid =
+      session.payment_status === "paid" ||
+      session.payment_status === "no_payment_required";
+    if (session.metadata?.sku === KIT_SKU && paid) {
+      const to = session.customer_details?.email || session.customer_email;
+      const locale = session.metadata.locale || "fr";
+      const origin = process.env.NEXT_PUBLIC_SITE_URL || "https://karukera.xyz";
+      if (to) {
+        const sent = await sendKitEmail({
+          to,
+          locale,
+          sessionId: session.id,
+          origin: origin.replace(/\/$/, ""),
+        });
+        console.log("kit paid", session.id, to, sent ? "mailed" : "no-mailer");
+      } else {
+        console.log("kit paid", session.id, "no-email");
+      }
     }
   }
 

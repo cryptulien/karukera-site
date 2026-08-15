@@ -67,6 +67,13 @@ const fr = {
     next1: "Ouvre START-HERE.md — sans clé OpenRouter, rien ne part.",
     next2: "30–50 € de crédits OpenRouter. Premier modèle : Kimi K3.",
     next3: "« Audit Complet SaaS sur https://… » — un scope que tu contrôles.",
+    unlockTitle: "Confirme l’e-mail du paiement.",
+    unlockBody:
+      "Le lien de checkout ne suffit plus. Saisis l’e-mail utilisé sur Stripe pour débloquer le ZIP.",
+    unlockLabel: "E-mail du paiement",
+    unlockSubmit: "Débloquer le téléchargement",
+    unlockBusy: "Vérification…",
+    unlockFail: "Cet e-mail ne correspond pas au paiement.",
   },
   kit: {
     metaTitle: "Kit audit sécu — Karukera",

@@ -42,6 +42,19 @@ export function middleware(req: NextRequest) {
 
   if (pathname.startsWith("/api")) return NextResponse.next();
 
+  const agent = pathname.match(/^\/(fr|en|es)\/agent(\/.*)?$/);
+  if (agent) {
+    const url = req.nextUrl.clone();
+    url.pathname = `/${agent[1]}/agents${agent[2] ?? ""}`;
+    return NextResponse.redirect(url, 308);
+  }
+  if (pathname === "/agent" || pathname.startsWith("/agent/")) {
+    const locale = detectLocale(req);
+    const url = req.nextUrl.clone();
+    url.pathname = `/${locale}/agents${pathname.slice("/agent".length)}`;
+    return NextResponse.redirect(url, 308);
+  }
+
   const hasLocale = locales.some(
     (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`),
   );

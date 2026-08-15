@@ -69,6 +69,13 @@ const en: typeof fr = {
     next1: "Open START-HERE.md — without an OpenRouter key, nothing starts.",
     next2: "€30–50 in OpenRouter credits. Primary model: Kimi K3.",
     next3: "“Full SaaS audit on https://…” — a scope you control.",
+    unlockTitle: "Confirm the email from checkout.",
+    unlockBody:
+      "The checkout link is not enough on its own. Enter the email you used on Stripe to unlock the ZIP.",
+    unlockLabel: "Checkout email",
+    unlockSubmit: "Unlock download",
+    unlockBusy: "Checking…",
+    unlockFail: "That email does not match the payment.",
   },
   kit: {
     metaTitle: "Security audit kit — Karukera",
