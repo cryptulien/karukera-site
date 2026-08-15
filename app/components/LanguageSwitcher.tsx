@@ -37,7 +37,7 @@ export function LanguageSwitcher({
             type="button"
             onClick={() => switchTo(l)}
             aria-current={l === locale}
-            className={`transition-colors hover:${
+            className={`min-h-11 min-w-8 px-1 transition-colors hover:${
               tone === "light" ? "text-white" : "text-sei-vermilion"
             } ${l === locale ? active : ""}`}
           >

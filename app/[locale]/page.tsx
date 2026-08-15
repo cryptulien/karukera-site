@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FadeIn } from "../components/FadeIn";
 import { Nav } from "../components/Nav";
@@ -7,6 +8,9 @@ import { Footer } from "../components/Footer";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { getDictionary, type Dict } from "@/dictionaries";
 import { posts } from "@/lib/posts";
+import { JsonLd } from "../components/JsonLd";
+import { SITE, localeAlternates } from "@/lib/seo";
+import { ogImage } from "@/lib/share";
 
 type ProjectKey = "superpagr" | "lien" | "openstats";
 
@@ -35,7 +39,7 @@ function Hero({ dict }: { dict: Dict }) {
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-10 pb-16 sm:pb-24">
         <FadeIn>
           <span className="sei-rule mb-6" />
-          <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] text-white font-normal tracking-tight leading-none">
+          <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] text-white font-normal tracking-tight leading-none">
             Karukera
           </h1>
           <p className="text-white/55 text-sm sm:text-base mt-5 font-light tracking-[0.2em] uppercase">
@@ -219,6 +223,44 @@ function Vision({ dict }: { dict: Dict }) {
 
 /* ─────────────────────────── PAGE ─────────────────────────── */
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const titles = {
+    fr: {
+      title: "Karukera — Julien Lelandais",
+      description:
+        "Médecin et builder. Studio Karukera : santé, software agentic, et kits d’agents (audit sécu Web + SaaS, secrétaire commercial).",
+    },
+    en: {
+      title: "Karukera — Julien Lelandais",
+      description:
+        "Doctor and builder. Karukera studio: healthcare, agentic software, and agent kits (Web + SaaS security audit, sales secretary).",
+    },
+    es: {
+      title: "Karukera — Julien Lelandais",
+      description:
+        "Médico y builder. Estudio Karukera: salud, software agentic, y kits de agentes (auditoría de seguridad Web + SaaS, secretaria comercial).",
+    },
+  } as const;
+  const m = titles[locale];
+  return {
+    title: m.title,
+    description: m.description,
+    alternates: localeAlternates(locale),
+    openGraph: {
+      title: m.title,
+      description: m.description,
+      url: `${SITE}/${locale}`,
+      images: [ogImage("/images/og-default.jpg", m.title)],
+    },
+  };
+}
+
 export default async function Home({
   params,
 }: {
@@ -231,6 +273,16 @@ export default async function Home({
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Julien Lelandais",
+          url: `${SITE}/${locale}`,
+          jobTitle: "Médecin psychiatre",
+          sameAs: ["https://x.com/cryptulien"],
+        }}
+      />
       <Nav locale={locale} dict={dict} floating />
       <main>
         <Hero dict={dict} />

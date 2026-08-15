@@ -33,22 +33,22 @@ export function Nav({
         >
           Karukera
         </Link>
-        <div className="flex items-center gap-5 sm:gap-7 text-sm tracking-wide">
+        <div className="flex items-center gap-3 sm:gap-7 text-sm tracking-wide">
           <Link
             href={`/${locale}#projets`}
-            className="opacity-80 hover:opacity-100 transition-opacity"
+            className="hidden sm:inline py-2 opacity-80 hover:opacity-100 transition-opacity"
           >
             {dict.nav.projects}
           </Link>
           <Link
             href={`/${locale}/agents`}
-            className="opacity-80 hover:opacity-100 transition-opacity"
+            className="py-2 opacity-80 hover:opacity-100 transition-opacity"
           >
             {dict.nav.agents}
           </Link>
           <Link
             href={`/${locale}/blog`}
-            className="opacity-80 hover:opacity-100 transition-opacity"
+            className="hidden sm:inline py-2 opacity-80 hover:opacity-100 transition-opacity"
           >
             {dict.nav.carnet}
           </Link>

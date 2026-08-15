@@ -13,13 +13,13 @@ export function SalesNav({ locale, dict }: { locale: Locale; dict: Dict }) {
         <div className="flex items-center gap-4 sm:gap-6">
           <Link
             href={`/${locale}`}
-            className="hidden sm:inline text-sm text-[#5C5954] hover:text-[#161616]"
+            className="hidden sm:inline py-2 text-sm text-[#5C5954] hover:text-[#161616]"
           >
             Studio
           </Link>
           <Link
             href={`/${locale}/agents`}
-            className="text-sm font-medium text-[#161616]"
+            className="py-2 text-sm font-medium text-[#161616]"
           >
             {dict.nav.agents}
           </Link>

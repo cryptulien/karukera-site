@@ -6,6 +6,8 @@ import { Footer } from "../../../components/Footer";
 import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { posts, getPost, PostBody } from "@/lib/posts";
+import { localeAlternates } from "@/lib/seo";
+import { ogImage } from "@/lib/share";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -26,11 +28,13 @@ export async function generateMetadata({
   return {
     title: `${meta.title} — Karukera`,
     description: meta.excerpt,
+    alternates: localeAlternates(loc, `/blog/${post.slug}`),
     openGraph: {
       title: `${meta.title} — Karukera`,
       description: meta.excerpt,
       type: "article",
       url: `https://karukera.xyz/${loc}/blog/${post.slug}`,
+      images: [ogImage("/images/og-default.jpg", meta.title)],
     },
   };
 }

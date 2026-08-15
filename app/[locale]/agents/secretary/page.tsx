@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { ogImage } from "@/lib/share";
+import { localeAlternates } from "@/lib/seo";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
 import { BuyButton } from "../../../components/BuyButton";
@@ -22,7 +23,7 @@ export async function generateMetadata({
   return {
     title: dict.secretary.metaTitle,
     description: dict.secretary.metaDesc,
-    alternates: { canonical: `https://karukera.xyz/${locale}/agents/secretary` },
+    alternates: localeAlternates(locale, "/agents/secretary"),
     openGraph: {
       title: dict.secretary.metaTitle,
       description: dict.secretary.metaDesc,
@@ -49,7 +50,7 @@ export default async function SecretaryPage({
   const year = new Date().getFullYear();
 
   return (
-    <div className="min-h-screen bg-[#F6F4EF] text-[#161616] pb-24 md:pb-0">
+    <div className="min-h-screen bg-[#F6F4EF] text-[#161616] pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
       <SalesNav locale={locale} dict={dict} />
       <main>
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-16">
@@ -136,7 +137,7 @@ export default async function SecretaryPage({
         </section>
       </main>
       <SalesFooter locale={locale} dict={dict} year={year} />
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-[#F6F4EF]/95 backdrop-blur-md px-4 py-3">
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-[#F6F4EF]/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
         <BuyButton locale={locale} dict={dict} sku="sales-secretary" label={dict.secretary.buy} />
       </div>
     </div>

@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { ogImage } from "@/lib/share";
+import { localeAlternates, SITE } from "@/lib/seo";
+import { JsonLd } from "../../components/JsonLd";
 import { SalesNav } from "../../components/SalesNav";
 import { SalesFooter } from "../../components/SalesFooter";
 
@@ -23,7 +25,7 @@ export async function generateMetadata({
   return {
     title: dict.kit.catalogMetaTitle,
     description: dict.kit.catalogMetaDesc,
-    alternates: { canonical: `https://karukera.xyz/${locale}/agents` },
+    alternates: localeAlternates(locale, "/agents"),
     openGraph: {
       title: dict.kit.catalogMetaTitle,
       description: dict.kit.catalogMetaDesc,
@@ -78,6 +80,27 @@ export default async function AgentsPage({
 
   return (
     <div className="min-h-screen bg-[#F6F4EF] text-[#161616]">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: dict.kit.catalogMetaTitle,
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: dict.kit.catalogH2,
+              url: `${SITE}/${locale}/agents/security`,
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: dict.kit.catalogSecretaryH2,
+              url: `${SITE}/${locale}/agents/secretary`,
+            },
+          ],
+        }}
+      />
       <SalesNav locale={locale} dict={dict} />
       <main>
         <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-12">

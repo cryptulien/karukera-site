@@ -7,6 +7,8 @@ import { FadeIn } from "../../components/FadeIn";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { posts } from "@/lib/posts";
+import { localeAlternates } from "@/lib/seo";
+import { ogImage } from "@/lib/share";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -19,7 +21,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(isLocale(locale) ? locale : "fr");
-  return { title: `${dict.blog.eyebrow} — Karukera`, description: dict.blog.intro };
+  return {
+    title: `${dict.blog.eyebrow} — Karukera`,
+    description: dict.blog.intro,
+    alternates: localeAlternates(isLocale(locale) ? locale : "fr", "/blog"),
+    openGraph: {
+      title: `${dict.blog.eyebrow} — Karukera`,
+      description: dict.blog.intro,
+      images: [ogImage("/images/og-default.jpg", "Karukera")],
+    },
+  };
 }
 
 export default async function BlogIndex({

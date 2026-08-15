@@ -1,10 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Space_Grotesk, Shippori_Mincho } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { locales, isLocale, type Locale } from "@/lib/i18n";
 import { ogImage } from "@/lib/share";
 import "../globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 const sans = Space_Grotesk({
   subsets: ["latin"],
@@ -28,17 +34,17 @@ const META: Record<Locale, { title: string; description: string }> = {
   fr: {
     title: "Karukera — Julien Lelandais",
     description:
-      "Médecin, entrepreneur, builder. Le software agentic AI-first en santé. Projets, écrits et vision.",
+      "Médecin et builder. Studio Karukera : santé, software agentic, et kits d’agents (audit sécu Web + SaaS, secrétaire commercial).",
   },
   en: {
     title: "Karukera — Julien Lelandais",
     description:
-      "Doctor, entrepreneur, builder. Agentic, AI-first software for healthcare. Projects, writing and vision.",
+      "Doctor and builder. Karukera studio: healthcare, agentic software, and agent kits (Web + SaaS security audit, sales secretary).",
   },
   es: {
     title: "Karukera — Julien Lelandais",
     description:
-      "Médico, emprendedor, builder. Software agentic AI-first para la salud. Proyectos, escritos y visión.",
+      "Médico y builder. Estudio Karukera: salud, software agentic, y kits de agentes (auditoría de seguridad Web + SaaS, secretaria comercial).",
   },
 };
 

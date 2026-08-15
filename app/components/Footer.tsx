@@ -21,7 +21,7 @@ export function Footer({
               {dict.footer.tagline}
             </p>
           </div>
-          <div className="flex items-center gap-7 text-sm text-sei-sumi">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-sei-sumi">
             <Link
               href={`/${locale}`}
               className="hover:text-sei-ink transition-colors"
