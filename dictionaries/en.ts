@@ -268,6 +268,7 @@ const en: typeof fr = {
     ],
     closeTitle: "Run the audit on a project you own.",
     closeBody: "One payment. Updates arrive by email. A held report — or QA’s silence.",
+    briefLink: "Briefing note — scope, method, delivery",
   },
   secretary: {
     metaTitle: "Sales secretary kit — Karukera",

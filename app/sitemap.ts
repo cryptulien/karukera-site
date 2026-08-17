@@ -8,7 +8,7 @@ const PATHS = [
   "",
   "/agents",
   "/agents/security",
-  "/kit",
+  "/agents/security/kit",
   "/agents/secretary",
   "/guides",
   "/blog",

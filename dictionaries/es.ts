@@ -268,6 +268,7 @@ const es: typeof fr = {
     ],
     closeTitle: "Lanza la auditoría sobre un proyecto tuyo.",
     closeBody: "Un pago. Las actualizaciones llegan por mail. Un informe sostenido — o el silencio de la QA.",
+    briefLink: "Nota de presentación — perímetro, método, entrega",
   },
   secretary: {
     metaTitle: "Kit de secretaria comercial — Karukera",

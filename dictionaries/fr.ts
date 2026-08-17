@@ -266,6 +266,7 @@ const fr = {
     ],
     closeTitle: "Lance l’audit sur un projet à toi.",
     closeBody: "Un paiement. Les mises à jour arrivent par mail. Un rapport tenu — ou le silence de la QA.",
+    briefLink: "Note de présentation — périmètre, méthode, restitution",
   },
   secretary: {
     metaTitle: "Kit secrétaire commercial — Karukera",

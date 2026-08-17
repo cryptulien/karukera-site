@@ -108,6 +108,14 @@ export default async function SecurityPage({
             </h1>
             <p className="mt-6 text-lg text-[#4A4742] leading-relaxed">{k.heroLead}</p>
             <BuyButton locale={locale} dict={dict} sku="security-kit" className="mt-8" />
+            <p className="mt-4">
+              <Link
+                href={`/${locale}/agents/security/kit`}
+                className="text-sm text-[#3F3C38] underline underline-offset-4 decoration-black/20 hover:text-[#121212] hover:decoration-[#121212]"
+              >
+                {k.briefLink}
+              </Link>
+            </p>
             <p className="mt-4 text-sm text-[#5C5954] leading-relaxed max-w-md">
               {k.modelsLine}
             </p>
