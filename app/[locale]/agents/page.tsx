@@ -66,7 +66,7 @@ function KitCard({
     <article>
       <Link
         href={card.href}
-        className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_40px_-18px_rgba(18,18,18,0.28)] transition-shadow hover:shadow-[0_16px_44px_-16px_rgba(18,18,18,0.36)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E23B2E]"
+        className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_40px_-18px_rgba(18,18,18,0.28)] transition-shadow hover:shadow-[0_16px_44px_-16px_rgba(18,18,18,0.36)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-isle-flame"
       >
         <div className="relative aspect-[16/9]">
           <Image
@@ -79,21 +79,21 @@ function KitCard({
           />
         </div>
         <div className="flex flex-1 flex-col px-6 py-8 sm:px-10">
-          <p className="text-sm text-[#5C5954]">{card.scope}</p>
+          <p className="text-sm text-isle-stone">{card.scope}</p>
           <h3 className="mt-2 text-2xl font-semibold tracking-tight leading-snug">
             {card.title}
           </h3>
-          <p className="mt-3 text-[#4A4742] leading-relaxed">{card.body}</p>
-          <ul className="mt-5 space-y-1.5 text-sm text-[#121212]">
+          <p className="mt-3 text-isle-tide leading-relaxed">{card.body}</p>
+          <ul className="mt-5 space-y-1.5 text-sm text-isle-ink">
             {card.facts.map((f) => (
               <li key={f}>{f}</li>
             ))}
           </ul>
           <p className="mt-6 text-2xl font-semibold tracking-tight">{price}</p>
-          <span className="mt-6 inline-flex h-12 items-center justify-center self-start rounded-full bg-[#E23B2E] px-7 text-[15px] font-medium text-white group-hover:bg-[#c92f24]">
+          <span className="mt-6 inline-flex h-12 items-center justify-center self-start rounded-full bg-isle-flame px-7 text-[15px] font-medium text-white group-hover:bg-isle-flame/85">
             {cta}
           </span>
-          <p className="mt-3 text-sm text-[#5C5954]">{card.note}</p>
+          <p className="mt-3 text-sm text-isle-stone">{card.note}</p>
         </div>
       </Link>
     </article>
@@ -135,10 +135,10 @@ export default async function AgentsPage({
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F3EF] text-[#121212]">
+    <div className="min-h-screen bg-isle-salt text-isle-ink">
       {/*
         THESIS: Karukera Agents is a studio of kits for founders, split into two families that must not be sold as one mixed grid.
-        OWN-WORLD: paper field, ink type, vermillion only on the buy/open action; Space Grotesk; no studio washi.
+        OWN-WORLD: same island materials as the studio — salt field, lagoon ink, flamboyant only on the buy/open action; Bricolage; conversion layout, not a territory walk.
         STORY: visitor understands the shared rule (runs on their side, fits their practice), then chooses Technique or Commercial.
         FIRST VIEWPORT: name + promise + three shared rules; no product card yet.
         FORM: two stacked family bands, one live kit each; coming-soon as a line, never a fake card.
@@ -185,17 +185,17 @@ export default async function AgentsPage({
       <SalesNav locale={locale} dict={dict} />
       <main>
         <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-14">
-          <h1 className="font-sans text-[2.15rem] sm:text-5xl md:text-[3.35rem] font-semibold tracking-[-0.03em] leading-[1.08] max-w-4xl text-balance">
+          <h1 className="font-serif text-[2.15rem] sm:text-5xl md:text-[3.35rem] font-normal tracking-[-0.03em] leading-[1.08] max-w-4xl text-balance">
             {k.catalogTitle}
           </h1>
-          <p className="mt-6 text-lg text-[#4A4742] max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-isle-tide max-w-2xl leading-relaxed">
             {k.catalogLead}
           </p>
           <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-medium">
-            <a href="#technique" className="text-[#121212] underline-offset-4 hover:underline">
+            <a href="#technique" className="text-isle-ink underline-offset-4 hover:underline">
               {k.catalogFamilyTech}
             </a>
-            <a href="#commercial" className="text-[#121212] underline-offset-4 hover:underline">
+            <a href="#commercial" className="text-isle-ink underline-offset-4 hover:underline">
               {k.catalogFamilyBiz}
             </a>
           </p>
@@ -205,7 +205,7 @@ export default async function AgentsPage({
           {k.catalogHow.map((step) => (
             <div key={step.t}>
               <p className="font-medium text-[17px]">{step.t}</p>
-              <p className="mt-2 text-sm text-[#4A4742] leading-relaxed">{step.b}</p>
+              <p className="mt-2 text-sm text-isle-tide leading-relaxed">{step.b}</p>
             </div>
           ))}
         </section>
@@ -222,20 +222,20 @@ export default async function AgentsPage({
             >
               {k.catalogFamilyTech}
             </h2>
-            <p className="mt-4 text-[#4A4742] leading-relaxed max-w-2xl">
+            <p className="mt-4 text-isle-tide leading-relaxed max-w-2xl">
               {k.catalogFamilyTechLead}
             </p>
             <div className="mt-10">
               <KitCard card={tech} price={k.catalogPrice} cta={k.catalogOpen} />
             </div>
-            <p className="mt-8 text-sm text-[#5C5954]">{k.catalogFamilyTechSoon}</p>
+            <p className="mt-8 text-sm text-isle-stone">{k.catalogFamilyTechSoon}</p>
           </div>
         </section>
 
         <section
           id="commercial"
           aria-labelledby="family-biz"
-          className="border-t border-black/[0.06] bg-[#EFEDE7]"
+          className="border-t border-black/[0.06] bg-isle-foam"
         >
           <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-20">
             <h2
@@ -244,13 +244,13 @@ export default async function AgentsPage({
             >
               {k.catalogFamilyBiz}
             </h2>
-            <p className="mt-4 text-[#4A4742] leading-relaxed max-w-2xl">
+            <p className="mt-4 text-isle-tide leading-relaxed max-w-2xl">
               {k.catalogFamilyBizLead}
             </p>
             <div className="mt-10">
               <KitCard card={biz} price={k.catalogPrice} cta={k.catalogOpen} />
             </div>
-            <p className="mt-8 text-sm text-[#5C5954]">{k.catalogFamilyBizSoon}</p>
+            <p className="mt-8 text-sm text-isle-stone">{k.catalogFamilyBizSoon}</p>
           </div>
         </section>
       </main>

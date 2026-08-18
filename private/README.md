@@ -1,5 +1,4 @@
 Le ZIP livré n’est pas dans git (produit payant).
 
-`karukera-security-kit.zip.enc` est le kit chiffré (AES-256, `KIT_DOWNLOAD_SECRET`).
-`npm run pack-kit` le déchiffre en `karukera-security-kit.zip` au build.
-Source : repo privé `cryptulien/karukera-security-kit`.
+`karukera-security-kit.zip.enc` et `karukera-sales-secretary.zip.enc` sont les kits chiffrés (AES-256, `KIT_DOWNLOAD_SECRET`).
+`npm run pack-kit` les packe depuis `kits/<sku>/` s’il est présent, sinon déchiffre le `.enc` au build.

@@ -4,9 +4,9 @@ deploy.sh
 .env
 .env.local
 private/*.zip
-kit/
-kits/sales-secretary/
-kits/seo-geo/
+# Kit sources stay local. Public repo ships only kits/README.md + encrypted zips.
+kits/*
+!kits/README.md
 skill-observations/
 .impeccable/
 tsconfig.tsbuildinfo

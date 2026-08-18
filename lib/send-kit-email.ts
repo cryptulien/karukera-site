@@ -67,12 +67,12 @@ export async function sendKitEmail(opts: {
   const from = process.env.KIT_EMAIL_FROM || "Karukera <kit@karukera.xyz>";
 
   const html = `<!doctype html>
-<html><body style="font-family:Georgia,serif;color:#161616;background:#F6F4EF;margin:0;padding:32px">
+<html><body style="font-family:Georgia,serif;color:#161616;background:#E6EBE6;margin:0;padding:32px">
   <p style="font-size:13px;color:#8A857D">${t.preview}</p>
   <h1 style="font-size:28px;font-weight:600;letter-spacing:-0.03em">${t.hello}</h1>
   <p style="font-size:16px;line-height:1.5;color:#5C5954">${t.body}</p>
   <p style="margin:28px 0">
-    <a href="${link}" style="display:inline-block;background:#E23B2E;color:#fff;text-decoration:none;padding:14px 24px;border-radius:999px;font-family:system-ui,sans-serif;font-size:15px">${t.cta}</a>
+    <a href="${link}" style="display:inline-block;background:#C43A14;color:#fff;text-decoration:none;padding:14px 24px;border-radius:999px;font-family:system-ui,sans-serif;font-size:15px">${t.cta}</a>
   </p>
   <p style="font-size:15px;line-height:1.5;color:#5C5954">${t.after}</p>
   <p style="font-size:13px;color:#8A857D;word-break:break-all">${link}</p>

@@ -56,38 +56,38 @@ export default async function PostPage({
   return (
     <>
       <Nav locale={locale} dict={dict} />
-      <main className="pt-16">
+      <main className="pt-16 bg-isle-salt">
         <article className="max-w-prose mx-auto px-6 sm:px-10 pt-16 sm:pt-24 pb-24">
           <Link
             href={`/${locale}/blog`}
-            className="inline-flex items-center gap-2 text-sm text-sei-stone hover:text-sei-ink transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-isle-stone hover:text-isle-ink transition-colors"
           >
             <span aria-hidden>←</span> {dict.blog.back}
           </Link>
 
           <header className="mt-10">
-            <div className="flex items-center gap-4 text-xs uppercase tracking-[0.18em] text-sei-stone">
+            <div className="flex items-center gap-4 text-xs text-isle-stone">
               <time dateTime={post.date}>{meta.dateLabel}</time>
               <span aria-hidden>·</span>
               <span>{meta.readingTime}</span>
             </div>
-            <h1 className="mt-4 font-serif text-4xl sm:text-5xl text-sei-ink leading-tight">
+            <h1 className="mt-4 font-serif text-4xl sm:text-5xl text-isle-ink leading-tight tracking-[-0.02em]">
               {meta.title}
             </h1>
-            <div className="sei-rule mt-7" />
+            <div className="isle-rule mt-8" />
           </header>
 
-          <div className="mt-12">
+          <div className="mt-12 font-text">
             <PostBody blocks={post.content[locale]} />
           </div>
         </article>
 
         <div className="max-w-prose mx-auto px-6 sm:px-10 pb-24">
-          <div className="border-t border-sei-mist pt-10 flex items-center justify-between">
-            <p className="font-serif text-lg text-sei-ink">Karukera</p>
+          <div className="border-t border-isle-mist pt-10 flex items-center justify-between">
+            <p className="font-serif text-lg text-isle-ink">Karukera</p>
             <Link
               href={`/${locale}/blog`}
-              className="text-sm text-sei-vermilion hover:opacity-70 transition-opacity"
+              className="text-sm text-isle-lagoon hover:text-isle-flame transition-colors"
             >
               ← {dict.blog.allWritings}
             </Link>

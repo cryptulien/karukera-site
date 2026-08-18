@@ -9,7 +9,11 @@ const es: typeof fr = {
     secretary: "Secretaria",
     guides: "Guías",
   },
-  hero: { tagline: "La isla de las bellas aguas" },
+  hero: {
+    tagline: "La isla de las bellas aguas",
+    seaListen: "El mar",
+    seaQuiet: "Silencio",
+  },
   about: {
     title: "Soy Julien.",
     body: "Médico psiquiatra y emprendedor. Construyo proyectos en la intersección de la salud, el software y lo concreto — convencido de que una sola persona, bien equipada con IA, puede ahora construir lo que ayer exigía un equipo entero.",

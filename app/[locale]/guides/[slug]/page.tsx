@@ -67,7 +67,7 @@ export default async function GuidePage({
   const url = `${SITE}/${locale}/guides/${guide.slug}`;
 
   return (
-    <div className="min-h-screen bg-[#F4F3EF] text-[#121212] pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
+    <div className="min-h-screen bg-isle-salt text-isle-ink pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -132,23 +132,23 @@ export default async function GuidePage({
       <SalesNav locale={locale} dict={dict} sku="security-kit" />
       <main>
         <article className="max-w-3xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20">
-          <p className="text-xs tracking-[0.18em] uppercase text-[#8A857D]">
+          <p className="text-xs tracking-[0.18em] uppercase text-isle-stone">
             {guide.modeId ? `${guide.modeId} · ${c.duration}` : dict.guides.pillarEyebrow}
             {" · "}
             {c.readingTime}
           </p>
-          <h1 className="mt-4 text-[2.05rem] sm:text-[2.7rem] font-semibold tracking-[-0.03em] leading-[1.1]">
+          <h1 className="mt-4 font-serif text-[2.05rem] sm:text-[2.7rem] font-normal tracking-[-0.03em] leading-[1.1]">
             {c.title}
           </h1>
-          <p className="mt-6 text-lg text-[#4A4742] leading-relaxed">{c.lead}</p>
+          <p className="mt-6 text-lg text-isle-tide leading-relaxed">{c.lead}</p>
 
           <dl className="mt-10 grid sm:grid-cols-2 gap-6 rounded-2xl bg-white p-6 sm:p-8 shadow-[0_10px_32px_-18px_rgba(22,22,22,0.2)]">
             <div>
-              <dt className="text-xs uppercase tracking-[0.16em] text-[#8A857D]">
+              <dt className="text-xs uppercase tracking-[0.16em] text-isle-stone">
                 {dict.guides.whenLabel}
               </dt>
               <dd className="mt-3">
-                <ul className="space-y-2 text-sm text-[#121212] leading-relaxed">
+                <ul className="space-y-2 text-sm text-isle-ink leading-relaxed">
                   {c.when.map((w) => (
                     <li key={w}>{w}</li>
                   ))}
@@ -156,15 +156,15 @@ export default async function GuidePage({
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-[0.16em] text-[#8A857D]">
+              <dt className="text-xs uppercase tracking-[0.16em] text-isle-stone">
                 {dict.guides.agentsLabel}
               </dt>
               <dd className="mt-3 text-sm leading-relaxed">{c.agents}</dd>
-              <dt className="mt-5 text-xs uppercase tracking-[0.16em] text-[#8A857D]">
+              <dt className="mt-5 text-xs uppercase tracking-[0.16em] text-isle-stone">
                 {dict.guides.skipsLabel}
               </dt>
               <dd className="mt-3">
-                <ul className="space-y-2 text-sm text-[#5C5954] leading-relaxed">
+                <ul className="space-y-2 text-sm text-isle-stone leading-relaxed">
                   {c.skips.map((s) => (
                     <li key={s}>{s}</li>
                   ))}
@@ -189,7 +189,7 @@ export default async function GuidePage({
                 return (
                   <ul
                     key={i}
-                    className="list-disc pl-5 space-y-2 text-[17px] text-[#4A4742] leading-relaxed"
+                    className="list-disc pl-5 space-y-2 text-[17px] text-isle-tide leading-relaxed"
                   >
                     {b.items.map((item) => (
                       <li key={item}>{item}</li>
@@ -201,14 +201,14 @@ export default async function GuidePage({
                 return (
                   <blockquote
                     key={i}
-                    className="border-l-2 border-[#E23B2E] pl-5 text-[17px] text-[#121212] leading-relaxed"
+                    className="border-l-2 border-isle-flame pl-5 text-[17px] text-isle-ink leading-relaxed"
                   >
                     {b.text}
                   </blockquote>
                 );
               }
               return (
-                <p key={i} className="text-[17px] text-[#4A4742] leading-relaxed">
+                <p key={i} className="text-[17px] text-isle-tide leading-relaxed">
                   {b.text}
                 </p>
               );
@@ -216,10 +216,10 @@ export default async function GuidePage({
           </div>
 
           <div className="mt-12 rounded-2xl bg-white p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.16em] text-[#8A857D]">
+            <p className="text-xs uppercase tracking-[0.16em] text-isle-stone">
               {dict.guides.launchLabel}
             </p>
-            <p className="mt-3 font-mono text-sm leading-relaxed text-[#121212]">
+            <p className="mt-3 font-mono text-sm leading-relaxed text-isle-ink">
               {c.launch}
             </p>
           </div>
@@ -233,7 +233,7 @@ export default async function GuidePage({
                 {c.faq.map((f) => (
                   <div key={f.q} className="py-5">
                     <dt className="font-medium">{f.q}</dt>
-                    <dd className="mt-2 text-sm text-[#5C5954] leading-relaxed">
+                    <dd className="mt-2 text-sm text-isle-stone leading-relaxed">
                       {f.a}
                     </dd>
                   </div>
@@ -262,7 +262,7 @@ export default async function GuidePage({
                     <li key={g.slug}>
                       <Link
                         href={`/${locale}/guides/${g.slug}`}
-                        className="text-[15px] font-medium hover:text-[#E23B2E]"
+                        className="text-[15px] font-medium hover:text-isle-flame"
                       >
                         {rc.title} →
                       </Link>
@@ -272,7 +272,7 @@ export default async function GuidePage({
               </ul>
               <Link
                 href={`/${locale}/guides`}
-                className="mt-8 inline-block text-sm text-[#5C5954] hover:text-[#121212]"
+                className="mt-8 inline-block text-sm text-isle-stone hover:text-isle-ink"
               >
                 ← {dict.guides.allGuides}
               </Link>
@@ -281,7 +281,7 @@ export default async function GuidePage({
         </article>
       </main>
       <SalesFooter locale={locale} dict={dict} year={year} />
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-[#F4F3EF]/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-isle-salt/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
         <BuyButton locale={locale} dict={dict} sku="security-kit" />
       </div>
     </div>

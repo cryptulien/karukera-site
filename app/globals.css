@@ -8,50 +8,101 @@
   }
 
   body {
-    @apply bg-sei-washi text-sei-ink antialiased;
+    @apply bg-isle-salt text-isle-ink antialiased;
     font-family: var(--font-sans), system-ui, sans-serif;
   }
 
   ::selection {
-    @apply bg-sei-vermilion/15 text-sei-vermilion;
+    @apply bg-isle-flame/20 text-isle-ink;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-isle-flame;
+  }
+
+  a {
+    text-underline-offset: 0.22em;
   }
 }
 
 @layer components {
   .fade-in-section {
+    opacity: 1;
+    transform: none;
+  }
+
+  .fade-in-section.is-waiting {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(20px);
+    transition: none;
   }
 
   .fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
+    transition:
+      opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* Filet vermillon — geste de pinceau minimal */
-  .sei-rule {
-    @apply block h-px w-12 bg-sei-vermilion;
-  }
-
-  /* Sceau / point d'encre */
-  .sei-seal {
-    @apply inline-block h-2 w-2 rounded-full bg-sei-vermilion;
+  .isle-rule {
+    @apply block h-px w-16 bg-isle-lagoon/50;
   }
 }
 
 @keyframes kit-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.72); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.72);
+  }
 }
 
 .kit-pulse {
   animation: kit-pulse 1.1s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
+@keyframes surfer-drift {
+  0% {
+    transform: translateX(10vw) translateY(0);
+  }
+  55% {
+    transform: translateX(36vw) translateY(7px);
+  }
+  100% {
+    transform: translateX(56vw) translateY(2px);
+  }
+}
+
+.surfer-drift {
+  animation: surfer-drift 56s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .kit-pulse {
+  .kit-pulse,
+  .surfer-drift {
     animation: none;
+  }
+
+  .fade-in-section,
+  .fade-in-section.is-waiting,
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-color: #b8c6c0 #e6ebe6;
   }
 }
