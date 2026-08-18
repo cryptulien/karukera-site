@@ -56,7 +56,7 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 - Voix : calme, précise, première personne sur le studio ; factuelle et non hype sur le kit.
 - Seijaku est binding comme *attitude* : retenue, un sceau plutôt qu'une alarme, lumière du jour (light).
 - Une âme, deux pièces. Studio (home, projets, carnet) = territoire. Vente (`/agents`, SKU, guides) = conversion, **mêmes matériaux** (typo, palette, accent), autre meuble. Pas de lien studio dans le premier viewport vente.
-- Home : planches plage/villa monumentales, overlay léger, surfeur discret, mer optionnelle. Carnet : planche forêt, lecture Literata. **Sans** les marques BD SuperPagr / Le Lien (`superpagr.webp`, `lien.webp` — exclus).
+- Home : une page-voyage en assets pixel (arrivée bateau → îles-projets → plongée → carnet sous l’eau). Texte en HTML, pas un jeu. **Sans** les marques BD SuperPagr / Le Lien.
 - Pas de sous-domaine produit : tout vit sous `karukera.xyz/{locale}/…`.
 - Nav cible : Projets · Agents · Carnet.
 

@@ -13,6 +13,17 @@ const en: typeof fr = {
     tagline: "The island of beautiful waters",
     seaListen: "The sea",
     seaQuiet: "Quiet",
+    arrive: "We arrive. Then we cross the water. Then we go down.",
+  },
+  voyage: {
+    islandsTitle: "Three islands.",
+    islandsLead:
+      "Each project is a place, not a card. You see them from the water, and choose where to land.",
+    waterTitle: "Then the water.",
+    waterLead: "The page does not change. We descend into the same sea.",
+    deepTitle: "The journal.",
+    deepLead:
+      "Lower, quieter. The writing is here, under light that still comes from the surface.",
   },
   about: {
     title: "I’m Julien.",
