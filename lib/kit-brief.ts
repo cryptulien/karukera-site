@@ -158,11 +158,11 @@ export const KIT_BRIEF = L(
       },
       {
         type: "h2",
-        text: "Prix et livraison",
+        text: "Licence et accès",
       },
       {
         type: "p",
-        text: "197 €, une fois. Le ZIP se télécharge après paiement, via un lien signé. Les mises à jour arrivent par mail. Karukera ne proxy rien : tes modèles, tes crédits, ta machine.",
+        text: "Open source, licence MIT. Clone https://github.com/cryptulien/security-kit. Les mises à jour, c’est git pull. Karukera ne proxy rien : tes modèles, tes crédits, ta machine.",
       },
       {
         type: "h2",
@@ -170,7 +170,7 @@ export const KIT_BRIEF = L(
       },
       {
         type: "p",
-        text: "Ce n’est pas le kit. C’est la présentation publique du kit. Le livrable reste le ZIP. Rien ici ne donne accès à une cible, à un compte, ou au contenu payant.",
+        text: "Ce n’est pas le kit. C’est la présentation publique du kit. Le livrable est le dépôt public. Rien ici ne donne accès à une cible ou à un compte.",
       },
     ],
   },
@@ -308,11 +308,11 @@ export const KIT_BRIEF = L(
       },
       {
         type: "h2",
-        text: "Price and fulfilment",
+        text: "License and access",
       },
       {
         type: "p",
-        text: "€197, once. The ZIP downloads after payment, via a signed link. Updates arrive by email. Karukera proxies nothing: your models, your credits, your machine.",
+        text: "Open source, MIT license. Clone https://github.com/cryptulien/security-kit. Updates are a git pull. Karukera proxies nothing: your models, your credits, your machine.",
       },
       {
         type: "h2",
@@ -320,7 +320,7 @@ export const KIT_BRIEF = L(
       },
       {
         type: "p",
-        text: "This is not the kit. It is the public briefing. The deliverable remains the ZIP. Nothing here grants access to a target, an account, or the paid contents.",
+        text: "This is not the kit. It is the public briefing. The deliverable is the public repository. Nothing here grants access to a target or an account.",
       },
     ],
   },
@@ -458,11 +458,11 @@ export const KIT_BRIEF = L(
       },
       {
         type: "h2",
-        text: "Precio y entrega",
+        text: "Licencia y acceso",
       },
       {
         type: "p",
-        text: "197 €, una vez. El ZIP se descarga tras el pago, con un enlace firmado. Las actualizaciones llegan por mail. Karukera no hace de proxy: tus modelos, tus créditos, tu máquina.",
+        text: "Open source, licencia MIT. Clona https://github.com/cryptulien/security-kit. Las actualizaciones son un git pull. Karukera no hace de proxy: tus modelos, tus créditos, tu máquina.",
       },
       {
         type: "h2",
@@ -470,7 +470,7 @@ export const KIT_BRIEF = L(
       },
       {
         type: "p",
-        text: "Esto no es el kit. Es la presentación pública. El entregable sigue siendo el ZIP. Nada aquí da acceso a un objetivo, a una cuenta, o al contenido de pago.",
+        text: "Esto no es el kit. Es la presentación pública. El entregable es el repositorio público. Nada aquí da acceso a un objetivo o a una cuenta.",
       },
     ],
   },

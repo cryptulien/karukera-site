@@ -9,6 +9,7 @@ import { localeAlternates, SITE } from "@/lib/seo";
 import { JsonLd } from "../../components/JsonLd";
 import { SalesNav } from "../../components/SalesNav";
 import { SalesFooter } from "../../components/SalesFooter";
+import { KITS } from "@/lib/kit-offer";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -51,23 +52,20 @@ type FamilyCard = {
   alt: string;
   note: string;
   priority?: boolean;
+  external?: boolean;
 };
 
 function KitCard({
   card,
-  price,
   cta,
 }: {
   card: FamilyCard;
-  price: string;
   cta: string;
 }) {
-  return (
-    <article>
-      <Link
-        href={card.href}
-        className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_40px_-18px_rgba(18,18,18,0.28)] transition-shadow hover:shadow-[0_16px_44px_-16px_rgba(18,18,18,0.36)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E23B2E]"
-      >
+  const className =
+    "group flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_12px_40px_-18px_rgba(18,18,18,0.28)] transition-shadow hover:shadow-[0_16px_44px_-16px_rgba(18,18,18,0.36)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E23B2E]";
+  const inner = (
+    <>
         <div className="relative aspect-[16/9]">
           <Image
             src={card.image}
@@ -89,13 +87,25 @@ function KitCard({
               <li key={f}>{f}</li>
             ))}
           </ul>
-          <p className="mt-6 text-2xl font-semibold tracking-tight">{price}</p>
           <span className="mt-6 inline-flex h-12 items-center justify-center self-start rounded-full bg-[#E23B2E] px-7 text-[15px] font-medium text-white group-hover:bg-[#c92f24]">
             {cta}
           </span>
           <p className="mt-3 text-sm text-[#5C5954]">{card.note}</p>
         </div>
-      </Link>
+    </>
+  );
+
+  return (
+    <article>
+      {card.external ? (
+        <a href={card.href} target="_blank" rel="noopener noreferrer" className={className}>
+          {inner}
+        </a>
+      ) : (
+        <Link href={card.href} className={className}>
+          {inner}
+        </Link>
+      )}
     </article>
   );
 }
@@ -117,9 +127,9 @@ export default async function AgentsPage({
     title: k.catalogH2,
     body: k.catalogBody,
     facts: k.catalogFacts,
-    image: "/images/kit-security.jpg",
-    alt: k.catalogAlt,
-    note: dict.shop.priceNote,
+    image: KITS["security-kit"].openSource!.card!,
+    alt: dict.oss.cardAltSecurity,
+    note: dict.oss.catalogNote,
     priority: true,
   };
 
@@ -129,9 +139,21 @@ export default async function AgentsPage({
     title: k.catalogSecretaryH2,
     body: k.catalogSecretaryBody,
     facts: k.catalogSecretaryFacts,
-    image: "/images/kit-folder.jpg",
-    alt: k.catalogSecretaryH2,
-    note: dict.secretary.priceNote,
+    image: KITS["sales-secretary"].openSource!.card!,
+    alt: dict.oss.cardAltSecretary,
+    note: dict.oss.catalogNote,
+  };
+
+  const linkedin: FamilyCard = {
+    href: "https://github.com/cryptulien/linkedin-outreach",
+    scope: k.catalogLinkedinScope,
+    title: k.catalogLinkedinH2,
+    body: k.catalogLinkedinBody,
+    facts: k.catalogLinkedinFacts,
+    image: "/images/oss/linkedin-card.png",
+    alt: dict.oss.cardAltLinkedin,
+    note: dict.oss.catalogNote,
+    external: true,
   };
 
   return (
@@ -176,6 +198,12 @@ export default async function AgentsPage({
                   position: 1,
                   name: k.catalogSecretaryH2,
                   url: `${SITE}/${locale}/agents/secretary`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: k.catalogLinkedinH2,
+                  url: "https://github.com/cryptulien/linkedin-outreach",
                 },
               ],
             },
@@ -226,7 +254,7 @@ export default async function AgentsPage({
               {k.catalogFamilyTechLead}
             </p>
             <div className="mt-10">
-              <KitCard card={tech} price={k.catalogPrice} cta={k.catalogOpen} />
+              <KitCard card={tech} cta={k.catalogOpen} />
             </div>
             <p className="mt-8 text-sm text-[#5C5954]">{k.catalogFamilyTechSoon}</p>
           </div>
@@ -247,8 +275,9 @@ export default async function AgentsPage({
             <p className="mt-4 text-[#4A4742] leading-relaxed max-w-2xl">
               {k.catalogFamilyBizLead}
             </p>
-            <div className="mt-10">
-              <KitCard card={biz} price={k.catalogPrice} cta={k.catalogOpen} />
+            <div className="mt-10 space-y-10">
+              <KitCard card={biz} cta={k.catalogOpen} />
+              <KitCard card={linkedin} cta={dict.oss.viewOnGitHub} />
             </div>
             <p className="mt-8 text-sm text-[#5C5954]">{k.catalogFamilyBizSoon}</p>
           </div>

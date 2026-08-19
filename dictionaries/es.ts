@@ -88,31 +88,50 @@ const es: typeof fr = {
     unlockBusy: "",
     unlockFail: "",
   },
+  oss: {
+    badge: "Open source",
+    viewOnGitHub: "Ver en GitHub",
+    viewShort: "GitHub",
+    clone: "Clonar",
+    cloneCopied: "Comando copiado",
+    stars: "estrellas",
+    forks: "forks",
+    catalogPrice: "Open source · MIT",
+    catalogNote: "Repo público. Clónalo, no hay compra.",
+    howItWorks: "How it works",
+    workflowAltSecurity:
+      "Esquema How it works: objetivo autorizado, reglas, squad, pruebas, score, QA, informe y tickets.",
+    workflowAltSecretary:
+      "Esquema How it works: IMAP y QuickTalk a Hermes, tarjeta Telegram, ok humano, luego Odoo.",
+    cardAltSecurity: "Tarjeta Karukera Security Kit — open source MIT.",
+    cardAltSecretary: "Tarjeta Karukera QuickTalk Automation — open source MIT.",
+    cardAltLinkedin: "Tarjeta Karukera LinkedIn Outreach — open source MIT.",
+  },
   kit: {
     metaTitle: "Pentest IA de tu SaaS — kit de auditoría | Karukera",
     metaDesc:
-      "Lanza una auditoría Web, SaaS o MCP en tu máquina, en Claude, Codex o Cursor. 8 modos, 12 agentes, informe con QA, tickets. 197 €.",
+      "Lanza una auditoría Web, SaaS o MCP en tu máquina, en Claude, Codex o Cursor. 8 modos, 12 agentes, informe con QA, tickets. Open source, MIT.",
     catalogMetaTitle: "Karukera Agents — herramientas IA para emprendedores",
     catalogMetaDesc:
       "Karukera Agents: kits de IA que se adaptan a tu práctica. Familia técnica (auditoría Web, SaaS, MCP) y familia comercial (secretaria Telegram / Ringover / Odoo). En tu máquina.",
     catalogTitle: "Karukera Agents. Herramientas para el día a día.",
     catalogLead:
       "Aligerar el día de un emprendedor con IA, sin llevarse sus datos. Cada agente se adapta a tu práctica: tú eliges el modo, los accesos, el ritmo. Corren en tu lado.",
-    catalogPrice: "197 €",
+    catalogPrice: "Open source · MIT",
     catalogOpen: "Ver el kit",
     catalogHow: [
       { t: "Ajustado a tu práctica", b: "Dices el proyecto, la profundidad, qué puede tocar el agente. Se adapta. No impone un flujo genérico." },
       { t: "En tu lado", b: "Tus datos, tus herramientas, tus hábitos. Karukera no ve tu código, ni tus clientes, ni tus claves." },
-      { t: "Un ZIP, no una agencia", b: "Pagas, lo lanzas en Claude, Codex, Cursor o Hermes — o en tu VPS. Enlace firmado 7 días." },
+      { t: "Un repo, no una agencia", b: "Clonas, lo lanzas en Claude, Codex, Cursor o Hermes — o en tu VPS. Licencia MIT." },
     ],
     catalogFamilyTech: "Técnica",
     catalogFamilyTechLead:
       "Agentes que miran lo que construyes. Auditoría, superficie, aislamiento. Vendrán más agentes técnicos.",
-    catalogFamilyTechSoon: "Después en esta familia — aún no a la venta: SEO / GEO.",
+    catalogFamilyTechSoon: "Después en esta familia — aún no publicado: SEO / GEO.",
     catalogFamilyBiz: "Comercial",
     catalogFamilyBizLead:
       "Agentes que sostienen el hilo con tus prospectos. Mails, llamadas, CRM. Nada sale sin ti. Vendrán más agentes sales y business.",
-    catalogFamilyBizSoon: "Después en esta familia — más agentes comerciales, aún no a la venta.",
+    catalogFamilyBizSoon: "Vendrán más agentes comerciales.",
     catalogBadge: "Kit de auditoría de seguridad",
     catalogScope: "Solo founder · SaaS · Web",
     catalogAlt: "Consola de auditoría con el squad en misión",
@@ -125,7 +144,7 @@ const es: typeof fr = {
       "Tickets de corrección + prompts",
     ],
     catalogMore: "Leer la página completa →",
-    catalogSoon: "Después — aún no a la venta: SEO / GEO · Clínica · Acompañamiento.",
+    catalogSoon: "Después: SEO / GEO · Clínica · Acompañamiento.",
     catalogSecretaryBadge: "Kit de secretaria comercial",
     catalogSecretaryScope: "Telegram · Ringover · Odoo",
     catalogSecretaryH2: "Secretaria comercial",
@@ -137,6 +156,16 @@ const es: typeof fr = {
       "Nada se envía solo",
     ],
     catalogSecretaryMore: "Leer la página completa →",
+    catalogLinkedinScope: "n8n · grok-runner · Twenty",
+    catalogLinkedinH2: "LinkedIn outreach",
+    catalogLinkedinBody:
+      "Invitaciones con tope, aceptaciones semanales, DMs solo después de tu ok. Twenty + Discord. DRY_RUN por defecto.",
+    catalogLinkedinFacts: [
+      "10 invitaciones / día, sin nota",
+      "DM: ok / skip / modificar",
+      "Repo público MIT",
+    ],
+    catalogLinkedinAlt: "Tarjeta Karukera LinkedIn Outreach — open source MIT.",
     heroTitle: "Asegura tu app. Protege tus ingresos.",
     heroLead:
       "Un kit de agentes, en tu máquina. Lo abres en Claude, Codex u otro. Eliges el proyecto, la profundidad, los accesos. Recibes el informe, las pruebas y los tickets para pegar en tu LLM.",
@@ -172,7 +201,7 @@ const es: typeof fr = {
     flowTitle: "El flujo es corto.",
     steps: [
       {
-        t: "Abres el ZIP",
+        t: "Clonas el repositorio",
         b: "En Claude, Codex, Cursor o Hermes. En tu máquina.",
       },
       {
@@ -236,14 +265,14 @@ const es: typeof fr = {
     ticketTitle: "Prohibir la lectura de invoice fuera del tenant",
     ticketPrompt:
       "Control de pertenencia de tenant en GET/PATCH/DELETE invoice. Fuera del tenant: 404 idéntico al not-found. Test defensivo: el tenant A no lee el id del tenant B.",
-    priceTitle: "197 €, una vez.",
+    priceTitle: "Gratis. Licencia MIT.",
     priceBody:
-      "Pago único. Actualizaciones regulares: un mail te avisa, descargas el nuevo ZIP.",
-    faqTitle: "Antes de pagar.",
+      "El kit es público. Clona el repo, abre START-HERE.md. Las actualizaciones son un git pull.",
+    faqTitle: "Antes de clonar.",
     faq: [
       {
         q: "¿Hay que saber programar?",
-        a: "No. Abres el ZIP en Claude, Codex, Cursor o Hermes. Prompts, configs, plantillas.",
+        a: "No. Clonas el repo y lo abres en Claude, Codex, Cursor o Hermes. Prompts, configs, plantillas.",
       },
       {
         q: "¿Tengo que usar OpenRouter?",
@@ -251,7 +280,7 @@ const es: typeof fr = {
       },
       {
         q: "¿Es un escáner en línea?",
-        a: "No. El ZIP corre en tu lado. Karukera no ve tu objetivo ni tu código.",
+        a: "No. El kit corre en tu lado. Karukera no ve tu objetivo ni tu código.",
       },
       {
         q: "¿Puedo usarlo en cualquier sitio?",
@@ -263,19 +292,19 @@ const es: typeof fr = {
       },
       {
         q: "¿Las actualizaciones se pagan?",
-        a: "No. Pago único. Cuando el kit cambia, un mail te envía el enlace para descargar el nuevo ZIP.",
+        a: "No. Repo público, licencia MIT. git pull.",
       },
     ],
     closeTitle: "Lanza la auditoría sobre un proyecto tuyo.",
-    closeBody: "Un pago. Las actualizaciones llegan por mail. Un informe sostenido — o el silencio de la QA.",
+    closeBody: "Licencia MIT. Un clone. Un informe sostenido — o el silencio de la QA.",
     briefLink: "Nota de presentación — perímetro, método, entrega",
   },
   secretary: {
     metaTitle: "Kit de secretaria comercial — Karukera",
     metaDesc:
       "Mails y llamadas Ringover se vuelven tarjetas de Telegram. Odoo se actualiza solo después de tu ok.",
-    buy: "Obtener el kit — 197 €",
-    priceNote: "Pago único. El bot corre en tu VPS. Tus claves siguen siendo tuyas.",
+    buy: "Ver en GitHub",
+    priceNote: "Open source. El bot corre en tu VPS. Tus claves siguen siendo tuyas.",
     heroTitle: "Una secretaria comercial que espera tu ok.",
     heroLead:
       "Hermes lee tus mails y tus llamadas Quicktalk / Ringover, te deja una tarjeta en Telegram y solo escribe en Odoo cuando respondes ok. Appliance Docker, en tu lado.",
@@ -285,8 +314,8 @@ const es: typeof fr = {
     stepsTitle: "Dos fases. Ni una más.",
     steps: [
       {
-        t: "Recuperas el ZIP",
-        b: "Pago Stripe. START-HERE.md primero.",
+        t: "Clonas el repositorio",
+        b: "START-HERE.md primero.",
       },
       {
         t: "Una IA instala el VPS",
@@ -303,8 +332,8 @@ const es: typeof fr = {
     ],
     priceEyebrow: "El kit, hoy",
     priceBody:
-      "Pago único. Appliance Hermes + ingest Docker. Odoo, Ringover, IMAP se configuran en Telegram. 42 archivos.",
-    faqTitle: "Antes de pagar.",
+      "Licencia MIT. Appliance Hermes + ingest Docker. Odoo, Ringover, IMAP se configuran en Telegram. 42 archivos.",
+    faqTitle: "Antes de clonar.",
     faq: [
       {
         q: "¿Hay que programar?",
@@ -312,7 +341,7 @@ const es: typeof fr = {
       },
       {
         q: "¿Está alojado en Karukera?",
-        a: "No. El ZIP corre en tu VPS. Karukera no ve tus mails ni tus llamadas.",
+        a: "No. El kit corre en tu VPS. Karukera no ve tus mails ni tus llamadas.",
       },
       {
         q: "¿Odoo envía los mails solo?",
@@ -324,7 +353,7 @@ const es: typeof fr = {
       },
     ],
     closeTitle: "Pon el bot en un VPS tuyo.",
-    closeBody: "197 €. Un ZIP. Un Telegram. Nada en Odoo antes de tu ok.",
+    closeBody: "Licencia MIT. Un clone. Un Telegram. Nada en Odoo antes de tu ok.",
     thanksBody:
       "Pago recibido. Descarga el ZIP, abre START-HERE.md, dáselo a una IA en tu VPS y habla con el bot.",
     next1: "Abre START-HERE.md — dos fases, no las mezcles.",
@@ -350,7 +379,7 @@ const es: typeof fr = {
     allGuides: "Todas las guías",
     ctaTitle: "El kit, no la guía.",
     ctaBody:
-      "197 €. Un ZIP. Lo abres en Claude, Codex, Cursor o Hermes. Informe sostenido — o el silencio de la QA.",
+      "Open source, MIT. Lo clonas, lo abres en Claude, Codex, Cursor o Hermes. Informe sostenido — o el silencio de la QA.",
     productModesTitle: "Ocho profundidades. Elige según el producto.",
     productModesLead:
       "Express para una primera señal. Web completo para un sitio. SaaS para el aislamiento. MCP si el valor es el agente. Cada modo tiene su guía.",

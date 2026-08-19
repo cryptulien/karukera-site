@@ -2,7 +2,11 @@
 
 | SKU | Page | Source |
 |---|---|---|
-| `security-kit` | `/agents/security` | repo privé `cryptulien/karukera-security-kit` |
-| `sales-secretary` | `/agents/secretary` | repo privé `cryptulien/karukera-sales-secretary` |
+| `security-kit` | `/agents/security` | public MIT repo [`cryptulien/security-kit`](https://github.com/cryptulien/security-kit) |
+| `sales-secretary` | `/agents/secretary` | public MIT repo [`cryptulien/quicktalk-automation`](https://github.com/cryptulien/quicktalk-automation) |
 
-Les sources ne sont pas dans ce dépôt public. Les ZIP chiffrés vivent dans `private/*.zip.enc` et se déchiffrent au build.
+Also public (no dedicated product page yet): [`cryptulien/linkedin-outreach`](https://github.com/cryptulien/linkedin-outreach).
+
+These SKUs are open source. The storefront links to GitHub; Stripe checkout is disabled for them.
+
+Encrypted ZIPs in `private/*.zip.enc` are a leftover of the old paid delivery path. Do not republish them as a paid product.
