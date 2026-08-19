@@ -62,7 +62,7 @@ export default async function SecurityPage({
   const k = dict.kit;
 
   return (
-    <div className="min-h-screen bg-isle-salt text-isle-ink pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
+    <div className="min-h-screen bg-[#F4F3EF] text-[#121212] pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
       {/*
         THESIS: sell the outcome (secure the app, keep the revenue), not a ZIP inventory; refuse studio chrome and stock photos.
         OWN-WORLD: paper light field, ink consoles as the product stage, vermillion only on the buy action.
@@ -103,20 +103,20 @@ export default async function SecurityPage({
       <main>
         <section className="max-w-6xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-16 lg:pb-24 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] gap-12 items-center">
           <div className="min-w-0">
-            <h1 className="font-serif text-[2.15rem] sm:text-5xl font-normal tracking-[-0.03em] leading-[1.08] text-balance">
+            <h1 className="text-[2.15rem] sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.08] text-balance">
               {k.heroTitle}
             </h1>
-            <p className="mt-6 text-lg text-isle-tide leading-relaxed">{k.heroLead}</p>
+            <p className="mt-6 text-lg text-[#4A4742] leading-relaxed">{k.heroLead}</p>
             <BuyButton locale={locale} dict={dict} sku="security-kit" className="mt-8" />
             <p className="mt-4">
               <Link
                 href={`/${locale}/agents/security/kit`}
-                className="text-sm text-isle-tide underline underline-offset-4 decoration-black/20 hover:text-isle-ink hover:decoration-isle-ink"
+                className="text-sm text-[#3F3C38] underline underline-offset-4 decoration-black/20 hover:text-[#121212] hover:decoration-[#121212]"
               >
                 {k.briefLink}
               </Link>
             </p>
-            <p className="mt-4 text-sm text-isle-stone leading-relaxed max-w-md">
+            <p className="mt-4 text-sm text-[#5C5954] leading-relaxed max-w-md">
               {k.modelsLine}
             </p>
           </div>
@@ -136,7 +136,7 @@ export default async function SecurityPage({
           <h2 className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em] leading-[1.12]">
             {k.problemTitle}
           </h2>
-          <p className="mt-5 text-isle-tide leading-relaxed text-[17px]">{k.problemBody}</p>
+          <p className="mt-5 text-[#4A4742] leading-relaxed text-[17px]">{k.problemBody}</p>
         </section>
 
         <section className="max-w-6xl mx-auto px-5 sm:px-8 pb-24">
@@ -166,10 +166,10 @@ export default async function SecurityPage({
           <ol className="mt-8 divide-y divide-black/5">
             {k.steps.map((s, i) => (
               <li key={s.t} className="py-5 grid grid-cols-[2rem_1fr] gap-4">
-                <span className="text-isle-flame font-semibold tabular-nums">{i + 1}</span>
+                <span className="text-[#E23B2E] font-semibold tabular-nums">{i + 1}</span>
                 <div>
                   <p className="font-medium">{s.t}</p>
-                  <p className="mt-1 text-sm text-isle-stone leading-relaxed">{s.b}</p>
+                  <p className="mt-1 text-sm text-[#5C5954] leading-relaxed">{s.b}</p>
                 </div>
               </li>
             ))}
@@ -183,10 +183,10 @@ export default async function SecurityPage({
           <ol className="mt-8 divide-y divide-black/5">
             {k.modes.map((m, i) => (
               <li key={m.t} className="py-5 grid grid-cols-[2rem_1fr] gap-4">
-                <span className="text-isle-flame font-semibold tabular-nums">{i + 1}</span>
+                <span className="text-[#E23B2E] font-semibold tabular-nums">{i + 1}</span>
                 <div>
                   <p className="font-medium">{m.t}</p>
-                  <p className="mt-1 text-sm text-isle-stone leading-relaxed">{m.b}</p>
+                  <p className="mt-1 text-sm text-[#5C5954] leading-relaxed">{m.b}</p>
                 </div>
               </li>
             ))}
@@ -197,14 +197,14 @@ export default async function SecurityPage({
           <h2 className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em]">
             {k.routerTitle}
           </h2>
-          <p className="mt-5 text-isle-tide leading-relaxed text-[17px]">{k.routerBody}</p>
+          <p className="mt-5 text-[#4A4742] leading-relaxed text-[17px]">{k.routerBody}</p>
         </section>
 
         <section className="max-w-6xl mx-auto px-5 sm:px-8 pb-20">
           <h2 className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em]">
             {dict.guides.productModesTitle}
           </h2>
-          <p className="mt-4 text-isle-tide leading-relaxed max-w-2xl">
+          <p className="mt-4 text-[#4A4742] leading-relaxed max-w-2xl">
             {dict.guides.productModesLead}
           </p>
           <ul className="mt-10 grid sm:grid-cols-2 gap-4">
@@ -216,11 +216,11 @@ export default async function SecurityPage({
                     href={`/${locale}/guides/${g.slug}`}
                     className="block rounded-2xl bg-white p-6 h-full shadow-[0_10px_32px_-18px_rgba(22,22,22,0.2)] hover:shadow-[0_14px_36px_-16px_rgba(22,22,22,0.28)]"
                   >
-                    <p className="text-xs text-isle-stone tabular-nums">
+                    <p className="text-xs text-[#8A857D] tabular-nums">
                       {g.modeId} · {c.duration}
                     </p>
                     <p className="mt-2 font-medium leading-snug">{c.title}</p>
-                    <p className="mt-2 text-sm text-isle-stone leading-relaxed">
+                    <p className="mt-2 text-sm text-[#5C5954] leading-relaxed">
                       {c.excerpt}
                     </p>
                   </Link>
@@ -230,7 +230,7 @@ export default async function SecurityPage({
           </ul>
           <Link
             href={`/${locale}/guides`}
-            className="mt-6 inline-flex text-sm font-medium text-isle-flame"
+            className="mt-6 inline-flex text-sm font-medium text-[#E23B2E]"
           >
             {dict.guides.allGuides} →
           </Link>
@@ -239,7 +239,7 @@ export default async function SecurityPage({
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
           <div className="rounded-2xl bg-white p-8 sm:p-10 shadow-[0_16px_40px_-24px_rgba(18,18,18,0.28)]">
             <h2 className="text-3xl font-semibold tracking-tight">{k.priceTitle}</h2>
-            <p className="mt-3 text-isle-tide leading-relaxed">{k.priceBody}</p>
+            <p className="mt-3 text-[#4A4742] leading-relaxed">{k.priceBody}</p>
             <BuyButton
               locale={locale}
               dict={dict}
@@ -256,7 +256,7 @@ export default async function SecurityPage({
             {k.faq.map((f) => (
               <div key={f.q} className="py-5">
                 <dt className="font-medium">{f.q}</dt>
-                <dd className="mt-2 text-sm text-isle-stone leading-relaxed">{f.a}</dd>
+                <dd className="mt-2 text-sm text-[#5C5954] leading-relaxed">{f.a}</dd>
               </div>
             ))}
           </dl>
@@ -275,7 +275,7 @@ export default async function SecurityPage({
         </section>
       </main>
       <SalesFooter locale={locale} dict={dict} year={year} />
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-isle-salt/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-[#F4F3EF]/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
         <BuyButton locale={locale} dict={dict} sku="security-kit" />
       </div>
     </div>

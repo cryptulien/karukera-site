@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Young_Serif, Bricolage_Grotesque, Literata } from "next/font/google";
+import { Space_Grotesk, Shippori_Mincho } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { locales, isLocale, type Locale } from "@/lib/i18n";
 import { ogImage } from "@/lib/share";
@@ -12,22 +12,17 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-const sans = Bricolage_Grotesque({
+const sans = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const serif = Young_Serif({
+const serif = Shippori_Mincho({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-serif",
-  display: "swap",
-});
-
-const text = Literata({
-  subsets: ["latin"],
-  variable: "--font-text",
   display: "swap",
 });
 
@@ -101,22 +96,9 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`scroll-smooth ${sans.variable} ${serif.variable} ${text.variable}`}
+      className={`scroll-smooth ${sans.variable} ${serif.variable}`}
     >
       <body className="min-h-screen overflow-x-hidden">
-        <div
-          hidden
-          dangerouslySetInnerHTML={{
-            __html: `<!--
-THESIS: Karukera is a place you enter, not a site you browse. It refuses the Japanese washi seal and the SaaS card grid.
-OWN-WORLD: mineral verandah field, lagoon ink, flamboyant as the only warm accent, Young Serif + Bricolage, album plates.
-STORY: the visitor has time; they can name Julien, a project, and — if they came to buy — a kit family.
-FIRST VIEWPORT: full-bleed beach plate, horizon intact, wordmark, quiet tagline, distant surfer, optional sea.
-FORM: one territory, two rooms; butterfly breathed, never drawn.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
--->`,
-          }}
-        />
         {children}
         <Analytics />
       </body>

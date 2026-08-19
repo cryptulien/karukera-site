@@ -112,7 +112,7 @@ export function AgentWorkflow({
                     qaSigned
                       ? "bg-[#7DCE8A]"
                       : on
-                        ? "bg-isle-flame kit-pulse"
+                        ? "bg-[#E23B2E] kit-pulse"
                         : done
                           ? "bg-white/50"
                           : "bg-white/15"
@@ -136,7 +136,7 @@ export function AgentWorkflow({
                   key={a.id}
                   className={`shrink-0 text-[11px] px-2 py-1 rounded-full border ${
                     on
-                      ? "border-isle-flame text-white"
+                      ? "border-[#E23B2E] text-white"
                       : done
                         ? "border-white/20 text-white/60"
                         : "border-white/10 text-white/30"
@@ -174,7 +174,7 @@ export function AgentWorkflow({
           >
             <div className="flex items-center justify-between gap-3 text-[11px] tracking-wide">
               <span className="text-white/45">{findingId}</span>
-              <span className="rounded-full bg-isle-flame px-2 py-0.5 text-white font-medium">
+              <span className="rounded-full bg-[#E23B2E] px-2 py-0.5 text-white font-medium">
                 {findingStatus}
               </span>
             </div>

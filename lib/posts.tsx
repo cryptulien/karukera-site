@@ -29,7 +29,7 @@ export interface Post {
 function inline(text: string): ReactNode[] {
   return text.split("**").map((part, i) =>
     i % 2 === 1 ? (
-      <strong key={i} className="font-medium text-isle-ink">
+      <strong key={i} className="font-medium text-sei-ink">
         {part}
       </strong>
     ) : (
@@ -52,16 +52,16 @@ export function PostBody({ blocks }: { blocks: Block[] }) {
           b.type === "strate" ? (
             <div
               key={i}
-              className="rounded-lg border border-isle-mist bg-isle-foam/50 p-6 sm:p-8"
+              className="rounded-md border border-sei-mist bg-sei-rice/60 p-6 sm:p-8"
             >
-              <p className="text-sm font-medium text-isle-lagoon">
+              <p className="text-xs uppercase tracking-[0.2em] text-sei-vermilion font-medium">
                 {b.title}
               </p>
               <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-2">
                 {b.items.map((it) => (
                   <li
                     key={it}
-                    className="text-sm text-isle-tide after:content-['·'] after:ml-3 after:text-isle-mist last:after:content-['']"
+                    className="text-sm text-sei-sumi after:content-['·'] after:ml-3 after:text-sei-mist last:after:content-['']"
                   >
                     {it}
                   </li>
@@ -87,7 +87,7 @@ export function PostBody({ blocks }: { blocks: Block[] }) {
         out.push(
           <p
             key={i}
-            className="text-xl sm:text-2xl font-serif leading-relaxed text-isle-ink"
+            className="text-xl sm:text-2xl font-serif leading-relaxed text-sei-ink"
           >
             {b.text}
           </p>,
@@ -95,7 +95,7 @@ export function PostBody({ blocks }: { blocks: Block[] }) {
         break;
       case "p":
         out.push(
-          <p key={i} className="mt-6 text-lg leading-relaxed text-isle-tide">
+          <p key={i} className="mt-6 text-lg leading-relaxed text-sei-sumi">
             {inline(b.text)}
           </p>,
         );
@@ -104,7 +104,7 @@ export function PostBody({ blocks }: { blocks: Block[] }) {
         out.push(
           <p
             key={i}
-            className="mt-6 pl-6 border-l border-isle-lagoon font-serif text-lg sm:text-xl italic leading-relaxed text-isle-ink"
+            className="mt-6 pl-6 border-l-2 border-sei-vermilion font-serif text-lg sm:text-xl italic leading-relaxed text-sei-ink"
           >
             {b.text}
           </p>,
@@ -114,8 +114,9 @@ export function PostBody({ blocks }: { blocks: Block[] }) {
         out.push(
           <p
             key={i}
-            className="mt-12 font-serif text-2xl text-isle-ink"
+            className="mt-12 font-serif text-2xl text-sei-ink flex items-center gap-3"
           >
+            <span className="sei-seal" aria-hidden />
             {b.text}
           </p>,
         );

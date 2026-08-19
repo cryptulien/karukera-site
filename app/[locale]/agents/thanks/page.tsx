@@ -82,20 +82,20 @@ export default async function ThanksPage({
       <main className="max-w-2xl mx-auto px-5 sm:px-8 py-20">
         {state === "ok" && downloadHref ? (
           <>
-            <h1 className="font-serif text-4xl font-normal tracking-tight">
+            <h1 className="text-4xl font-semibold tracking-tight">
               {dict.shop.thanksTitle}
             </h1>
-            <p className="mt-5 text-lg text-isle-stone leading-relaxed">
+            <p className="mt-5 text-lg text-[#5C5954] leading-relaxed">
               {sku === "sales-secretary" ? dict.secretary.thanksBody : dict.shop.thanksBody}
             </p>
             <a
               href={downloadHref}
               referrerPolicy="no-referrer"
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-isle-flame px-7 h-12 text-[15px] font-medium text-white hover:bg-isle-flame/85"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#E23B2E] px-7 h-12 text-[15px] font-medium text-white hover:bg-[#c92f24]"
             >
               {dict.shop.download}
             </a>
-            <ol className="mt-12 space-y-3 text-[15px] text-isle-stone">
+            <ol className="mt-12 space-y-3 text-[15px] text-[#5C5954]">
               <li>1. {sku === "sales-secretary" ? dict.secretary.next1 : dict.shop.next1}</li>
               <li>2. {sku === "sales-secretary" ? dict.secretary.next2 : dict.shop.next2}</li>
               <li>3. {sku === "sales-secretary" ? dict.secretary.next3 : dict.shop.next3}</li>
@@ -103,7 +103,7 @@ export default async function ThanksPage({
           </>
         ) : (
           <>
-            <h1 className="font-serif text-3xl font-normal tracking-tight">
+            <h1 className="text-3xl font-semibold tracking-tight">
               {state === "pending"
                 ? dict.shop.thanksPending
                 : state === "incomplete"
@@ -111,13 +111,13 @@ export default async function ThanksPage({
                   : dict.shop.thanksFail}
             </h1>
             {state === "incomplete" ? (
-              <p className="mt-5 text-lg text-isle-stone leading-relaxed">
+              <p className="mt-5 text-lg text-[#5C5954] leading-relaxed">
                 {dict.shop.unlockBody}
               </p>
             ) : null}
             <Link
               href={`/${locale}/agents`}
-              className="mt-8 inline-block text-isle-flame"
+              className="mt-8 inline-block text-[#E23B2E]"
             >
               ← {dict.nav.agents}
             </Link>

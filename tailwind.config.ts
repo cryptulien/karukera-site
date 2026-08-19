@@ -1,33 +1,33 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./lib/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
       colors: {
-        isle: {
-          salt: "#E6EBE6",
-          foam: "#D2DDD8",
-          mist: "#B8C6C0",
-          stone: "#4E5F59",
-          tide: "#2F3F3B",
-          ink: "#142228",
-          lagoon: "#184A58",
-          canopy: "#1E2E24",
-          flame: "#C43A14",
-          sand: "#E4D4B4",
+        // Seijaku — esthétique washi / encre. Calme dans la tempête.
+        sei: {
+          washi: "#FBFAF7", // fond crème (papier washi)
+          rice: "#F4F0E8", // panneau / surface secondaire
+          mist: "#E6E1D6", // filets, bordures
+          stone: "#8A857D", // texte atténué
+          sumi: "#57534E", // texte secondaire (encre diluée)
+          ink: "#1A1A1A", // encre, texte principal
+          vermilion: "#E0483D", // vermillon, accent
+          gold: "#B08D57", // or sobre, accent secondaire
         },
       },
       fontFamily: {
-        serif: ['var(--font-serif)', "Georgia", "serif"],
-        sans: ['var(--font-sans)', "system-ui", "sans-serif"],
-        text: ['var(--font-text)', "Georgia", "serif"],
+        serif: ['var(--font-serif)', '"Shippori Mincho"', "Georgia", "serif"],
+        sans: ['var(--font-sans)', '"Space Grotesk"', "system-ui", "sans-serif"],
       },
       borderRadius: {
         DEFAULT: "4px",
         sm: "2px",
-        md: "6px",
-        lg: "12px",
+        md: "4px",
+        lg: "6px",
       },
       maxWidth: {
         prose: "42rem",

@@ -7,11 +7,7 @@ const fr = {
     secretary: "Secrétaire",
     guides: "Guides",
   },
-  hero: {
-    tagline: "L’île aux belles eaux",
-    seaListen: "La mer",
-    seaQuiet: "Silence",
-  },
+  hero: { tagline: "L’île aux belles eaux" },
   about: {
     title: "Je suis Julien.",
     body: "Médecin psychiatre et entrepreneur. Je construis des projets à l’intersection de la santé, du numérique et du concret — avec la conviction qu’un humain seul, bien outillé par l’IA, peut désormais bâtir ce qui demandait hier une équipe entière.",

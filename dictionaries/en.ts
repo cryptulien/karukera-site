@@ -9,11 +9,7 @@ const en: typeof fr = {
     secretary: "Secretary",
     guides: "Guides",
   },
-  hero: {
-    tagline: "The island of beautiful waters",
-    seaListen: "The sea",
-    seaQuiet: "Quiet",
-  },
+  hero: { tagline: "The island of beautiful waters" },
   about: {
     title: "I’m Julien.",
     body: "Psychiatrist and entrepreneur. I build projects at the intersection of healthcare, software and the concrete — convinced that a single person, well equipped with AI, can now build what used to require an entire team.",

@@ -30,7 +30,7 @@ export function KitStages({
             <h3 className="text-[1.7rem] sm:text-3xl font-semibold tracking-[-0.03em] leading-[1.15]">
               {f.title}
             </h3>
-            <p className="mt-4 text-[17px] text-isle-tide leading-relaxed max-w-md">
+            <p className="mt-4 text-[17px] text-[#4A4742] leading-relaxed max-w-md">
               {f.body}
             </p>
           </div>
@@ -92,11 +92,11 @@ function StageCode({ demo }: { demo: { scope: string } }) {
           {"\n"}
           <span className="text-white/30">15</span>
           {"  "}
-          <span className="bg-isle-flame/30 text-white">return json(row)</span>
+          <span className="bg-[#E23B2E]/30 text-white">return json(row)</span>
           {"\n"}
           <span className="text-white/30">16</span>
           {"\n"}
-          <span className="text-isle-flame">     ↑ no tenant check</span>
+          <span className="text-[#E23B2E]">     ↑ no tenant check</span>
         </pre>
       </div>
     </Frame>
@@ -121,7 +121,7 @@ function StageOutside({ demo }: { demo: { scope: string } }) {
               <td className="px-2 py-2.5 font-mono truncate">{p}</td>
               <td
                 className={`px-4 py-2.5 font-mono text-right w-14 ${
-                  s === "200" && p === "/api/webhooks" ? "text-isle-flame" : "text-white/40"
+                  s === "200" && p === "/api/webhooks" ? "text-[#E23B2E]" : "text-white/40"
                 }`}
               >
                 {s}
@@ -150,8 +150,8 @@ function StageInside({
         <div className="p-4 min-w-0">
           <p className="text-[11px] text-white/40 tracking-wide">tenant B</p>
           <p className="mt-3 font-mono text-[12px] text-white/70 break-all">GET /invoices/210</p>
-          <p className="mt-1 text-[13px] text-isle-flame">200 · should be 404</p>
-          <p className="mt-4 inline-flex text-[11px] rounded-full bg-isle-flame px-2 py-0.5">
+          <p className="mt-1 text-[13px] text-[#E23B2E]">200 · should be 404</p>
+          <p className="mt-4 inline-flex text-[11px] rounded-full bg-[#E23B2E] px-2 py-0.5">
             {demo.findingStatus}
           </p>
         </div>

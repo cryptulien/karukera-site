@@ -9,7 +9,7 @@ const destDir = join(root, "private");
 const PACKAGES = [
   {
     id: "security-kit",
-    src: join(root, "kits", "security-kit"),
+    src: join(root, "kit"),
     dest: join(destDir, "karukera-security-kit.zip"),
     enc: join(destDir, "karukera-security-kit.zip.enc"),
   },

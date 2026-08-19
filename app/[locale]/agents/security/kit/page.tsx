@@ -54,7 +54,7 @@ export default async function KitBriefPage({
   const url = `${SITE}/${locale}/agents/security/kit`;
 
   return (
-    <div className="min-h-screen bg-isle-salt text-isle-ink">
+    <div className="min-h-screen bg-[#F4F3EF] text-[#121212]">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -75,15 +75,15 @@ export default async function KitBriefPage({
       <SalesNav locale={locale} dict={dict} sku="security-kit" />
       <main>
         <article className="max-w-[40rem] mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-24">
-          <p className="text-xs tracking-[0.18em] uppercase text-isle-stone">{b.kicker}</p>
-          <h1 className="mt-4 font-serif text-[2.05rem] sm:text-[2.6rem] font-normal tracking-[-0.03em] leading-[1.1]">
+          <p className="text-xs tracking-[0.18em] uppercase text-[#8A857D]">{b.kicker}</p>
+          <h1 className="mt-4 text-[2.05rem] sm:text-[2.6rem] font-semibold tracking-[-0.03em] leading-[1.1]">
             {b.title}
           </h1>
-          <p className="mt-6 text-lg text-isle-tide leading-relaxed">{b.lead}</p>
+          <p className="mt-6 text-lg text-[#4A4742] leading-relaxed">{b.lead}</p>
           <p className="mt-4">
             <a
               href={`/${locale}/agents/security/kit.md`}
-              className="text-sm text-isle-flame underline underline-offset-4 decoration-isle-flame/40 hover:decoration-isle-flame"
+              className="text-sm text-[#E23B2E] underline underline-offset-4 decoration-[#E23B2E]/40 hover:decoration-[#E23B2E]"
             >
               {locale === "en"
                 ? "Download as Markdown"
@@ -116,7 +116,7 @@ export default async function KitBriefPage({
                 return (
                   <blockquote
                     key={i}
-                    className="border-l-2 border-isle-flame pl-5 text-[17px] text-isle-ink leading-relaxed"
+                    className="border-l-2 border-[#E23B2E] pl-5 text-[17px] text-[#121212] leading-relaxed"
                   >
                     {block.text}
                   </blockquote>
@@ -130,7 +130,7 @@ export default async function KitBriefPage({
                         key={item}
                         className="grid grid-cols-[0.7rem_1fr] gap-3 text-[17px] text-[#2A2826] leading-relaxed"
                       >
-                        <span className="mt-[0.55em] h-1.5 w-1.5 rounded-full bg-isle-flame" />
+                        <span className="mt-[0.55em] h-1.5 w-1.5 rounded-full bg-[#E23B2E]" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -144,7 +144,7 @@ export default async function KitBriefPage({
                       key={item}
                       className="grid grid-cols-[1.5rem_1fr] gap-2 text-[17px] text-[#2A2826] leading-relaxed"
                     >
-                      <span className="text-isle-flame font-semibold tabular-nums">{n + 1}</span>
+                      <span className="text-[#E23B2E] font-semibold tabular-nums">{n + 1}</span>
                       <span>{item}</span>
                     </li>
                   ))}

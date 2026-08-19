@@ -34,8 +34,8 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 
 - Site Next.js 15, i18n `/fr` `/en` `/es`, hébergé Vercel, domaine `karukera.xyz`.
 - Chemins figés : home studio ; `/agents` catalogue ; `/agents/security` produit ; `/blog` (Le Carnet).
-- Le kit sécu est un ZIP de prompts / configs / templates, pas une appli hébergée. Source locale `kits/security-kit/` (gitignorée), miroir privé `cryptulien/karukera-security-kit`. Le site public ne contient que le ZIP chiffré.
-- Le kit **secrétaire commercial** (Hermes + Ringover + Odoo) : source locale `kits/sales-secretary/` (gitignorée), miroir privé `cryptulien/karukera-sales-secretary`, ZIP chiffré `private/karukera-sales-secretary.zip.enc`, page `/{locale}/agents/secretary`.
+- Le kit sécu est un ZIP de prompts / configs / templates, pas une appli hébergée. Source dans le repo privé `cryptulien/karukera-security-kit` (le site public ne contient que le ZIP chiffré).
+- Le kit **secrétaire commercial** (Hermes + Ringover + Odoo) : source privée `cryptulien/karukera-sales-secretary`, ZIP chiffré `private/karukera-sales-secretary.zip.enc`, page `/{locale}/agents/secretary`.
 - OpenStats vit sur `openstats.karukera.xyz` (appli, hors de ce site). SuperPagr et Le Lien ont leurs propres domaines.
 - Publications : X (manuel V1) et LinkedIn via Postiz. DA de sharing requise.
 - Maquettes : Penpot self-hosted (`penpot.superpagr.com`).
@@ -45,8 +45,8 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 - Boutique : deux SKU — kit d'audit sécu (`/agents/security`) et kit secrétaire commercial (`/agents/secretary`). Le reste reste « bientôt ».
 - Pas de compte client, pas de dashboard, pas d'audit hébergé.
 - Light mode uniquement (contrainte utilisateur).
-- Seijaku (« calme dans la tempête ») est une **méthode et un engagement de marque**, pas une recette visuelle. Le costume washi / Shippori / vermillon est sorti.
-- DA : territoire île (badigeon de varangue, encre lagon, accent flamboyant, Young Serif + Bricolage + Literata). Planches plage / villa / portrait conservées. Papillon respiré, jamais dessiné.
+- Seijaku (« calme dans la tempête ») est une **méthode et un engagement de marque**, pas une recette visuelle crème + vermillon à reconduire.
+- La DA actuelle du site (washi, Shippori Mincho, Space Grotesk, filet vermillon) est l'identité sortante : à remplacer, pas à polir.
 - Prix, témoignages, captures d'audit, logos clients : **non affichés** tant qu'ils n'existent pas. Pas d'invention.
 - Preuves autorisées : photos Guadeloupe déjà dans `public/images/`, noms de projets réels, extraits du Carnet, faits de fonctionnement du kit (OpenRouter, squad, règles) une fois le kit écrit.
 
@@ -55,8 +55,8 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 - Nom : **Karukera** (nom indigène de la Guadeloupe). Société de Julien Lelandais.
 - Voix : calme, précise, première personne sur le studio ; factuelle et non hype sur le kit.
 - Seijaku est binding comme *attitude* : retenue, un sceau plutôt qu'une alarme, lumière du jour (light).
-- Une âme, deux pièces. Studio (home, projets, carnet) = territoire. Vente (`/agents`, SKU, guides) = conversion, **mêmes matériaux** (typo, palette, accent), autre meuble. Pas de lien studio dans le premier viewport vente.
-- Home : planches plage/villa monumentales, overlay léger, surfeur discret, mer optionnelle. Carnet : planche forêt, lecture Literata. **Sans** les marques BD SuperPagr / Le Lien (`superpagr.webp`, `lien.webp` — exclus).
+- Home studio : Seijaku actuel (washi, Shippori, grandes planches plage/villa). Plus de caractère, **sans** les marques BD SuperPagr / Le Lien (`superpagr.webp`, `lien.webp` — exclus).
+- Pages de vente (`/agents`, `/agents/security`) : autre registre. Même attitude (calme, light, un accent) mais **guidelines landing** — clair, propre, sans costume BD ni planche comme identité.
 - Pas de sous-domaine produit : tout vit sous `karukera.xyz/{locale}/…`.
 - Nav cible : Projets · Agents · Carnet.
 
@@ -75,7 +75,7 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 2. `/agents` est le catalogue Karukera Agents : deux familles (Technique, Commercial), une offre réelle par carte ; le reste s'annonce en ligne, jamais en faux produit.
 3. Rien d'inventé : pas de preuve, pas de chiffre, pas de visage client.
 4. Seijaku gouverne le *comportement* de la marque (calme, un accent, lumière) — pas le costume washi de 2026.
-6. Une âme, deux pièces. Home : planches monumentales, lenteur. Vente : landing de conversion dans les mêmes matériaux, pas de logos BD.
+6. Deux registres. Home : planches plage/villa monumentales, Seijaku actuel enrichi. Vente : page de conversion, typo et mise en page de landing, pas de logos BD.
 5. Une seule propriété SEO : sous-dossiers, une DA, deux registres (studio / offre).
 
 ## Accessibility & Inclusion
