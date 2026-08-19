@@ -98,6 +98,14 @@ const es: typeof fr = {
     forks: "forks",
     catalogPrice: "Open source · MIT",
     catalogNote: "Repo público. Clónalo, no hay compra.",
+    howItWorks: "How it works",
+    workflowAltSecurity:
+      "Esquema How it works: objetivo autorizado, reglas, squad, pruebas, score, QA, informe y tickets.",
+    workflowAltSecretary:
+      "Esquema How it works: IMAP y QuickTalk a Hermes, tarjeta Telegram, ok humano, luego Odoo.",
+    cardAltSecurity: "Tarjeta Karukera Security Kit — open source MIT.",
+    cardAltSecretary: "Tarjeta Karukera QuickTalk Automation — open source MIT.",
+    cardAltLinkedin: "Tarjeta Karukera LinkedIn Outreach — open source MIT.",
   },
   kit: {
     metaTitle: "Pentest IA de tu SaaS — kit de auditoría | Karukera",
@@ -123,8 +131,7 @@ const es: typeof fr = {
     catalogFamilyBiz: "Comercial",
     catalogFamilyBizLead:
       "Agentes que sostienen el hilo con tus prospectos. Mails, llamadas, CRM. Nada sale sin ti. Vendrán más agentes sales y business.",
-    catalogFamilyBizSoon:
-      "También público: LinkedIn outreach (MIT) — github.com/cryptulien/linkedin-outreach. Vendrán más agentes comerciales.",
+    catalogFamilyBizSoon: "Vendrán más agentes comerciales.",
     catalogBadge: "Kit de auditoría de seguridad",
     catalogScope: "Solo founder · SaaS · Web",
     catalogAlt: "Consola de auditoría con el squad en misión",
@@ -149,6 +156,16 @@ const es: typeof fr = {
       "Nada se envía solo",
     ],
     catalogSecretaryMore: "Leer la página completa →",
+    catalogLinkedinScope: "n8n · grok-runner · Twenty",
+    catalogLinkedinH2: "LinkedIn outreach",
+    catalogLinkedinBody:
+      "Invitaciones con tope, aceptaciones semanales, DMs solo después de tu ok. Twenty + Discord. DRY_RUN por defecto.",
+    catalogLinkedinFacts: [
+      "10 invitaciones / día, sin nota",
+      "DM: ok / skip / modificar",
+      "Repo público MIT",
+    ],
+    catalogLinkedinAlt: "Tarjeta Karukera LinkedIn Outreach — open source MIT.",
     heroTitle: "Asegura tu app. Protege tus ingresos.",
     heroLead:
       "Un kit de agentes, en tu máquina. Lo abres en Claude, Codex u otro. Eliges el proyecto, la profundidad, los accesos. Recibes el informe, las pruebas y los tickets para pegar en tu LLM.",

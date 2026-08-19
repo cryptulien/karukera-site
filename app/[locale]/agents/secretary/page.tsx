@@ -8,6 +8,7 @@ import { JsonLd } from "../../../components/JsonLd";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
 import { KitAction } from "../../../components/KitAction";
+import { OssFigure } from "../../../components/OssFigure";
 import { KITS, githubHttpsUrl } from "@/lib/kit-offer";
 
 export function generateStaticParams() {
@@ -30,13 +31,13 @@ export async function generateMetadata({
       title: dict.secretary.metaTitle,
       description: dict.secretary.metaDesc,
       url: `https://karukera.xyz/${locale}/agents/secretary`,
-      images: [ogImage("/images/og-secretary.jpg", dict.secretary.metaTitle)],
+      images: [ogImage("/images/oss/quicktalk-card.png", dict.secretary.metaTitle, "image/png")],
     },
     twitter: {
       card: "summary_large_image",
       title: dict.secretary.metaTitle,
       description: dict.secretary.metaDesc,
-      images: ["/images/og-secretary.jpg"],
+      images: ["/images/oss/quicktalk-card.png"],
     },
   };
 }
@@ -83,6 +84,14 @@ export default async function SecretaryPage({
           <p className="mt-6 text-lg text-[#5C5954] leading-relaxed">
             {dict.secretary.heroLead}
           </p>
+          <OssFigure
+            src={KITS["sales-secretary"].openSource!.card!}
+            alt={dict.oss.cardAltSecretary}
+            width={1920}
+            height={1080}
+            className="mt-8"
+            priority
+          />
           <KitAction
             locale={locale}
             dict={dict}
@@ -99,6 +108,19 @@ export default async function SecretaryPage({
           <p className="mt-5 text-[#5C5954] leading-relaxed">
             {dict.secretary.problemBody}
           </p>
+        </section>
+
+        <section className="max-w-6xl mx-auto px-5 sm:px-8 pb-16">
+          <h2 className="text-3xl font-semibold tracking-tight">
+            {dict.oss.howItWorks}
+          </h2>
+          <OssFigure
+            src={KITS["sales-secretary"].openSource!.workflow!}
+            alt={dict.oss.workflowAltSecretary}
+            width={2000}
+            height={886}
+            className="mt-8"
+          />
         </section>
 
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-16">

@@ -5,6 +5,8 @@ export type KitSku = "security-kit" | "sales-secretary";
 export type OpenSourceKit = {
   githubRepo: string;
   license: "MIT";
+  card?: string;
+  workflow?: string;
 };
 
 export type KitOffer = {
@@ -29,6 +31,8 @@ export const KITS: Record<KitSku, KitOffer> = {
     openSource: {
       githubRepo: "cryptulien/security-kit",
       license: "MIT",
+      card: "/images/oss/security-card.png",
+      workflow: "/images/oss/security-workflow.png",
     },
     name: {
       fr: "Karukera · Kit audit sécu Web + SaaS",
@@ -50,6 +54,8 @@ export const KITS: Record<KitSku, KitOffer> = {
     openSource: {
       githubRepo: "cryptulien/quicktalk-automation",
       license: "MIT",
+      card: "/images/oss/quicktalk-card.png",
+      workflow: "/images/oss/quicktalk-workflow.png",
     },
     name: {
       fr: "Karukera · Kit secrétaire commercial",

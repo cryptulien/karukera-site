@@ -12,6 +12,7 @@ import { SalesFooter } from "../../../components/SalesFooter";
 import { KitAction } from "../../../components/KitAction";
 import { AgentWorkflow } from "../../../components/AgentWorkflow";
 import { KitStages } from "../../../components/KitStages";
+import { OssFigure } from "../../../components/OssFigure";
 import { KITS, githubHttpsUrl } from "@/lib/kit-offer";
 
 export function generateStaticParams() {
@@ -40,13 +41,13 @@ export async function generateMetadata({
       title: dict.kit.metaTitle,
       description: dict.kit.metaDesc,
       url: `https://karukera.xyz/${locale}/agents/security`,
-      images: [ogImage("/images/og-security.jpg", dict.kit.metaTitle)],
+      images: [ogImage("/images/oss/security-card.png", dict.kit.metaTitle, "image/png")],
     },
     twitter: {
       card: "summary_large_image",
       title: dict.kit.metaTitle,
       description: dict.kit.metaDesc,
-      images: ["/images/og-security.jpg"],
+      images: ["/images/oss/security-card.png"],
     },
   };
 }
@@ -161,6 +162,19 @@ export default async function SecurityPage({
               }}
             />
           </div>
+        </section>
+
+        <section className="max-w-6xl mx-auto px-5 sm:px-8 pb-20">
+          <h2 className="text-3xl sm:text-[2.15rem] font-semibold tracking-[-0.03em]">
+            {dict.oss.howItWorks}
+          </h2>
+          <OssFigure
+            src={KITS["security-kit"].openSource!.workflow!}
+            alt={dict.oss.workflowAltSecurity}
+            width={2000}
+            height={886}
+            className="mt-8"
+          />
         </section>
 
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-20">

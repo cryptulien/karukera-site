@@ -98,6 +98,14 @@ const en: typeof fr = {
     forks: "forks",
     catalogPrice: "Open source · MIT",
     catalogNote: "Public repo. Clone it — no purchase.",
+    howItWorks: "How it works",
+    workflowAltSecurity:
+      "How it works: authorized target, rules, squad, evidence, score, QA, then report and tickets.",
+    workflowAltSecretary:
+      "How it works: IMAP and QuickTalk into Hermes, Telegram card, human ok, then Odoo.",
+    cardAltSecurity: "Karukera Security Kit card — open source MIT.",
+    cardAltSecretary: "Karukera QuickTalk Automation card — open source MIT.",
+    cardAltLinkedin: "Karukera LinkedIn Outreach card — open source MIT.",
   },
   kit: {
     metaTitle: "AI pentest of your SaaS — security audit kit | Karukera",
@@ -123,8 +131,7 @@ const en: typeof fr = {
     catalogFamilyBiz: "Sales",
     catalogFamilyBizLead:
       "Agents that hold the thread with your prospects. Mail, calls, CRM. Nothing goes out without you. More sales and business agents will follow.",
-    catalogFamilyBizSoon:
-      "Also public: LinkedIn outreach (MIT) — github.com/cryptulien/linkedin-outreach. More sales agents will follow.",
+    catalogFamilyBizSoon: "More sales agents will follow.",
     catalogBadge: "Security audit kit",
     catalogScope: "Solo founder · SaaS · Web",
     catalogAlt: "Audit console with the squad running a mission",
@@ -149,6 +156,16 @@ const en: typeof fr = {
       "Nothing is sent on its own",
     ],
     catalogSecretaryMore: "Read the full page →",
+    catalogLinkedinScope: "n8n · grok-runner · Twenty",
+    catalogLinkedinH2: "LinkedIn outreach",
+    catalogLinkedinBody:
+      "Capped invitations, weekly acceptances, DMs only after your ok. Twenty + Discord. DRY_RUN by default.",
+    catalogLinkedinFacts: [
+      "10 invitations / day, no note",
+      "DM: ok / skip / edit",
+      "Public MIT repo",
+    ],
+    catalogLinkedinAlt: "Karukera LinkedIn Outreach card — open source MIT.",
     heroTitle: "Secure your app. Protect your revenue.",
     heroLead:
       "An agent kit, run on your machine. Open it in Claude, Codex or another. Pick the project, the depth, the access. You get the report, the evidence, and tickets to paste into your LLM.",

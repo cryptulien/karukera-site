@@ -27,6 +27,10 @@ describe("open-source kits", () => {
     assert.equal(KITS["sales-secretary"].openSource?.githubRepo, "cryptulien/quicktalk-automation");
     assert.equal(KITS["security-kit"].openSource?.license, "MIT");
     assert.equal(KITS["sales-secretary"].openSource?.license, "MIT");
+    assert.equal(KITS["security-kit"].openSource?.card, "/images/oss/security-card.png");
+    assert.equal(KITS["security-kit"].openSource?.workflow, "/images/oss/security-workflow.png");
+    assert.equal(KITS["sales-secretary"].openSource?.card, "/images/oss/quicktalk-card.png");
+    assert.equal(KITS["sales-secretary"].openSource?.workflow, "/images/oss/quicktalk-workflow.png");
   });
 
   it("does not treat a kit without openSource as open source", () => {
