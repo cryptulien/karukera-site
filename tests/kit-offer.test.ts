@@ -23,8 +23,8 @@ describe("open-source kits", () => {
   it("marks security-kit and sales-secretary as MIT open source", () => {
     assert.equal(isOpenSource(KITS["security-kit"]), true);
     assert.equal(isOpenSource(KITS["sales-secretary"]), true);
-    assert.equal(KITS["security-kit"].openSource?.githubRepo, "cryptulien/karukera-security-kit");
-    assert.equal(KITS["sales-secretary"].openSource?.githubRepo, "cryptulien/karukera-sales-secretary");
+    assert.equal(KITS["security-kit"].openSource?.githubRepo, "cryptulien/security-kit");
+    assert.equal(KITS["sales-secretary"].openSource?.githubRepo, "cryptulien/quicktalk-automation");
     assert.equal(KITS["security-kit"].openSource?.license, "MIT");
     assert.equal(KITS["sales-secretary"].openSource?.license, "MIT");
   });
@@ -35,12 +35,12 @@ describe("open-source kits", () => {
 
   it("builds public GitHub and clone URLs", () => {
     assert.equal(
-      githubHttpsUrl("cryptulien/karukera-security-kit"),
-      "https://github.com/cryptulien/karukera-security-kit",
+      githubHttpsUrl("cryptulien/security-kit"),
+      "https://github.com/cryptulien/security-kit",
     );
     assert.equal(
-      githubCloneUrl("cryptulien/karukera-security-kit"),
-      "https://github.com/cryptulien/karukera-security-kit.git",
+      githubCloneUrl("cryptulien/security-kit"),
+      "https://github.com/cryptulien/security-kit.git",
     );
   });
 
@@ -48,12 +48,12 @@ describe("open-source kits", () => {
     const denied = checkoutDeniedFor(KITS["security-kit"]);
     assert.ok(denied);
     assert.equal(denied.status, 409);
-    assert.equal(denied.github, "https://github.com/cryptulien/karukera-security-kit");
+    assert.equal(denied.github, "https://github.com/cryptulien/security-kit");
     assert.match(denied.error, /open source/i);
 
     const secretary = checkoutDeniedFor(KITS["sales-secretary"]);
     assert.ok(secretary);
-    assert.equal(secretary.github, "https://github.com/cryptulien/karukera-sales-secretary");
+    assert.equal(secretary.github, "https://github.com/cryptulien/quicktalk-automation");
 
     assert.equal(checkoutDeniedFor(paidKit), null);
   });

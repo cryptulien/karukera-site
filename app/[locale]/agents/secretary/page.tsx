@@ -8,6 +8,7 @@ import { JsonLd } from "../../../components/JsonLd";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
 import { KitAction } from "../../../components/KitAction";
+import { KITS, githubHttpsUrl } from "@/lib/kit-offer";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -69,7 +70,7 @@ export default async function SecretaryPage({
           },
           isAccessibleForFree: true,
           license: "https://opensource.org/licenses/MIT",
-          codeRepository: "https://github.com/cryptulien/karukera-sales-secretary",
+          codeRepository: githubHttpsUrl(KITS["sales-secretary"].openSource!.githubRepo),
         }}
       />
       <SalesNav locale={locale} dict={dict} sku="sales-secretary" />

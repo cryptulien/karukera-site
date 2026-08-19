@@ -27,7 +27,7 @@ export const KITS: Record<KitSku, KitOffer> = {
     priceCents: 19700,
     cancelPath: "/agents/security",
     openSource: {
-      githubRepo: "cryptulien/karukera-security-kit",
+      githubRepo: "cryptulien/security-kit",
       license: "MIT",
     },
     name: {
@@ -48,7 +48,7 @@ export const KITS: Record<KitSku, KitOffer> = {
     priceCents: 19700,
     cancelPath: "/agents/secretary",
     openSource: {
-      githubRepo: "cryptulien/karukera-sales-secretary",
+      githubRepo: "cryptulien/quicktalk-automation",
       license: "MIT",
     },
     name: {

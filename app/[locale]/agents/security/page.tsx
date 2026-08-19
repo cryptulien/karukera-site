@@ -12,6 +12,7 @@ import { SalesFooter } from "../../../components/SalesFooter";
 import { KitAction } from "../../../components/KitAction";
 import { AgentWorkflow } from "../../../components/AgentWorkflow";
 import { KitStages } from "../../../components/KitStages";
+import { KITS, githubHttpsUrl } from "@/lib/kit-offer";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -88,7 +89,7 @@ export default async function SecurityPage({
           },
           isAccessibleForFree: true,
           license: "https://opensource.org/licenses/MIT",
-          codeRepository: "https://github.com/cryptulien/karukera-security-kit",
+          codeRepository: githubHttpsUrl(KITS["security-kit"].openSource!.githubRepo),
         }}
       />
       <JsonLd

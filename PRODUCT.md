@@ -34,8 +34,8 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 
 - Site Next.js 15, i18n `/fr` `/en` `/es`, hébergé Vercel, domaine `karukera.xyz`.
 - Chemins figés : home studio ; `/agents` catalogue ; `/agents/security` produit ; `/blog` (Le Carnet).
-- Le kit sécu est un pack de prompts / configs / templates, pas une appli hébergée. Source publique MIT : `cryptulien/karukera-security-kit`.
-- Le kit **secrétaire commercial** (Hermes + Ringover + Odoo) : source publique MIT `cryptulien/karukera-sales-secretary`, page `/{locale}/agents/secretary`.
+- Le kit sécu est un pack de prompts / configs / templates, pas une appli hébergée. Source publique MIT : `cryptulien/security-kit`.
+- Le kit **secrétaire commercial** (Hermes + Ringover + Odoo) : source publique MIT `cryptulien/quicktalk-automation`, page `/{locale}/agents/secretary`.
 - Autre repo public sans page produit dédiée : `cryptulien/linkedin-outreach`.
 - OpenStats vit sur `openstats.karukera.xyz` (appli, hors de ce site). SuperPagr et Le Lien ont leurs propres domaines.
 - Publications : X (manuel V1) et LinkedIn via Postiz. DA de sharing requise.

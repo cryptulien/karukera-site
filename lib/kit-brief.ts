@@ -162,7 +162,7 @@ export const KIT_BRIEF = L(
       },
       {
         type: "p",
-        text: "Open source, licence MIT. Clone https://github.com/cryptulien/karukera-security-kit. Les mises à jour, c’est git pull. Karukera ne proxy rien : tes modèles, tes crédits, ta machine.",
+        text: "Open source, licence MIT. Clone https://github.com/cryptulien/security-kit. Les mises à jour, c’est git pull. Karukera ne proxy rien : tes modèles, tes crédits, ta machine.",
       },
       {
         type: "h2",
@@ -312,7 +312,7 @@ export const KIT_BRIEF = L(
       },
       {
         type: "p",
-        text: "Open source, MIT license. Clone https://github.com/cryptulien/karukera-security-kit. Updates are a git pull. Karukera proxies nothing: your models, your credits, your machine.",
+        text: "Open source, MIT license. Clone https://github.com/cryptulien/security-kit. Updates are a git pull. Karukera proxies nothing: your models, your credits, your machine.",
       },
       {
         type: "h2",
@@ -462,7 +462,7 @@ export const KIT_BRIEF = L(
       },
       {
         type: "p",
-        text: "Open source, licencia MIT. Clona https://github.com/cryptulien/karukera-security-kit. Las actualizaciones son un git pull. Karukera no hace de proxy: tus modelos, tus créditos, tu máquina.",
+        text: "Open source, licencia MIT. Clona https://github.com/cryptulien/security-kit. Las actualizaciones son un git pull. Karukera no hace de proxy: tus modelos, tus créditos, tu máquina.",
       },
       {
         type: "h2",
