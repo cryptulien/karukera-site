@@ -13,17 +13,6 @@ const es: typeof fr = {
     tagline: "La isla de las bellas aguas",
     seaListen: "El mar",
     seaQuiet: "Silencio",
-    arrive: "Llegamos. Luego cruzamos el agua. Luego bajamos.",
-  },
-  voyage: {
-    islandsTitle: "Tres islas.",
-    islandsLead:
-      "Cada proyecto es un lugar, no una tarjeta. Se ven desde el agua; se elige dónde atracar.",
-    waterTitle: "Luego el agua.",
-    waterLead: "No se cambia de página. Bajamos en el mismo mar.",
-    deepTitle: "El cuaderno.",
-    deepLead:
-      "Más abajo, más calma. Los escritos están aquí, bajo la luz que aún viene de la superficie.",
   },
   about: {
     title: "Soy Julien.",

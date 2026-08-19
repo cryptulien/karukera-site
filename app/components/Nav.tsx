@@ -25,13 +25,11 @@ export function Nav({
     return () => window.removeEventListener("scroll", onScroll);
   }, [floating]);
 
-  const overWorld = floating;
-  const skin = overWorld
-    ? scrolled
-      ? "bg-[#071820]/45 backdrop-blur-sm"
-      : "bg-transparent"
-    : "bg-isle-salt/88 backdrop-blur-sm border-b border-isle-mist/70";
-  const text = overWorld ? "text-white" : "text-isle-ink";
+  const docked = !floating || scrolled;
+  const skin = docked
+    ? "bg-isle-salt/88 backdrop-blur-sm border-b border-isle-mist/70"
+    : "bg-transparent";
+  const text = docked ? "text-isle-ink" : "text-white";
 
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-colors ${skin}`}>
@@ -41,7 +39,7 @@ export function Nav({
         <Link
           href={`/${locale}`}
           className={`font-serif text-lg tracking-wide hover:opacity-70 transition-opacity ${
-            overWorld ? "drop-shadow-[0_1px_8px_rgba(20,34,40,0.35)]" : ""
+            !docked ? "drop-shadow-[0_1px_8px_rgba(20,34,40,0.35)]" : ""
           }`}
         >
           Karukera
@@ -66,10 +64,10 @@ export function Nav({
             {dict.nav.carnet}
           </Link>
           <span
-            className={`h-3 w-px ${overWorld ? "bg-white/30" : "bg-isle-mist"}`}
+            className={`h-3 w-px ${docked ? "bg-isle-mist" : "bg-white/30"}`}
             aria-hidden
           />
-          <LanguageSwitcher locale={locale} tone={overWorld ? "light" : "dark"} />
+          <LanguageSwitcher locale={locale} tone={docked ? "dark" : "light"} />
         </div>
       </nav>
     </header>

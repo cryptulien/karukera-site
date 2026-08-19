@@ -11,18 +11,6 @@ const fr = {
     tagline: "L’île aux belles eaux",
     seaListen: "La mer",
     seaQuiet: "Silence",
-    arrive:
-      "On arrive. Ensuite on traverse l’eau. Ensuite on descend.",
-  },
-  voyage: {
-    islandsTitle: "Trois îles.",
-    islandsLead:
-      "Chaque projet est un lieu, pas une carte. On les voit depuis l’eau, on choisit où accoster.",
-    waterTitle: "Puis l’eau.",
-    waterLead: "On ne change pas de page. On descend dans la même mer.",
-    deepTitle: "Le Carnet.",
-    deepLead:
-      "Plus bas, plus calme. Les écrits sont ici, sous la lumière qui vient encore de la surface.",
   },
   about: {
     title: "Je suis Julien.",
