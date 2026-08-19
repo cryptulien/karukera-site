@@ -143,7 +143,6 @@ export default async function SecretaryPage({
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
           <div className="rounded-3xl bg-white p-8 sm:p-10 shadow-[0_12px_40px_-20px_rgba(22,22,22,0.25)]">
             <p className="text-sm text-[#5C5954]">{dict.secretary.priceEyebrow}</p>
-            <p className="mt-2 text-5xl font-semibold tracking-tight">{dict.oss.catalogPrice}</p>
             <p className="mt-3 text-[#5C5954] leading-relaxed">{dict.secretary.priceBody}</p>
             <KitAction
               locale={locale}

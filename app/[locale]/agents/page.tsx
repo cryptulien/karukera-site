@@ -57,11 +57,9 @@ type FamilyCard = {
 
 function KitCard({
   card,
-  price,
   cta,
 }: {
   card: FamilyCard;
-  price: string;
   cta: string;
 }) {
   const className =
@@ -89,7 +87,6 @@ function KitCard({
               <li key={f}>{f}</li>
             ))}
           </ul>
-          <p className="mt-6 text-2xl font-semibold tracking-tight">{price}</p>
           <span className="mt-6 inline-flex h-12 items-center justify-center self-start rounded-full bg-[#E23B2E] px-7 text-[15px] font-medium text-white group-hover:bg-[#c92f24]">
             {cta}
           </span>
@@ -257,7 +254,7 @@ export default async function AgentsPage({
               {k.catalogFamilyTechLead}
             </p>
             <div className="mt-10">
-              <KitCard card={tech} price={k.catalogPrice} cta={k.catalogOpen} />
+              <KitCard card={tech} cta={k.catalogOpen} />
             </div>
             <p className="mt-8 text-sm text-[#5C5954]">{k.catalogFamilyTechSoon}</p>
           </div>
@@ -279,8 +276,8 @@ export default async function AgentsPage({
               {k.catalogFamilyBizLead}
             </p>
             <div className="mt-10 space-y-10">
-              <KitCard card={biz} price={k.catalogPrice} cta={k.catalogOpen} />
-              <KitCard card={linkedin} price={k.catalogPrice} cta={dict.oss.viewOnGitHub} />
+              <KitCard card={biz} cta={k.catalogOpen} />
+              <KitCard card={linkedin} cta={dict.oss.viewOnGitHub} />
             </div>
             <p className="mt-8 text-sm text-[#5C5954]">{k.catalogFamilyBizSoon}</p>
           </div>
