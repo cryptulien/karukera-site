@@ -11,3 +11,6 @@ skill-observations/
 .impeccable/
 tsconfig.tsbuildinfo
 
+
+# private launch packs (not published)
+private/linkedin-outreach-launch/
