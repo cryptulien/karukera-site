@@ -14,3 +14,6 @@ tsconfig.tsbuildinfo
 
 # private launch packs (not published)
 private/linkedin-outreach-launch/
+
+private/security-kit-launch/
+private/quicktalk-launch/
