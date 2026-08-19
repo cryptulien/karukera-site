@@ -1,17 +1,18 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import type { Dict } from "@/dictionaries";
+import type { KitSku } from "@/lib/kit-offer";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { BuyButton } from "./BuyButton";
+import { KitAction } from "./KitAction";
 
-export function SalesNav({
+export async function SalesNav({
   locale,
   dict,
   sku,
 }: {
   locale: Locale;
   dict: Dict;
-  sku?: "security-kit" | "sales-secretary";
+  sku?: KitSku;
 }) {
   return (
     <header className="sticky top-0 z-50 bg-[#F4F3EF]/90 backdrop-blur-md border-b border-black/[0.06]">
@@ -49,13 +50,7 @@ export function SalesNav({
           <LanguageSwitcher locale={locale} tone="dark" />
           {sku ? (
             <div className="hidden md:block">
-              <BuyButton
-                locale={locale}
-                dict={dict}
-                sku={sku}
-                compact
-                label={sku === "sales-secretary" ? dict.secretary.buy : dict.shop.buy}
-              />
+              <KitAction locale={locale} dict={dict} sku={sku} compact />
             </div>
           ) : null}
         </div>

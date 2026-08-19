@@ -19,7 +19,7 @@ Les deux publics se croisent ; la home n'essaie pas de convertir le second, `/ag
 Karukera.xyz est le site du studio Karukera. Il a deux jobs distincts, dans cet ordre :
 
 1. **Studio.** Dire qui est Julien, ce qu'il construit (santé, software agentic), et tenir un carnet public.
-2. **Karukera Agents.** Présenter des kits IA pour entrepreneurs, en deux familles (Technique, Commercial), et vendre les SKU réels : audit sécu `/{locale}/agents/security`, secrétaire `/{locale}/agents/secretary`.
+2. **Karukera Agents.** Présenter des kits IA pour entrepreneurs, en deux familles (Technique, Commercial). Les SKU `security-kit` et `sales-secretary` sont **open source (MIT)** : pages `/{locale}/agents/security` et `/{locale}/agents/secretary`, CTA GitHub, pas de vente Stripe.
 
 Succès home : un inconnu peut raconter Seijaku et citer un projet en une minute.  
 Succès /agents : un visiteur peut dire ce qu'est Karukera Agents, nommer les deux familles, et ouvrir le kit qui correspond à sa pratique — sans que sécu et sales soient vendus comme un même produit.
@@ -34,15 +34,16 @@ Le kit sécu se distingue par : modèles frontier qui ne refusent pas l'audit, c
 
 - Site Next.js 15, i18n `/fr` `/en` `/es`, hébergé Vercel, domaine `karukera.xyz`.
 - Chemins figés : home studio ; `/agents` catalogue ; `/agents/security` produit ; `/blog` (Le Carnet).
-- Le kit sécu est un ZIP de prompts / configs / templates, pas une appli hébergée. Source dans le repo privé `cryptulien/karukera-security-kit` (le site public ne contient que le ZIP chiffré).
-- Le kit **secrétaire commercial** (Hermes + Ringover + Odoo) : source privée `cryptulien/karukera-sales-secretary`, ZIP chiffré `private/karukera-sales-secretary.zip.enc`, page `/{locale}/agents/secretary`.
+- Le kit sécu est un pack de prompts / configs / templates, pas une appli hébergée. Source publique MIT : `cryptulien/karukera-security-kit`.
+- Le kit **secrétaire commercial** (Hermes + Ringover + Odoo) : source publique MIT `cryptulien/karukera-sales-secretary`, page `/{locale}/agents/secretary`.
+- Autre repo public sans page produit dédiée : `cryptulien/linkedin-outreach`.
 - OpenStats vit sur `openstats.karukera.xyz` (appli, hors de ce site). SuperPagr et Le Lien ont leurs propres domaines.
 - Publications : X (manuel V1) et LinkedIn via Postiz. DA de sharing requise.
 - Maquettes : Penpot self-hosted (`penpot.superpagr.com`).
 
 ## Capabilities and Constraints
 
-- Boutique : deux SKU — kit d'audit sécu (`/agents/security`) et kit secrétaire commercial (`/agents/secretary`). Le reste reste « bientôt ».
+- Catalogue : deux kits open source — audit sécu (`/agents/security`) et secrétaire commercial (`/agents/secretary`). L'API checkout Stripe reste pour d'éventuels SKU payants futurs (`openSource` les coupe). Le reste reste « bientôt ».
 - Pas de compte client, pas de dashboard, pas d'audit hébergé.
 - Light mode uniquement (contrainte utilisateur).
 - Seijaku (« calme dans la tempête ») est une **méthode et un engagement de marque**, pas une recette visuelle crème + vermillon à reconduire.

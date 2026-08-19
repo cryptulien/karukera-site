@@ -119,7 +119,7 @@ export default async function AgentsPage({
     facts: k.catalogFacts,
     image: "/images/kit-security.jpg",
     alt: k.catalogAlt,
-    note: dict.shop.priceNote,
+    note: dict.oss.catalogNote,
     priority: true,
   };
 
@@ -131,7 +131,7 @@ export default async function AgentsPage({
     facts: k.catalogSecretaryFacts,
     image: "/images/kit-folder.jpg",
     alt: k.catalogSecretaryH2,
-    note: dict.secretary.priceNote,
+    note: dict.oss.catalogNote,
   };
 
   return (

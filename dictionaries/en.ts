@@ -88,31 +88,43 @@ const en: typeof fr = {
     unlockBusy: "",
     unlockFail: "",
   },
+  oss: {
+    badge: "Open source",
+    viewOnGitHub: "View on GitHub",
+    viewShort: "GitHub",
+    clone: "Clone",
+    cloneCopied: "Copied",
+    stars: "stars",
+    forks: "forks",
+    catalogPrice: "Open source · MIT",
+    catalogNote: "Public repo. Clone it — no purchase.",
+  },
   kit: {
     metaTitle: "AI pentest of your SaaS — security audit kit | Karukera",
     metaDesc:
-      "Run a Web, SaaS or MCP security audit on your machine, in Claude, Codex or Cursor. 8 modes, 12 agents, QA-gated report, fix tickets. €197.",
+      "Run a Web, SaaS or MCP security audit on your machine, in Claude, Codex or Cursor. 8 modes, 12 agents, QA-gated report, fix tickets. Open source, MIT.",
     catalogMetaTitle: "Karukera Agents — AI tools for founders",
     catalogMetaDesc:
       "Karukera Agents: AI kits that fit your practice. Technical family (Web, SaaS, MCP security audit) and sales family (Telegram / Ringover / Odoo secretary). On your machine.",
     catalogTitle: "Karukera Agents. Tools for the day-to-day.",
     catalogLead:
       "Make an entrepreneur’s day lighter with AI, without taking their data. Each agent fits your practice: you pick the mode, the access, the pace. They run on your side.",
-    catalogPrice: "€197",
+    catalogPrice: "Open source · MIT",
     catalogOpen: "See the kit",
     catalogHow: [
       { t: "Fitted to your practice", b: "You name the project, the depth, what the agent may touch. It adapts. It does not impose a generic flow." },
       { t: "On your side", b: "Your data, your tools, your habits. Karukera never sees your code, your clients, or your keys." },
-      { t: "A ZIP, not an agency", b: "You pay, you launch in Claude, Codex, Cursor or Hermes — or on your VPS. Signed 7-day link." },
+      { t: "A repo, not an agency", b: "You clone, you launch in Claude, Codex, Cursor or Hermes — or on your VPS. MIT license." },
     ],
     catalogFamilyTech: "Technical",
     catalogFamilyTechLead:
       "Agents that look at what you build. Audit, surface, isolation. More technical agents will follow.",
-    catalogFamilyTechSoon: "Next in this family — not for sale yet: SEO / GEO.",
+    catalogFamilyTechSoon: "Next in this family — not published yet: SEO / GEO.",
     catalogFamilyBiz: "Sales",
     catalogFamilyBizLead:
       "Agents that hold the thread with your prospects. Mail, calls, CRM. Nothing goes out without you. More sales and business agents will follow.",
-    catalogFamilyBizSoon: "Next in this family — more sales agents, not for sale yet.",
+    catalogFamilyBizSoon:
+      "Also public: LinkedIn outreach (MIT) — github.com/cryptulien/linkedin-outreach. More sales agents will follow.",
     catalogBadge: "Security audit kit",
     catalogScope: "Solo founder · SaaS · Web",
     catalogAlt: "Audit console with the squad running a mission",
@@ -125,7 +137,7 @@ const en: typeof fr = {
       "Fix tickets + prompts",
     ],
     catalogMore: "Read the full page →",
-    catalogSoon: "Next — not for sale yet: SEO / GEO · Clinic · Coaching.",
+    catalogSoon: "Next: SEO / GEO · Clinic · Coaching.",
     catalogSecretaryBadge: "Sales secretary kit",
     catalogSecretaryScope: "Telegram · Ringover · Odoo",
     catalogSecretaryH2: "Sales secretary",
@@ -172,7 +184,7 @@ const en: typeof fr = {
     flowTitle: "The flow is short.",
     steps: [
       {
-        t: "You open the ZIP",
+        t: "You clone the repo",
         b: "In Claude, Codex, Cursor or Hermes. On your machine.",
       },
       {
@@ -236,14 +248,14 @@ const en: typeof fr = {
     ticketTitle: "Block invoice reads outside the tenant",
     ticketPrompt:
       "Add a tenant-ownership check on GET/PATCH/DELETE invoice. Outside tenant: 404 identical to not-found. Defensive test: tenant A cannot read tenant B’s id.",
-    priceTitle: "€197, once.",
+    priceTitle: "Free. MIT license.",
     priceBody:
-      "One-time payment. Regular updates: an email alerts you, you download the new ZIP.",
-    faqTitle: "Before you pay.",
+      "The kit is public. Clone the repo, open START-HERE.md. Updates are a git pull.",
+    faqTitle: "Before you clone.",
     faq: [
       {
         q: "Do I need to code?",
-        a: "No. You open the ZIP in Claude, Codex, Cursor or Hermes. Prompts, configs, templates.",
+        a: "No. You clone the repo and open it in Claude, Codex, Cursor or Hermes. Prompts, configs, templates.",
       },
       {
         q: "Do I have to use OpenRouter?",
@@ -251,7 +263,7 @@ const en: typeof fr = {
       },
       {
         q: "Is this an online scanner?",
-        a: "No. The ZIP runs on your side. Karukera never sees your target or your code.",
+        a: "No. The kit runs on your side. Karukera never sees your target or your code.",
       },
       {
         q: "Can I use it on any site?",
@@ -263,19 +275,19 @@ const en: typeof fr = {
       },
       {
         q: "Are updates paid?",
-        a: "No. One-time payment. When the kit changes, an email sends you the link to download the new ZIP.",
+        a: "No. Public repo, MIT license. git pull.",
       },
     ],
     closeTitle: "Run the audit on a project you own.",
-    closeBody: "One payment. Updates arrive by email. A held report — or QA’s silence.",
+    closeBody: "MIT license. One clone. A held report — or QA’s silence.",
     briefLink: "Briefing note — scope, method, delivery",
   },
   secretary: {
     metaTitle: "Sales secretary kit — Karukera",
     metaDesc:
       "Mail and Ringover calls become Telegram cards. Odoo updates only after you reply ok.",
-    buy: "Get the kit — €197",
-    priceNote: "One-time payment. The bot runs on your VPS. Your keys stay yours.",
+    buy: "View on GitHub",
+    priceNote: "Open source. The bot runs on your VPS. Your keys stay yours.",
     heroTitle: "A sales secretary that waits for your ok.",
     heroLead:
       "Hermes reads your mail and Quicktalk / Ringover calls, posts a card on Telegram, and writes to Odoo only when you reply ok. A Docker appliance, on your side.",
@@ -285,8 +297,8 @@ const en: typeof fr = {
     stepsTitle: "Two phases. Not one more.",
     steps: [
       {
-        t: "You get the ZIP",
-        b: "Stripe payment. START-HERE.md first.",
+        t: "You clone the repo",
+        b: "START-HERE.md first.",
       },
       {
         t: "An AI installs the VPS",
@@ -303,8 +315,8 @@ const en: typeof fr = {
     ],
     priceEyebrow: "The kit, today",
     priceBody:
-      "One-time payment. Hermes appliance + Docker ingest. Odoo, Ringover, IMAP configured in Telegram. 42 files.",
-    faqTitle: "Before you pay.",
+      "MIT license. Hermes appliance + Docker ingest. Odoo, Ringover, IMAP configured in Telegram. 42 files.",
+    faqTitle: "Before you clone.",
     faq: [
       {
         q: "Do I need to code?",
@@ -312,7 +324,7 @@ const en: typeof fr = {
       },
       {
         q: "Is this hosted at Karukera?",
-        a: "No. The ZIP runs on your VPS. Karukera never sees your mail or your calls.",
+        a: "No. The kit runs on your VPS. Karukera never sees your mail or your calls.",
       },
       {
         q: "Does Odoo send the mail by itself?",
@@ -324,7 +336,7 @@ const en: typeof fr = {
       },
     ],
     closeTitle: "Put the bot on a VPS you control.",
-    closeBody: "€197. One ZIP. One Telegram. Nothing in Odoo before your ok.",
+    closeBody: "MIT license. One clone. One Telegram. Nothing in Odoo before your ok.",
     thanksBody:
       "Payment received. Download the ZIP, open START-HERE.md, give it to an AI on your VPS, then talk to the bot.",
     next1: "Open START-HERE.md — two phases, do not merge them.",
@@ -350,7 +362,7 @@ const en: typeof fr = {
     allGuides: "All guides",
     ctaTitle: "The kit, not the guide.",
     ctaBody:
-      "€197. One ZIP. Open it in Claude, Codex, Cursor or Hermes. A held report — or QA’s silence.",
+      "Open source, MIT. Clone it, open it in Claude, Codex, Cursor or Hermes. A held report — or QA’s silence.",
     productModesTitle: "Eight depths. Pick from the product.",
     productModesLead:
       "Express for a first signal. Full Web for a site. Full SaaS for isolation. MCP if the value is the agent. Each mode has its guide.",

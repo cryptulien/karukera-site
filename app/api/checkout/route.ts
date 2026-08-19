@@ -2,7 +2,7 @@ import { randomBytes } from "node:crypto";
 import { NextResponse } from "next/server";
 import { isLocale } from "@/lib/i18n";
 import { getStripe, originFromRequest } from "@/lib/stripe";
-import { KIT_CURRENCY, getKit, isKitSku } from "@/lib/kit-offer";
+import { KIT_CURRENCY, checkoutDeniedFor, getKit, isKitSku } from "@/lib/kit-offer";
 import { hashUnlock } from "@/lib/download-token";
 
 export async function POST(req: Request) {
@@ -19,6 +19,14 @@ export async function POST(req: Request) {
   const kit = getKit(sku);
   if (!kit) {
     return NextResponse.json({ error: "unknown kit" }, { status: 400 });
+  }
+
+  const denied = checkoutDeniedFor(kit);
+  if (denied) {
+    return NextResponse.json(
+      { error: denied.error, github: denied.github },
+      { status: denied.status },
+    );
   }
 
   if (!process.env.STRIPE_SECRET_KEY) {

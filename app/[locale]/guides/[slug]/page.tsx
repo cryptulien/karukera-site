@@ -9,7 +9,7 @@ import { GUIDES, getGuide, guideCopy } from "@/lib/guides";
 import { JsonLd } from "../../../components/JsonLd";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
-import { BuyButton } from "../../../components/BuyButton";
+import { KitAction } from "../../../components/KitAction";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -247,7 +247,7 @@ export default async function GuidePage({
               {dict.guides.ctaTitle}
             </h2>
             <p className="mt-3 text-white/55 leading-relaxed">{dict.guides.ctaBody}</p>
-            <BuyButton locale={locale} dict={dict} sku="security-kit" className="mt-8" />
+            <KitAction locale={locale} dict={dict} sku="security-kit" className="mt-8" tone="dark" />
           </section>
 
           {related.length > 0 ? (
@@ -282,7 +282,7 @@ export default async function GuidePage({
       </main>
       <SalesFooter locale={locale} dict={dict} year={year} />
       <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-[#F4F3EF]/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-        <BuyButton locale={locale} dict={dict} sku="security-kit" />
+        <KitAction locale={locale} dict={dict} sku="security-kit" compact />
       </div>
     </div>
   );

@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { ogImage } from "@/lib/share";
-import { localeAlternates } from "@/lib/seo";
+import { localeAlternates, SITE } from "@/lib/seo";
+import { JsonLd } from "../../../components/JsonLd";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
-import { BuyButton } from "../../../components/BuyButton";
+import { KitAction } from "../../../components/KitAction";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -51,6 +52,26 @@ export default async function SecretaryPage({
 
   return (
     <div className="min-h-screen bg-[#F6F4EF] text-[#161616] pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: dict.secretary.metaTitle,
+          description: dict.secretary.metaDesc,
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Linux",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock",
+            url: `${SITE}/${locale}/agents/secretary`,
+          },
+          isAccessibleForFree: true,
+          license: "https://opensource.org/licenses/MIT",
+          codeRepository: "https://github.com/cryptulien/karukera-sales-secretary",
+        }}
+      />
       <SalesNav locale={locale} dict={dict} sku="sales-secretary" />
       <main>
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-16">
@@ -61,11 +82,10 @@ export default async function SecretaryPage({
           <p className="mt-6 text-lg text-[#5C5954] leading-relaxed">
             {dict.secretary.heroLead}
           </p>
-          <BuyButton
+          <KitAction
             locale={locale}
             dict={dict}
             sku="sales-secretary"
-            label={dict.secretary.buy}
             className="mt-8"
           />
           <p className="mt-3 text-sm text-[#8A857D]">{dict.secretary.priceNote}</p>
@@ -100,13 +120,12 @@ export default async function SecretaryPage({
         <section className="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
           <div className="rounded-3xl bg-white p-8 sm:p-10 shadow-[0_12px_40px_-20px_rgba(22,22,22,0.25)]">
             <p className="text-sm text-[#5C5954]">{dict.secretary.priceEyebrow}</p>
-            <p className="mt-2 text-5xl font-semibold tracking-tight">{dict.shop.price}</p>
+            <p className="mt-2 text-5xl font-semibold tracking-tight">{dict.oss.catalogPrice}</p>
             <p className="mt-3 text-[#5C5954] leading-relaxed">{dict.secretary.priceBody}</p>
-            <BuyButton
+            <KitAction
               locale={locale}
               dict={dict}
               sku="sales-secretary"
-              label={dict.secretary.buy}
               className="mt-8"
             />
           </div>
@@ -132,13 +151,13 @@ export default async function SecretaryPage({
               </h2>
               <p className="mt-3 text-white/60">{dict.secretary.closeBody}</p>
             </div>
-            <BuyButton locale={locale} dict={dict} sku="sales-secretary" label={dict.secretary.buy} />
+            <KitAction locale={locale} dict={dict} sku="sales-secretary" tone="dark" />
           </div>
         </section>
       </main>
       <SalesFooter locale={locale} dict={dict} year={year} />
       <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-[#F6F4EF]/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-        <BuyButton locale={locale} dict={dict} sku="sales-secretary" label={dict.secretary.buy} />
+        <KitAction locale={locale} dict={dict} sku="sales-secretary" compact />
       </div>
     </div>
   );

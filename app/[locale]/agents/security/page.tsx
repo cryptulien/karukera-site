@@ -9,7 +9,7 @@ import { GUIDES, guideCopy } from "@/lib/guides";
 import { JsonLd } from "../../../components/JsonLd";
 import { SalesNav } from "../../../components/SalesNav";
 import { SalesFooter } from "../../../components/SalesFooter";
-import { BuyButton } from "../../../components/BuyButton";
+import { KitAction } from "../../../components/KitAction";
 import { AgentWorkflow } from "../../../components/AgentWorkflow";
 import { KitStages } from "../../../components/KitStages";
 
@@ -81,11 +81,14 @@ export default async function SecurityPage({
           operatingSystem: "macOS, Linux, Windows",
           offers: {
             "@type": "Offer",
-            price: "197",
+            price: "0",
             priceCurrency: "EUR",
             availability: "https://schema.org/InStock",
             url: `${SITE}/${locale}/agents/security`,
           },
+          isAccessibleForFree: true,
+          license: "https://opensource.org/licenses/MIT",
+          codeRepository: "https://github.com/cryptulien/karukera-security-kit",
         }}
       />
       <JsonLd
@@ -107,7 +110,7 @@ export default async function SecurityPage({
               {k.heroTitle}
             </h1>
             <p className="mt-6 text-lg text-[#4A4742] leading-relaxed">{k.heroLead}</p>
-            <BuyButton locale={locale} dict={dict} sku="security-kit" className="mt-8" />
+            <KitAction locale={locale} dict={dict} sku="security-kit" className="mt-8" />
             <p className="mt-4">
               <Link
                 href={`/${locale}/agents/security/kit`}
@@ -240,11 +243,10 @@ export default async function SecurityPage({
           <div className="rounded-2xl bg-white p-8 sm:p-10 shadow-[0_16px_40px_-24px_rgba(18,18,18,0.28)]">
             <h2 className="text-3xl font-semibold tracking-tight">{k.priceTitle}</h2>
             <p className="mt-3 text-[#4A4742] leading-relaxed">{k.priceBody}</p>
-            <BuyButton
+            <KitAction
               locale={locale}
               dict={dict}
               sku="security-kit"
-              label={dict.shop.buyShort}
               className="mt-8"
             />
           </div>
@@ -270,13 +272,13 @@ export default async function SecurityPage({
               </h2>
               <p className="mt-3 text-white/55">{k.closeBody}</p>
             </div>
-            <BuyButton locale={locale} dict={dict} sku="security-kit" />
+            <KitAction locale={locale} dict={dict} sku="security-kit" tone="dark" />
           </div>
         </section>
       </main>
       <SalesFooter locale={locale} dict={dict} year={year} />
       <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-black/5 bg-[#F4F3EF]/95 backdrop-blur-md px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-        <BuyButton locale={locale} dict={dict} sku="security-kit" />
+        <KitAction locale={locale} dict={dict} sku="security-kit" compact />
       </div>
     </div>
   );

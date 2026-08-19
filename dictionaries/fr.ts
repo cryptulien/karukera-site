@@ -86,31 +86,43 @@ const fr = {
     unlockBusy: "",
     unlockFail: "",
   },
+  oss: {
+    badge: "Open source",
+    viewOnGitHub: "Voir sur GitHub",
+    viewShort: "GitHub",
+    clone: "Cloner",
+    cloneCopied: "Commande copiée",
+    stars: "étoiles",
+    forks: "forks",
+    catalogPrice: "Open source · MIT",
+    catalogNote: "Repo public. Clone, pas d’achat.",
+  },
   kit: {
     metaTitle: "Pentest IA de ton SaaS — kit d’audit sécu | Karukera",
     metaDesc:
-      "Lance un audit sécu Web, SaaS ou MCP chez toi, dans Claude, Codex ou Cursor. 8 modes, 12 agents, rapport tenu par la QA, tickets de correctif. 197 €.",
+      "Lance un audit sécu Web, SaaS ou MCP chez toi, dans Claude, Codex ou Cursor. 8 modes, 12 agents, rapport tenu par la QA, tickets de correctif. Open source, MIT.",
     catalogMetaTitle: "Karukera Agents — outils IA pour entrepreneurs",
     catalogMetaDesc:
       "Karukera Agents : des kits IA qui s’adaptent à ta pratique. Famille technique (audit sécu Web, SaaS, MCP) et famille commerciale (secrétaire Telegram / Ringover / Odoo). Chez toi.",
     catalogTitle: "Karukera Agents. Des outils pour ton quotidien.",
     catalogLead:
       "Faciliter la vie d’un entrepreneur avec l’IA, sans lui prendre ses données. Chaque agent s’adapte à ta pratique : tu choisis le mode, les accès, le rythme. Ils tournent chez toi.",
-    catalogPrice: "197 €",
+    catalogPrice: "Open source · MIT",
     catalogOpen: "Voir le kit",
     catalogHow: [
       { t: "Calé sur ta pratique", b: "Tu dis le projet, la profondeur, ce que l’agent a le droit de toucher. Il s’adapte. Il n’impose pas un flux générique." },
       { t: "Chez toi", b: "Tes données, tes outils, tes habitudes. Karukera ne voit ni ton code, ni tes clients, ni tes clés." },
-      { t: "Un ZIP, pas une agence", b: "Tu paies, tu lances dans Claude, Codex, Cursor ou Hermes — ou sur ton VPS. Lien signé 7 jours." },
+      { t: "Un repo, pas une agence", b: "Tu clones, tu lances dans Claude, Codex, Cursor ou Hermes — ou sur ton VPS. Licence MIT." },
     ],
     catalogFamilyTech: "Technique",
     catalogFamilyTechLead:
       "Des agents qui regardent ce que tu construis. Audit, surface, isolation. D’autres agents techniques suivront.",
-    catalogFamilyTechSoon: "Ensuite dans cette famille — pas encore en vente : SEO / GEO.",
+    catalogFamilyTechSoon: "Ensuite dans cette famille — pas encore publié : SEO / GEO.",
     catalogFamilyBiz: "Commercial",
     catalogFamilyBizLead:
       "Des agents qui tiennent le fil avec tes prospects. Mails, appels, CRM. Rien ne part sans toi. D’autres agents sales et business suivront.",
-    catalogFamilyBizSoon: "Ensuite dans cette famille — d’autres agents commercial, pas encore en vente.",
+    catalogFamilyBizSoon:
+      "Aussi public : LinkedIn outreach (MIT) — github.com/cryptulien/linkedin-outreach. D’autres agents commercial suivront.",
     catalogBadge: "Kit audit sécu",
     catalogScope: "Solo founder · SaaS · Web",
     catalogAlt: "Console d’audit avec la squad en cours de mission",
@@ -123,7 +135,7 @@ const fr = {
       "Tickets de correctif + prompts",
     ],
     catalogMore: "Lire la page complète →",
-    catalogSoon: "Ensuite — pas encore en vente : SEO / GEO · Clinique · Accompagnement.",
+    catalogSoon: "Ensuite : SEO / GEO · Clinique · Accompagnement.",
     catalogSecretaryBadge: "Kit secrétaire commercial",
     catalogSecretaryScope: "Telegram · Ringover · Odoo",
     catalogSecretaryH2: "Secrétaire commercial",
@@ -170,7 +182,7 @@ const fr = {
     flowTitle: "Le flow est court.",
     steps: [
       {
-        t: "Tu ouvres le ZIP",
+        t: "Tu clones le dépôt",
         b: "Dans Claude, Codex, Cursor ou Hermes. Sur ta machine.",
       },
       {
@@ -234,14 +246,14 @@ const fr = {
     ticketTitle: "Interdire la lecture d’invoice hors tenant",
     ticketPrompt:
       "Contrôle d’appartenance tenant sur GET/PATCH/DELETE invoice. Hors tenant : 404 identique au not-found. Test défensif : le tenant A ne lit pas l’id du tenant B.",
-    priceTitle: "197 €, une fois.",
+    priceTitle: "Gratuit. Licence MIT.",
     priceBody:
-      "Paiement unique. Mises à jour régulières : un mail t’alerte, tu télécharges le nouveau ZIP.",
-    faqTitle: "Avant que tu paies.",
+      "Le kit est public. Clone le dépôt, ouvre START-HERE.md. Les mises à jour, c’est git pull.",
+    faqTitle: "Avant de cloner.",
     faq: [
       {
         q: "Faut-il savoir coder ?",
-        a: "Non. Tu ouvres le ZIP dans Claude, Codex, Cursor ou Hermes. Prompts, configs, templates.",
+        a: "Non. Tu clones le dépôt et tu l’ouvres dans Claude, Codex, Cursor ou Hermes. Prompts, configs, templates.",
       },
       {
         q: "Je dois utiliser OpenRouter ?",
@@ -249,7 +261,7 @@ const fr = {
       },
       {
         q: "C’est un scanner en ligne ?",
-        a: "Non. Le ZIP tourne chez toi. Karukera ne voit ni ta cible, ni ton code.",
+        a: "Non. Le kit tourne chez toi. Karukera ne voit ni ta cible, ni ton code.",
       },
       {
         q: "Je peux l’utiliser sur n’importe quel site ?",
@@ -261,19 +273,19 @@ const fr = {
       },
       {
         q: "Les mises à jour sont payantes ?",
-        a: "Non. Paiement unique. Quand le kit change, un mail t’envoie le lien pour télécharger le nouveau ZIP.",
+        a: "Non. Repo public, licence MIT. git pull.",
       },
     ],
     closeTitle: "Lance l’audit sur un projet à toi.",
-    closeBody: "Un paiement. Les mises à jour arrivent par mail. Un rapport tenu — ou le silence de la QA.",
+    closeBody: "Licence MIT. Un clone. Un rapport tenu — ou le silence de la QA.",
     briefLink: "Note de présentation — périmètre, méthode, restitution",
   },
   secretary: {
     metaTitle: "Kit secrétaire commercial — Karukera",
     metaDesc:
       "Mails et appels Ringover deviennent des cartes Telegram. Odoo se met à jour seulement après ton ok.",
-    buy: "Obtenir le kit — 197 €",
-    priceNote: "Paiement unique. Le bot tourne sur ton VPS. Tes clés restent les tiennes.",
+    buy: "Voir sur GitHub",
+    priceNote: "Open source. Le bot tourne sur ton VPS. Tes clés restent les tiennes.",
     heroTitle: "Une secrétaire commerciale qui attend ton ok.",
     heroLead:
       "Hermes lit tes mails et tes appels Quicktalk / Ringover, te pose une carte sur Telegram, et n’écrit dans Odoo que quand tu réponds ok. Appliance Docker, chez toi.",
@@ -283,8 +295,8 @@ const fr = {
     stepsTitle: "Deux phases. Pas une de plus.",
     steps: [
       {
-        t: "Tu récupères le ZIP",
-        b: "Paiement Stripe. START-HERE.md en premier.",
+        t: "Tu clones le dépôt",
+        b: "START-HERE.md en premier.",
       },
       {
         t: "Une IA installe le VPS",
@@ -301,8 +313,8 @@ const fr = {
     ],
     priceEyebrow: "Le kit, aujourd’hui",
     priceBody:
-      "Paiement unique. Appliance Hermes + ingest Docker. Odoo, Ringover, IMAP configurés dans Telegram. 42 fichiers.",
-    faqTitle: "Avant que tu paies.",
+      "Licence MIT. Appliance Hermes + ingest Docker. Odoo, Ringover, IMAP configurés dans Telegram. 42 fichiers.",
+    faqTitle: "Avant de cloner.",
     faq: [
       {
         q: "Faut-il coder ?",
@@ -310,7 +322,7 @@ const fr = {
       },
       {
         q: "C’est hébergé chez Karukera ?",
-        a: "Non. Le ZIP tourne sur ton VPS. Karukera ne voit ni tes mails, ni tes appels.",
+        a: "Non. Le kit tourne sur ton VPS. Karukera ne voit ni tes mails, ni tes appels.",
       },
       {
         q: "Odoo envoie les mails tout seul ?",
@@ -322,7 +334,7 @@ const fr = {
       },
     ],
     closeTitle: "Branche le bot sur un VPS à toi.",
-    closeBody: "197 €. Un ZIP. Un Telegram. Rien dans Odoo avant ton ok.",
+    closeBody: "Licence MIT. Un clone. Un Telegram. Rien dans Odoo avant ton ok.",
     thanksBody:
       "Paiement reçu. Télécharge le ZIP. Le même lien signé (7 jours) part aussi à l’e-mail du paiement. Puis START-HERE.md, et le bot.",
     next1: "Ouvre START-HERE.md — deux phases, tu n’en fusionnes aucune.",
@@ -348,7 +360,7 @@ const fr = {
     allGuides: "Tous les guides",
     ctaTitle: "Le kit, pas le guide.",
     ctaBody:
-      "197 €. Un ZIP. Tu l’ouvres dans Claude, Codex, Cursor ou Hermes. Rapport tenu — ou le silence de la QA.",
+      "Open source, MIT. Tu clones, tu l’ouvres dans Claude, Codex, Cursor ou Hermes. Rapport tenu — ou le silence de la QA.",
     productModesTitle: "Huit profondeurs. Choisis selon le produit.",
     productModesLead:
       "Express pour un premier signal. Complet Web pour un site. Complet SaaS pour l’isolation. MCP si la valeur est l’agent. Chaque mode a son guide.",
